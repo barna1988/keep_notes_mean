@@ -114,7 +114,7 @@ const login = (user) => {
         } catch (error) {
             log.error(err);
             reject({
-                message: 'Failed to register due to unexpected error',
+                message: 'Failed to login due to unexpected error',
                 status: 500
             });
         }
