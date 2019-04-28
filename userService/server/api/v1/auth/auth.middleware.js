@@ -6,20 +6,40 @@ const checkAuthentication = (req, res, next) => {
   try {
     log.info('Authentication check');
     const authHeader = req.get('Authorization');
+
+    //log.info('authHeader : ', authHeader);
+    
     if (!authHeader) {
-      res.status(403).send('Not authenticated'); return;
+      res.status(403).send({
+        isAuthenticated : false,
+        message : 'Not authenticated'
+      }); 
     }
     const token = authHeader.replace('Bearer ', '');
     if (!token) {
-      res.status(403).send('Unauthorized'); return;
+      res.status(403).send({
+        isAuthenticated : false,
+        message : 'Unauthorised'
+      }); 
     }
     authService.verifyToken(token, authConfig.secret, (err, decoded) => {
       if (err) {
-        res.status(403).send('invalid token'); return;
+        res.status(403).send({
+          isAuthenticated : false,
+          message : 'Invalid token'
+        }); 
       }
       req.userData = decoded;
       log.info('User authenticated');
-      next();
+      
+      //next();
+
+      res.status(200).send({
+        isAuthenticated : true,
+        message : 'User Authenticated'
+      });
+      
+
     });
   } catch (err) {
     log.error(err);

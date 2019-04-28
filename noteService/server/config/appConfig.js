@@ -17,9 +17,17 @@ const logConfig = {
   level: 'debug'
 };
 
+const externalAPI = {
+  userAuthentication : {
+    URL : 'http://localhost:3000/api/v1/auth',
+    method : 'POST'
+  }
+}
+
 module.exports = {
   appConfig,
   dbConfig,
   authConfig,
-  logConfig
+  logConfig,
+  externalAPI
 }

@@ -18,7 +18,7 @@ const createNote = (userId, note) => {
 
         newNote.save((err, note) => {
             if (err) {
-                logger.error(err);
+                log.error(err);
                 reject({
                     message: 'Internal Server Error',
                     status: 500

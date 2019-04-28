@@ -1,6 +1,6 @@
 const UserModel = require('./users.entity');
 const uuidv1 = require('uuid/v1');
-const { authServices } = require('../auth');
+const authServices = require('../auth');
 const appConfig = require('../../../config');
 
 const log = require('../../../logging');
