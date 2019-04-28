@@ -1,24 +1,16 @@
-Instructions to start:
-    1. Start Mongo db service
-    2. Start Mongo terminal (optional)
-    3. Start User micro service (userService) - npm start 
-    4. Start Note micro service (noteService) - npm start 
-    5. Start Web micro service (web-app) - npm start 
-
-
 Course Completion Assignment
 Notes Application (similar to Google Keep)
 
-Design & implement, Notes Application as a personal productivity tool for quickly taking (& saving) notes, organize notes efficiently, accessible from any device, add reminders with robust search and indexing capability, below are its salient features.
+Design & implement, Notes Application as a personal productivity tool for quickly taking (& saving) notes, organize notes efficiently, accessible from any device, add reminders with robust search and indexing capability, bellow are its salient features.
  
 
-The application is expected to handle concurrent requests of 200 to 300 per second, with response time of each request less than 1 to 2 millisecond
+The application is expected to handle concurrent requests of 200 to 300 per second, with response time of each request in less than 1 to 2 millisecond
 
 Core features (mandatory to implement)
 
-    Subscribed users can List Notes, Save notes, Group  the notes, can mark specific notes as favorite
+    Subscribed users can List Notes, Save notes, Group  the notes, can mark specific notes as favorit
     Perform operations on one or more selected notes and add them to a group, mark as favourite, share with other users, delete them and bulk upload. 
-    Search notes based on title. 
+    Search notes based on title.
     Integration of User Interface with backend logic.
 
 User Account features (mandatory to implement)

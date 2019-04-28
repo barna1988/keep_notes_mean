@@ -28,7 +28,7 @@ const register = (user) => {
                     reject({ message: 'Failed to register due to unexpected error', status: 500 });
                 }
                 if (document) {
-                    reject({ message: 'username already exists', status: 403 });
+                    reject({ message: 'username is already exist', status: 403 });
                 }
             });
 
@@ -77,12 +77,12 @@ const login = (user) => {
                     });
                 } else if (!doc) {
                     reject({
-                        message: 'You are not a registered user',
+                        message: 'You are not registered user',
                         status: 403
                     });
                 } else if (doc.password !== user.password) {
                     reject({
-                        message: 'Password is incorrect',
+                        message: 'Passwords is incorrect',
                         status: 403
                     });
                 } else {
@@ -98,7 +98,7 @@ const login = (user) => {
                         log.info('err', err);
                         if (err) {
                             reject({
-                                message: 'Password is incorrect',
+                                message: 'Passwords is incorrect',
                                 status: 403
                             });
                         } else {
@@ -114,7 +114,7 @@ const login = (user) => {
         } catch (error) {
             log.error(err);
             reject({
-                message: 'Failed to login due to unexpected error',
+                message: 'Failed to register due to unexpected error',
                 status: 500
             });
         }
