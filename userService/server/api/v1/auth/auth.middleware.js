@@ -6,15 +6,15 @@ const checkAuthentication = (req, res, next) => {
   try {
     log.info('Authentication check');
     const authHeader = req.get('Authorization');
-    if(!authHeader) {
+    if (!authHeader) {
       res.status(403).send('Not authenticated'); return;
     }
     const token = authHeader.replace('Bearer ', '');
-    if(!token) { 
+    if (!token) {
       res.status(403).send('Unauthorized'); return;
     }
     authService.verifyToken(token, authConfig.secret, (err, decoded) => {
-      if(err) {
+      if (err) {
         res.status(403).send('invalid token'); return;
       }
       req.userData = decoded;

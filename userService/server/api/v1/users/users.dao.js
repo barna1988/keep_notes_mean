@@ -1,6 +1,6 @@
 const UserModel = require('./users.entity');
 const uuidv1 = require('uuid/v1');
-const auth = require('../auth');
+const { authServices } = require('../auth');
 const appConfig = require('../../../config');
 
 const log = require('../../../logging');
@@ -94,7 +94,7 @@ const login = (user) => {
 
                     log.info('login with payload', payload);
 
-                    auth.signToken(payload, appConfig.authConfig.secret, appConfig.authConfig.expiry, (err, token) => {
+                    authServices.signToken(payload, appConfig.authConfig.secret, appConfig.authConfig.expiry, (err, token) => {
                         log.info('err', err);
                         if (err) {
                             reject({
