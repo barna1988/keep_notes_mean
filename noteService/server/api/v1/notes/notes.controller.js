@@ -23,13 +23,27 @@ const getNoteForUserID = (req, res) => {
 
     try {
         const userid = req.query.userId;    //**userId** will be passed as **query param**
+        let titlename = req.query.title;
 
-        svc.getNoteForUserID(userid)
-            .then((response) => {
-                res.status(response.status).send(response);
-            }).catch((error) => {
-                res.status(error.status).send(error);
-            });
+        if (userid && titlename) {
+            log.info('search using title and userid')
+            svc.searchNoteByTitle(titlename, userid)
+                .then((response) => {
+                    res.status(response.status).send(response);
+                }).catch((error) => {
+                    res.status(error.status).send(error);
+                });
+        } else {
+            log.info('search using userid')
+            
+            svc.getNoteForUserID(userid)
+                .then((response) => {
+                    res.status(response.status).send(response);
+                }).catch((error) => {
+                    res.status(error.status).send(error);
+                });
+
+        }
     } catch (error) {
         log.info(error);
         res.status(error.status).send(error);
@@ -78,11 +92,26 @@ const shareNote = (req, res) => {
     try {
         const noteid = req.body.noteId;   //**noteId** will be passed as request body
         const userIds = req.body.userId;   //**userIds** will be passed as request body
+        const access = req.body.access;   //**userIds** will be passed as request body
 
         log.info('noteID[] : ', noteid);
         log.info('userIds[] : ', userIds);
 
-        svc.shareNote(noteid, userIds)
+        const noteArr = [];
+        if (Array.isArray(noteId)) {
+            noteArr = noteId;
+        } else {
+            noteArr.push(noteId);
+        }
+
+        const userArr = [];
+        if (Array.isArray(userIds)) {
+            userArr = userIds;
+        } else {
+            userArr.push(userIds);
+        }
+
+        svc.shareNote(noteArr, userArr, access)
             .then((response) => {
                 res.status(response.status).send(response);
             }).catch((error) => {
@@ -98,8 +127,14 @@ const deleteNotes = (req, res) => {
 
     try {
         const noteId = req.body.noteId;   //**noteId** will be passed as request body
-        
-        svc.deleteNotes(noteId)
+        const noteArr = [];
+        if (Array.isArray(noteId)) {
+            noteArr = noteId;
+        } else {
+            noteArr.push(noteId);
+        }
+
+        svc.deleteNotes(noteArr)
             .then((response) => {
                 res.status(response.status).send(response);
             }).catch((error) => {
@@ -115,8 +150,14 @@ const addNoteToFavourites = (req, res) => {
 
     try {
         const noteId = req.body.noteId;   //**noteId** will be passed as request body
+        const noteArr = [];
+        if (Array.isArray(noteId)) {
+            noteArr = noteId;
+        } else {
+            noteArr.push(noteId);
+        }
 
-        svc.addNoteToFavourites(noteId, true)
+        svc.addNoteToFavourites(noteArr, true)
             .then((response) => {
                 res.status(response.status).send(response);
             }).catch((error) => {
@@ -132,8 +173,14 @@ const removeNoteFromFavourites = (req, res) => {
 
     try {
         const noteId = req.body.noteId;  //**noteId** will be passed as request body
+        const noteArr = [];
+        if (Array.isArray(noteId)) {
+            noteArr = noteId;
+        } else {
+            noteArr.push(noteId);
+        }
 
-        svc.addNoteToFavourites(noteId, false)
+        svc.addNoteToFavourites(noteArr, false)
             .then((response) => {
                 res.status(response.status).send(response);
             }).catch((error) => {
@@ -151,7 +198,21 @@ const addNoteToGroup = (req, res) => {
         const noteId = req.body.noteId;   //**noteId** will be passed as request body
         const groupName = req.body.groupName;   //**groupName** will be passed as request body
 
-        svc.addNoteToGroup(groupName, noteId)
+        const noteArr = [];
+        if (Array.isArray(noteId)) {
+            noteArr = noteId;
+        } else {
+            noteArr.push(noteId);
+        }
+
+        const groupArr = [];
+        if (Array.isArray(groupName)) {
+            groupArr = groupName;
+        } else {
+            groupArr.push(groupName);
+        }
+
+        svc.addNoteToGroup(groupArr, noteId)
             .then((response) => {
                 res.status(response.status).send(response);
             }).catch((error) => {
@@ -164,7 +225,6 @@ const addNoteToGroup = (req, res) => {
 };
 
 const isUserAllowedForNote = (req, res) => {
-    //return svc.isUserAllowedForNote(userid, noteid);
 
     try {
         const userid = req.query.userId;    //**userId** will be passed as **query param**

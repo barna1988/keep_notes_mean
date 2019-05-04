@@ -16,24 +16,28 @@ const getNoteForNoteID = (noteid) => {
   return dao.getNoteForNoteID(noteid);
 };
 
-const shareNote = (noteid, userIds) => {
-    return dao.shareNote(noteid, userIds);
+const shareNote = (noteid, userIds, access) => {
+  return dao.shareNote(noteid, userIds, access);
 };
 
 const deleteNotes = (noteId) => {
-    return dao.deleteNotes(noteId);
+  return dao.deleteNotes(noteId);
 };
 
 const addNoteToFavourites = (noteId, isFav) => {
-    return dao.addNoteToFavourites(noteId, isFav);
+  return dao.addNoteToFavourites(noteId, isFav);
 };
 
 const addNoteToGroup = (groupName, noteId) => {
-    return dao.addNoteToGroup(groupName, noteId);
+  return dao.addNoteToGroup(groupName, noteId);
 };
 
 const isUserAllowedForNote = (userid, noteid) => {
-    return dao.isUserAllowedForNote(userid, noteid);
+  return dao.isUserAllowedForNote(userid, noteid);
+}
+
+const searchNoteByTitle = (titlename, userId) => {
+  return dao.searchNoteByTitle(titlename, userId);
 }
 
 module.exports = {
@@ -45,5 +49,6 @@ module.exports = {
   deleteNotes,
   addNoteToFavourites,
   addNoteToGroup,
-  isUserAllowedForNote
+  isUserAllowedForNote,
+  searchNoteByTitle
 };

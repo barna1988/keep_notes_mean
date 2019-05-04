@@ -142,7 +142,7 @@ const getNoteForNoteID = (noteid) => {
     });
 }
 
-const shareNote = (noteids, userIds) => {
+const shareNote = (noteids, userIds, access) => {
     return new Promise((resolve, reject) => {
         const dateNow = Date.now();
 
@@ -393,52 +393,6 @@ const addNoteToGroup = (groupName, noteids) => {
     });
 };
 
-// const addNoteToGroup = (groupName, noteId) => {
-//     return new Promise((resolve, reject) => {
-//         try {
-//             log.info('adding notes to group: ' + groupName);
-
-//             let criteria = {
-//                 id: noteId
-//             };
-
-//             let updatedData = {
-//                 $push: {
-//                     groupName: groupName,
-//                 },
-//                 $set: {
-//                     modifiedOn: Date.now()
-//                 }
-//             }
-
-//             noteModel.findOneAndUpdate(criteria, updatedData, { new: true }, (err, document) => {
-//                 if (err) {
-//                     throw err;
-//                 } else if (document) {
-//                     log.debug('notes updated and added to group: ');
-//                     resolve({
-//                         message: 'notes added to group: ' + groupName,
-//                         updateResult: document,
-//                         status: 200
-//                     });
-//                 } else {
-//                     reject({
-//                         message: 'No data found to update',
-//                         status: 404
-//                     });
-//                 }
-//             });
-
-//         } catch (err) {
-//             log.error(err);
-//             reject({
-//                 message: 'Failed to add notes to group due to unexpected error',
-//                 status: 500
-//             });
-//         }
-//     });
-// };
-
 const isUserAllowedForNote = (userid, noteid) => {
     return new Promise((resolve, reject) => {
         try {
@@ -479,6 +433,44 @@ const isUserAllowedForNote = (userid, noteid) => {
     });
 };
 
+const searchNoteByTitle = (titlename, userid) => {
+    return new Promise((resolve, reject) => {
+        try {
+            log.info(`searching notes by title - ${titlename} by user - ${userid}`);
+
+            let searchCriteria = {
+                title: {$regex: titlename,  $options: 'i'}, //regex search
+                userId: userid
+            }
+            log.info(searchCriteria);
+            noteModel.find(searchCriteria, (err, document) => {
+                
+                if (err) {
+                    throw err;
+                } else if (document && document.length > 0) {
+                    resolve({
+                        message: 'Notes found',
+                        updateResult: document,
+                        status: 200
+                    });
+                } else {
+                    resolve({
+                        message: 'No notes found for title '+ titlename,
+                        status: 404
+                    });
+                }
+            })
+
+        } catch (error) {
+            log.error(err);
+            reject({
+                message: 'Failed while searching notes due to unexpected error',
+                status: 500
+            });
+        }
+    });
+};
+
 module.exports = {
     createNote,
     getAllNoteForUserID,
@@ -488,5 +480,6 @@ module.exports = {
     deleteNotes,
     addNoteToFavourites,
     addNoteToGroup,
-    isUserAllowedForNote
+    isUserAllowedForNote,
+    searchNoteByTitle
 }
