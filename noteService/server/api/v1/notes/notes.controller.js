@@ -5,7 +5,7 @@ const createNote = (req, res) => {
 
     try {
         const userid = req.query.userId;    //**userId** will be passed as **query param**
-        
+
         svc.createNote(userid, req.body)
             .then((response) => {
                 res.status(response.status).send(response);
@@ -77,8 +77,8 @@ const shareNote = (req, res) => {
     log.info('inside share');
     try {
         const noteid = req.body.noteId;   //**noteId** will be passed as request body
-        const userIds = req.body.userIds;   //**userIds** will be passed as request body
-        
+        const userIds = req.body.userId;   //**userIds** will be passed as request body
+
         log.info('noteID[] : ', noteid);
         log.info('userIds[] : ', userIds);
 
@@ -97,8 +97,8 @@ const shareNote = (req, res) => {
 const deleteNotes = (req, res) => {
 
     try {
-        const noteId = req.params.noteId;   //**noteId** will be passed as route parameters into url
-
+        const noteId = req.body.noteId;   //**noteId** will be passed as request body
+        
         svc.deleteNotes(noteId)
             .then((response) => {
                 res.status(response.status).send(response);
@@ -129,21 +129,21 @@ const addNoteToFavourites = (req, res) => {
 };
 
 const removeNoteFromFavourites = (req, res) => {
-    
-        try {
-            const noteId = req.body.noteId;  //**noteId** will be passed as request body
-    
-            svc.addNoteToFavourites(noteId, false)
-                .then((response) => {
-                    res.status(response.status).send(response);
-                }).catch((error) => {
-                    res.status(error.status).send(error);
-                });
-        } catch (error) {
-            log.info(error);
-            res.status(error.status).send(error);
-        }
-    };
+
+    try {
+        const noteId = req.body.noteId;  //**noteId** will be passed as request body
+
+        svc.addNoteToFavourites(noteId, false)
+            .then((response) => {
+                res.status(response.status).send(response);
+            }).catch((error) => {
+                res.status(error.status).send(error);
+            });
+    } catch (error) {
+        log.info(error);
+        res.status(error.status).send(error);
+    }
+};
 
 const addNoteToGroup = (req, res) => {
 
@@ -172,13 +172,13 @@ const isUserAllowedForNote = (req, res) => {
 
         svc.isUserAllowedForNote(userid, noteid)
             .then((response) => {
-                res.status(response.status).send({ isUserAllowed : true});
+                res.status(response.status).send({ isUserAllowed: true });
             }).catch((error) => {
-                res.status(error.status).send({ isUserAllowed : false});
+                res.status(error.status).send({ isUserAllowed: false });
             });
     } catch (error) {
         log.info(error);
-        res.status(error.status).send({ isUserAllowed : false});
+        res.status(error.status).send({ isUserAllowed: false });
     }
 }
 

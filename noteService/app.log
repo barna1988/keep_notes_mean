@@ -278,3 +278,44 @@
 [2019-05-04T19:02:43.753] [INFO] default - Setting up API middleware
 [2019-05-04T19:02:43.792] [INFO] default - Server is running on port 3001
 [2019-05-04T19:02:44.852] [INFO] default - Successfully connected to database: mongodb://localhost:27017/keep
+[2019-05-04T19:04:24.533] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-04T19:04:24.534] [INFO] default - authenticated
+[2019-05-04T19:04:24.552] [ERROR] default - { ValidationError: note validation failed: userId: Path `userId` is required.
+    at ValidationError.inspect (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\mongoose\lib\error\validation.js:59:24)
+    at formatValue (internal/util/inspect.js:493:31)
+    at inspect (internal/util/inspect.js:191:10)
+    at formatWithOptions (util.js:84:12)
+    at Object.format (util.js:72:10)
+    at basicLayout (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\log4js\lib\layouts.js:65:57)
+    at app (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\log4js\lib\appenders\file.js:55:18)
+    at categoryAppenders.forEach (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\log4js\lib\log4js.js:42:5)
+    at Array.forEach (<anonymous>)
+    at sendLogEventToAppender (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\log4js\lib\log4js.js:41:21)
+    at listeners.forEach.l (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\log4js\lib\clustering.js:16:26)
+    at Array.forEach (<anonymous>)
+    at sendToListeners (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\log4js\lib\clustering.js:16:13)
+    at Object.send (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\log4js\lib\clustering.js:78:7)
+    at Logger._log (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\log4js\lib\logger.js:56:16)
+    at Logger.log (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\log4js\lib\logger.js:45:12)
+  errors:
+   { userId:
+      { ValidatorError: Path `userId` is required.
+          at new ValidatorError (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\mongoose\lib\error\validator.js:29:11)
+          at validate (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\mongoose\lib\schematype.js:930:13)
+          at D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\mongoose\lib\schematype.js:983:11
+          at Array.forEach (<anonymous>)
+          at SchemaString.SchemaType.doValidate (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\mongoose\lib\schematype.js:939:19)
+          at D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\mongoose\lib\document.js:1936:9
+          at process._tickCallback (internal/process/next_tick.js:61:11)
+        message: 'Path `userId` is required.',
+        name: 'ValidatorError',
+        properties: [Object],
+        kind: 'required',
+        path: 'userId',
+        value: undefined,
+        reason: undefined,
+        [Symbol(mongoose:validatorError)]: true } },
+  _message: 'note validation failed',
+  name: 'ValidationError' }
+[2019-05-04T19:05:56.506] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-04T19:05:56.510] [INFO] default - authenticated

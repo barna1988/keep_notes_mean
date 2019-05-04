@@ -142,42 +142,74 @@ const getNoteForNoteID = (noteid) => {
     });
 }
 
-const shareNote = (noteid, userIds) => {
+const shareNote = (noteids, userIds) => {
     return new Promise((resolve, reject) => {
-
-        const criteria = {
-            id: noteid
-        };
+        const dateNow = Date.now();
 
         const dataToUpdate = {
             $push: {
                 sharedTo: userIds
             },
-            $set : {
-                modifiedOn: Date.now()
+            $set: {
+                modifiedOn: dateNow
             }
         };
 
-        noteModel.findOneAndUpdate(criteria, dataToUpdate, { new: true }, (error, data) => {
-            if (error) {
-                reject({
-                    message: "error : " + error.message,
-                    status: 500
-                });
-            } else if (data) {
+        const notesToFind = {
+            id: { $in: noteids }
+        };
 
-                resolve({
-                    message: "Notes shared ",
-                    updateResult: data,
-                    status: 201
-                });
-            } else {
+        let notesFound = [];
+
+        //Find all the notes
+        noteModel.find(notesToFind, (error, document) => {
+            if (error || !document || document.length === 0) {
+                log.info('error in finding notes :', error);
                 reject({
-                    message: "No data found for noteid : " + noteid,
+                    message: "No notes found",
                     status: 404
                 });
+            } else {
+                log.info('notes found:', document);
+                notesFound = document;
+
+                let updateCriteria = {
+                    id: { $in: noteids }
+                };
+
+                //Update all the notes
+                noteModel.update(updateCriteria, dataToUpdate, { multi: true, new: true }, (error, data) => {
+                    log.info('data :', data)
+                    if (error) {
+                        reject({
+                            message: "Cannot update note : " + error.message,
+                            status: 500
+                        });
+                    } else if (data && data.n > 0) {
+
+                        notesFound.forEach(note => {
+
+                            userIds.forEach(user => note.sharedTo.push(user));
+                            note.modifiedOn = dateNow;
+                        });
+
+                        resolve({
+                            message: "Notes shared ",
+                            updateResult: notesFound,
+                            status: 200
+                        });
+                    } else {
+                        reject({
+                            message: "Cannot update note. ",
+                            status: 500
+                        });
+                    }
+                });
+
             }
         });
+
+
     });
 };
 
@@ -186,7 +218,7 @@ const deleteNotes = (noteId) => {
         try {
 
             log.info(`note id to delete ${noteId}`);
-            noteModel.remove({ id: noteId }, (err) => {
+            noteModel.remove({ id: { $in: noteId } }, (err) => {
                 if (err) {
                     throw err;
                 } else {
@@ -202,38 +234,73 @@ const deleteNotes = (noteId) => {
     });
 };
 
-const addNoteToFavourites = (noteId, isFavourite) => {
+const addNoteToFavourites = (noteids, isFavourite) => {
     return new Promise((resolve, reject) => {
         try {
-            log.info(`adding/removing notes to favourites for noteid - ${noteId} as ${isFavourite}`);
+            const dateNow = Date.now();
 
-            let criteria = {
-                id: noteId
-            };
-
-            let updatedData = {
-                $set : {
-                    isFavourite: isFavourite,
-                    modifiedOn: Date.now()
+            const dataToUpdate = {
+                $set: {
+                    modifiedOn: dateNow,
+                    isFavourite: isFavourite
                 }
             };
 
-            noteModel.findOneAndUpdate(criteria, updatedData, { new: true }, (err, document) => {
-                if (err) {
-                    log.info('error in fav update - ', err);
-                    throw err;
-                } else if(document){
-                    log.debug('notes updated and added to favourites');
-                    resolve({
-                        message: 'notes added to favourites: ',
-                        updateResult: document,
-                        status: 200
-                    });
-                } else {
+            const notesToFind = {
+                id: { $in: noteids }
+            };
+
+            let notesFound = [];
+
+            //Find all the notes
+            noteModel.find(notesToFind, (error, document) => {
+                if (error || !document || document.length === 0) {
+                    log.info('error in finding notes :', error);
                     reject({
-                        message: 'No data found to update',
+                        message: "No notes found",
                         status: 404
                     });
+                } else {
+                    log.info('notes found:', document);
+                    notesFound = document;
+
+                    let updateCriteria = {
+                        id: { $in: noteids }
+                    };
+
+                    //Update all the notes
+                    noteModel.update(updateCriteria, dataToUpdate, { multi: true, new: true }, (error, data) => {
+                        log.info('data :', data)
+                        if (error) {
+                            reject({
+                                message: "Cannot update note : " + error.message,
+                                status: 500
+                            });
+                        } else if (data && data.n > 0) {
+
+                            notesFound.forEach(note => note.isFavourite = isFavourite);
+
+                            if (isFavourite) {
+                                resolve({
+                                    message: "Notes added to favourites ",
+                                    updateResult: notesFound,
+                                    status: 200
+                                });
+                            } else {
+                                resolve({
+                                    message: "Notes removed from favourites ",
+                                    updateResult: notesFound,
+                                    status: 200
+                                });
+                            }
+                        } else {
+                            reject({
+                                message: "Cannot update note favourite. ",
+                                status: 500
+                            });
+                        }
+                    });
+
                 }
             });
         } catch (err) {
@@ -246,39 +313,73 @@ const addNoteToFavourites = (noteId, isFavourite) => {
     });
 };
 
-const addNoteToGroup = (groupName, noteId) => {
+const addNoteToGroup = (groupName, noteids) => {
     return new Promise((resolve, reject) => {
         try {
             log.info('adding notes to group: ' + groupName);
 
-            let criteria = {
-                id: noteId
+            const dateNow = Date.now();
+
+            const dataToUpdate = {
+                $push: {
+                    groupName: groupName
+                },
+                $set: {
+                    modifiedOn: dateNow
+                }
             };
 
-            let updatedData = {
-                $push : {
-                    groupName: groupName,
-                },
-                $set : {
-                    modifiedOn: Date.now()
-                }
-            }
+            const notesToFind = {
+                id: { $in: noteids }
+            };
 
-            noteModel.findOneAndUpdate(criteria, updatedData, { new: true }, (err, document) => {
-                if (err) {
-                    throw err;
-                } else if (document) {
-                    log.debug('notes updated and added to group: ');
-                    resolve({
-                        message: 'notes added to group: ' + groupName,
-                        updateResult: document,
-                        status: 200
-                    });
-                } else {
+            let notesFound = [];
+
+            //Find all the notes
+            noteModel.find(notesToFind, (error, document) => {
+                if (error || !document || document.length === 0) {
+                    log.info('error in finding notes :', error);
                     reject({
-                        message: 'No data found to update',
+                        message: "No notes found",
                         status: 404
                     });
+                } else {
+                    log.info('notes found:', document);
+                    notesFound = document;
+
+                    let updateCriteria = {
+                        id: { $in: noteids }
+                    };
+
+                    //Update all the notes
+                    noteModel.update(updateCriteria, dataToUpdate, { multi: true, new: true }, (error, data) => {
+                        log.info('data :', data)
+                        if (error) {
+                            reject({
+                                message: "Cannot update note groupname : " + error.message,
+                                status: 500
+                            });
+                        } else if (data && data.n > 0) {
+
+                            notesFound.forEach(note => {
+
+                                groupName.forEach(group => note.groupName.push(group));
+                                note.modifiedOn = dateNow;
+                            });
+
+                            resolve({
+                                message: "Notes Group updated ",
+                                updateResult: notesFound,
+                                status: 200
+                            });
+                        } else {
+                            reject({
+                                message: "Cannot update note group. ",
+                                status: 500
+                            });
+                        }
+                    });
+
                 }
             });
 
@@ -291,6 +392,52 @@ const addNoteToGroup = (groupName, noteId) => {
         }
     });
 };
+
+// const addNoteToGroup = (groupName, noteId) => {
+//     return new Promise((resolve, reject) => {
+//         try {
+//             log.info('adding notes to group: ' + groupName);
+
+//             let criteria = {
+//                 id: noteId
+//             };
+
+//             let updatedData = {
+//                 $push: {
+//                     groupName: groupName,
+//                 },
+//                 $set: {
+//                     modifiedOn: Date.now()
+//                 }
+//             }
+
+//             noteModel.findOneAndUpdate(criteria, updatedData, { new: true }, (err, document) => {
+//                 if (err) {
+//                     throw err;
+//                 } else if (document) {
+//                     log.debug('notes updated and added to group: ');
+//                     resolve({
+//                         message: 'notes added to group: ' + groupName,
+//                         updateResult: document,
+//                         status: 200
+//                     });
+//                 } else {
+//                     reject({
+//                         message: 'No data found to update',
+//                         status: 404
+//                     });
+//                 }
+//             });
+
+//         } catch (err) {
+//             log.error(err);
+//             reject({
+//                 message: 'Failed to add notes to group due to unexpected error',
+//                 status: 500
+//             });
+//         }
+//     });
+// };
 
 const isUserAllowedForNote = (userid, noteid) => {
     return new Promise((resolve, reject) => {

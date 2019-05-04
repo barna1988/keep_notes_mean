@@ -10,6 +10,8 @@ router.post('/', controller.createNote);
 
 router.put('/share', controller.shareNote);
 
+router.delete('/delete', controller.deleteNotes);
+
 router.put('/addFavorites', controller.addNoteToFavourites);
 
 router.put('/removeFavorites', controller.removeNoteFromFavourites);
@@ -21,7 +23,5 @@ router.get('/:noteId/isAllowed', controller.isUserAllowedForNote);
 router.get('/:noteId', controller.getNoteForNoteID);
 
 router.put('/:noteId', controller.updateNotes);
-
-router.delete('/:noteId', controller.deleteNotes);
 
 module.exports = router;
