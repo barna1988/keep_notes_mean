@@ -77,3 +77,86 @@
 [2019-04-28T21:18:19.359] [INFO] default - User authenticated
 [2019-04-28T21:20:48.468] [INFO] default - Authentication check
 [2019-04-28T21:20:48.474] [INFO] default - User authenticated
+[2019-05-04T18:21:46.795] [INFO] default - Setting up API middleware
+[2019-05-04T18:21:46.842] [INFO] default - Server is running on port 3000
+[2019-05-04T18:21:48.905] [ERROR] default - Failed to connect to database.
+[2019-05-04T18:21:48.905] [ERROR] default - { MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
+    at Pool.<anonymous> (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\mongodb-core\lib\topologies\server.js:564:11)
+    at Pool.emit (events.js:189:13)
+    at Connection.<anonymous> (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\mongodb-core\lib\connection\pool.js:317:12)
+    at Object.onceWrapper (events.js:277:13)
+    at Connection.emit (events.js:189:13)
+    at Socket.<anonymous> (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\mongodb-core\lib\connection\connection.js:246:50)
+    at Object.onceWrapper (events.js:277:13)
+    at Socket.emit (events.js:189:13)
+    at emitErrorNT (internal/streams/destroy.js:82:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:50:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+  name: 'MongoNetworkError',
+  errorLabels: [ 'TransientTransactionError' ],
+  [Symbol(mongoErrorContextSymbol)]: {} }
+[2019-05-04T18:44:12.837] [INFO] default - login user: {"username":"hermione","password":"granger"}
+[2019-05-04T18:45:08.426] [INFO] default - login user: {"username":"hermione","password":"granger"}
+[2019-05-04T18:46:48.133] [INFO] default - Authentication check
+[2019-05-04T18:46:48.147] [INFO] default - User authenticated
+[2019-05-04T18:46:48.149] [ERROR] default - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at ServerResponse.header (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\express\lib\response.js:767:10)
+    at ServerResponse.send (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\express\lib\response.js:267:15)
+    at ServerResponse.send (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\express\lib\response.js:158:21)
+    at authService.verifyToken (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\server\api\v1\auth\auth.middleware.js:37:23)
+    at jwt.verify (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\server\api\v1\auth\auth.service.js:12:22)
+    at D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\jsonwebtoken\verify.js:152:16
+    at getSecret (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\jsonwebtoken\verify.js:94:10)
+    at Object.verifyToken (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\server\api\v1\auth\auth.service.js:11:9)
+    at checkAuthentication (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\server\api\v1\auth\auth.middleware.js:25:17)
+    at Layer.handle [as handle_request] (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\express\lib\router\layer.js:95:5)
+[2019-05-04T18:46:54.473] [INFO] default - login user: {"username":"hermione","password":"granger"}
+[2019-05-04T18:47:25.881] [INFO] default - Authentication check
+[2019-05-04T18:47:25.887] [INFO] default - User authenticated
+[2019-05-04T18:47:25.892] [ERROR] default - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at ServerResponse.header (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\express\lib\response.js:767:10)
+    at ServerResponse.send (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\express\lib\response.js:267:15)
+    at ServerResponse.send (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\express\lib\response.js:158:21)
+    at authService.verifyToken (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\server\api\v1\auth\auth.middleware.js:37:23)
+    at jwt.verify (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\server\api\v1\auth\auth.service.js:12:22)
+    at D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\jsonwebtoken\verify.js:152:16
+    at getSecret (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\jsonwebtoken\verify.js:94:10)
+    at Object.verifyToken (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\server\api\v1\auth\auth.service.js:11:9)
+    at checkAuthentication (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\server\api\v1\auth\auth.middleware.js:25:17)
+    at Layer.handle [as handle_request] (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\express\lib\router\layer.js:95:5)
+[2019-05-04T18:49:04.104] [INFO] default - register user: {"username":"harry","password":"potter"}
+[2019-05-04T19:02:29.151] [INFO] default - Setting up API middleware
+[2019-05-04T19:02:29.195] [INFO] default - Server is running on port 3000
+[2019-05-04T19:02:30.242] [INFO] default - Successfully connected to database: mongodb://localhost:27017/keep
+[2019-05-04T19:03:36.927] [INFO] default - register user: {"username":"harry","password":"potter"}
+[2019-05-04T19:03:38.033] [ERROR] default - { MongoError: E11000 duplicate key error collection: keep.users index: username_1 dup key: { : "harry" }
+    at Function.create (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\mongodb-core\lib\error.js:43:12)
+    at toError (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\mongodb\lib\utils.js:149:22)
+    at coll.s.topology.insert (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\mongodb\lib\operations\collection_ops.js:859:39)
+    at D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\mongodb-core\lib\connection\pool.js:532:18
+    at process._tickCallback (internal/process/next_tick.js:61:11)
+  driver: true,
+  name: 'MongoError',
+  index: 0,
+  code: 11000,
+  errmsg:
+   'E11000 duplicate key error collection: keep.users index: username_1 dup key: { : "harry" }',
+  [Symbol(mongoErrorContextSymbol)]: {} }
+[2019-05-04T19:03:46.954] [INFO] default - login user: {"username":"hermione","password":"granger"}
+[2019-05-04T19:03:46.959] [INFO] default - login with payload { userName: 'hermione',
+  userId: '301168d0-69c2-11e9-8de5-793a91fe9fee' }
+[2019-05-04T19:03:46.964] [INFO] default - err null
+[2019-05-04T19:04:24.523] [INFO] default - Authentication check
+[2019-05-04T19:04:24.527] [INFO] default - User authenticated

@@ -74,10 +74,13 @@ const getNoteForNoteID = (req, res) => {
 };
 
 const shareNote = (req, res) => {
-
+    log.info('inside share');
     try {
-        const noteid = req.params.noteId;   //**noteId** will be passed as route parameters into url
+        const noteid = req.body.noteId;   //**noteId** will be passed as request body
         const userIds = req.body.userIds;   //**userIds** will be passed as request body
+        
+        log.info('noteID[] : ', noteid);
+        log.info('userIds[] : ', userIds);
 
         svc.shareNote(noteid, userIds)
             .then((response) => {
@@ -111,7 +114,7 @@ const deleteNotes = (req, res) => {
 const addNoteToFavourites = (req, res) => {
 
     try {
-        const noteId = req.params.noteId;   //**noteId** will be passed as route parameters into url
+        const noteId = req.body.noteId;   //**noteId** will be passed as request body
 
         svc.addNoteToFavourites(noteId, true)
             .then((response) => {
@@ -128,7 +131,7 @@ const addNoteToFavourites = (req, res) => {
 const removeNoteFromFavourites = (req, res) => {
     
         try {
-            const noteId = req.params.noteId;   //**noteId** will be passed as route parameters into url
+            const noteId = req.body.noteId;  //**noteId** will be passed as request body
     
             svc.addNoteToFavourites(noteId, false)
                 .then((response) => {
@@ -145,7 +148,7 @@ const removeNoteFromFavourites = (req, res) => {
 const addNoteToGroup = (req, res) => {
 
     try {
-        const noteId = req.params.noteId;   //**noteId** will be passed as route parameters into url
+        const noteId = req.body.noteId;   //**noteId** will be passed as request body
         const groupName = req.body.groupName;   //**groupName** will be passed as request body
 
         svc.addNoteToGroup(groupName, noteId)

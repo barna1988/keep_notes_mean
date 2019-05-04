@@ -8,20 +8,20 @@ router.get('/', controller.getNoteForUserID);
 
 router.post('/', controller.createNote);
 
+router.put('/share', controller.shareNote);
+
+router.put('/addFavorites', controller.addNoteToFavourites);
+
+router.put('/removeFavorites', controller.removeNoteFromFavourites);
+
+router.put('/addGroup', controller.addNoteToGroup);
+
+router.get('/:noteId/isAllowed', controller.isUserAllowedForNote);
+
 router.get('/:noteId', controller.getNoteForNoteID);
 
 router.put('/:noteId', controller.updateNotes);
 
 router.delete('/:noteId', controller.deleteNotes);
-
-router.put('/:noteId/share', controller.shareNote);
-
-router.put('/:noteId/addFavorites', controller.addNoteToFavourites);
-
-router.put('/:noteId/removeFavorites', controller.removeNoteFromFavourites);
-
-router.put('/:noteId/addGroup', controller.addNoteToGroup);
-
-router.get('/:noteId/isAllowed', controller.isUserAllowedForNote);
 
 module.exports = router;

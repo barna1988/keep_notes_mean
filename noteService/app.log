@@ -253,3 +253,28 @@
         [Symbol(mongoose:validatorError)]: true } },
   _message: 'note validation failed',
   name: 'ValidationError' }
+[2019-05-04T18:21:32.971] [INFO] default - Setting up API middleware
+[2019-05-04T18:21:33.018] [INFO] default - Server is running on port 3001
+[2019-05-04T18:21:35.081] [ERROR] default - Failed to connect to database.
+[2019-05-04T18:21:35.081] [ERROR] default - { MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
+    at Pool.<anonymous> (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\mongodb-core\lib\topologies\server.js:564:11)
+    at Pool.emit (events.js:189:13)
+    at Connection.<anonymous> (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\mongodb-core\lib\connection\pool.js:317:12)
+    at Object.onceWrapper (events.js:277:13)
+    at Connection.emit (events.js:189:13)
+    at Socket.<anonymous> (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\mongodb-core\lib\connection\connection.js:246:50)
+    at Object.onceWrapper (events.js:277:13)
+    at Socket.emit (events.js:189:13)
+    at emitErrorNT (internal/streams/destroy.js:82:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:50:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+  name: 'MongoNetworkError',
+  errorLabels: [ 'TransientTransactionError' ],
+  [Symbol(mongoErrorContextSymbol)]: {} }
+[2019-05-04T18:46:48.151] [INFO] default - body in auth svc {"isAuthenticated":false,"message":"Invalid token"}
+[2019-05-04T18:46:48.153] [INFO] default - error in notes auth svc null
+[2019-05-04T18:47:25.890] [INFO] default - body in auth svc {"isAuthenticated":false,"message":"Invalid token"}
+[2019-05-04T18:47:25.904] [INFO] default - error in notes auth svc null
+[2019-05-04T19:02:43.753] [INFO] default - Setting up API middleware
+[2019-05-04T19:02:43.792] [INFO] default - Server is running on port 3001
+[2019-05-04T19:02:44.852] [INFO] default - Successfully connected to database: mongodb://localhost:27017/keep
