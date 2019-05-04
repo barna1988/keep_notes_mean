@@ -32,3 +32,4 @@ apigateway/node_modules/
 #logs
 noteService/app.log
 userService/app.log
+apigateway/app.log

@@ -2,6 +2,8 @@ const proxy = require('http-proxy-middleware');
 const config = require('./config');
 const bodyParser = require('body-parser');
 
+const log = require('./logging');
+
 const morgan = require('morgan');
 
 const setAppMiddleWare = (app) => {
@@ -24,6 +26,11 @@ const getNoteProxy = () => {
 const getUsersProxy = () => {
     return proxy({
         target: config.USERS_GET_URL,
+        // pathRewrite : (path, req) => {
+        //     let newpath = path.replace('/users/','/api/v1/users/');
+        //     log.info('newpath', newpath)
+        //     return newpath;
+        // }
         pathRewrite: {
             '^/users/': '/api/v1/users/'
         }

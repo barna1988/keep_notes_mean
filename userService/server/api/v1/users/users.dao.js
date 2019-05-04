@@ -95,8 +95,9 @@ const login = (user) => {
                     log.info('login with payload', payload);
 
                     authServices.signToken(payload, appConfig.authConfig.secret, appConfig.authConfig.expiry, (err, token) => {
-                        log.info('err', err);
+                        
                         if (err) {
+                            log.info('err', err);
                             reject({
                                 message: 'Passwords is incorrect',
                                 status: 403
