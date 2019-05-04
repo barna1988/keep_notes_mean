@@ -10,7 +10,7 @@ Core features (mandatory to implement)
 
     Subscribed users can List Notes, Save notes, Group  the notes, can mark specific notes as favorit
     Perform operations on one or more selected notes and add them to a group, mark as favourite, share with other users, delete them and bulk upload. 
-    Search notes based on title.
+    Search notes based on title. --???
     Integration of User Interface with backend logic.
 
 User Account features (mandatory to implement)
@@ -20,7 +20,7 @@ User Account features (mandatory to implement)
 
 Productivity features
 
-Subscribed user can set a reminder on a note, which alert the user twice, 15 minutes before and at the exact specified time, use may chose to snooze or dismiss the reminder, if snoozed, after 5 minutes again reminder will alert
+Subscribed user can set a reminder on a note, which alert the user twice, 15 minutes before and at the exact specified time, use may chose to snooze or dismiss the reminder, if snoozed, after 5 minutes again reminder will alert --???
 
 Social features
 

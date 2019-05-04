@@ -27,3 +27,8 @@ noteService/node_modules/
 userService/node_modules/
 webService/node_modules/
 apigateway/node_modules/
+
+
+#logs
+noteService/app.log
+userService/app.log

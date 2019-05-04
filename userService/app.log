@@ -192,3 +192,57 @@
 [2019-05-04T19:16:36.437] [INFO] default - User authenticated
 [2019-05-04T19:17:35.934] [INFO] default - Authentication check
 [2019-05-04T19:17:35.935] [INFO] default - User authenticated
+[2019-05-04T19:23:12.512] [INFO] default - Setting up API middleware
+[2019-05-04T19:23:12.554] [INFO] default - Server is running on port 3000
+[2019-05-04T19:23:13.623] [INFO] default - Successfully connected to database: mongodb://localhost:27017/keep
+[2019-05-04T19:42:36.710] [INFO] default - Authentication check
+[2019-05-04T19:42:36.718] [INFO] default - User authenticated
+[2019-05-04T19:42:46.494] [INFO] default - Authentication check
+[2019-05-04T19:42:46.497] [INFO] default - User authenticated
+[2019-05-04T19:43:46.635] [INFO] default - Authentication check
+[2019-05-04T19:43:46.638] [INFO] default - User authenticated
+[2019-05-04T19:45:25.099] [INFO] default - Authentication check
+[2019-05-04T19:45:25.103] [INFO] default - User authenticated
+[2019-05-04T19:46:11.365] [INFO] default - Authentication check
+[2019-05-04T19:46:11.370] [INFO] default - User authenticated
+[2019-05-04T19:50:13.188] [INFO] default - Authentication check
+[2019-05-04T19:50:13.192] [INFO] default - User authenticated
+[2019-05-04T19:54:35.421] [INFO] default - Authentication check
+[2019-05-04T19:54:35.425] [INFO] default - User authenticated
+[2019-05-04T19:55:03.975] [INFO] default - Authentication check
+[2019-05-04T19:55:03.980] [INFO] default - User authenticated
+[2019-05-04T19:56:14.868] [INFO] default - Authentication check
+[2019-05-04T19:56:14.875] [INFO] default - User authenticated
+[2019-05-04T19:58:31.645] [INFO] default - Authentication check
+[2019-05-04T19:58:31.648] [INFO] default - User authenticated
+[2019-05-04T20:00:40.379] [INFO] default - Authentication check
+[2019-05-04T20:00:40.383] [INFO] default - User authenticated
+[2019-05-04T20:01:37.829] [INFO] default - Authentication check
+[2019-05-04T20:01:37.835] [INFO] default - User authenticated
+[2019-05-04T20:01:37.838] [ERROR] default - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at ServerResponse.header (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\express\lib\response.js:767:10)
+    at ServerResponse.send (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\express\lib\response.js:267:15)
+    at ServerResponse.send (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\express\lib\response.js:158:21)
+    at authService.verifyToken (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\server\api\v1\auth\auth.middleware.js:37:23)
+    at jwt.verify (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\server\api\v1\auth\auth.service.js:12:22)
+    at D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\jsonwebtoken\verify.js:152:16
+    at getSecret (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\jsonwebtoken\verify.js:94:10)
+    at Object.verifyToken (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\server\api\v1\auth\auth.service.js:11:9)
+    at checkAuthentication (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\server\api\v1\auth\auth.middleware.js:25:17)
+    at Layer.handle [as handle_request] (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\express\lib\router\layer.js:95:5)
+[2019-05-04T20:02:03.275] [INFO] default - Authentication check
+[2019-05-04T20:02:03.278] [INFO] default - User authenticated
+[2019-05-04T20:02:56.396] [INFO] default - Authentication check
+[2019-05-04T20:02:56.401] [INFO] default - User authenticated
+[2019-05-04T20:04:02.365] [INFO] default - Authentication check
+[2019-05-04T20:04:02.369] [INFO] default - User authenticated
+[2019-05-04T20:07:22.938] [INFO] default - Authentication check
+[2019-05-04T20:07:22.943] [INFO] default - User authenticated
+[2019-05-04T20:12:42.167] [INFO] default - Authentication check
+[2019-05-04T20:12:42.172] [INFO] default - User authenticated

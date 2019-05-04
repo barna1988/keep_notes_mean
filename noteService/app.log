@@ -415,3 +415,52 @@
 [2019-05-04T19:46:11.378] [INFO] default - authenticated
 [2019-05-04T19:50:13.197] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
 [2019-05-04T19:50:13.204] [INFO] default - authenticated
+[2019-05-04T19:54:35.429] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-04T19:54:35.437] [INFO] default - authenticated
+[2019-05-04T19:55:03.984] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-04T19:55:03.991] [INFO] default - authenticated
+[2019-05-04T19:55:03.996] [INFO] default - note id to delete 
+[2019-05-04T19:55:04.011] [DEBUG] default - notes deleted
+[2019-05-04T19:56:14.879] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-04T19:56:14.882] [INFO] default - authenticated
+[2019-05-04T19:56:14.887] [INFO] default - note id to delete 
+[2019-05-04T19:56:14.895] [DEBUG] default - notes deleted
+[2019-05-04T19:58:31.652] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-04T19:58:31.660] [INFO] default - authenticated
+[2019-05-04T19:58:31.664] [INFO] default - note id to delete 0919a200-6e73-11e9-bfa4-6f1903d52018
+[2019-05-04T19:58:31.672] [DEBUG] default - notes deleted
+[2019-05-04T20:00:40.387] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-04T20:00:40.393] [INFO] default - authenticated
+[2019-05-04T20:01:37.837] [INFO] default - body in auth svc {"isAuthenticated":false,"message":"Invalid token"}
+[2019-05-04T20:01:37.844] [INFO] default - error in notes auth svc null
+[2019-05-04T20:02:03.282] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-04T20:02:03.287] [INFO] default - authenticated
+[2019-05-04T20:02:03.290] [INFO] default - search using userid
+[2019-05-04T20:02:56.404] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-04T20:02:56.408] [INFO] default - authenticated
+[2019-05-04T20:04:02.372] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-04T20:04:02.377] [INFO] default - authenticated
+[2019-05-04T20:07:22.948] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-04T20:07:22.957] [INFO] default - authenticated
+[2019-05-04T20:12:42.176] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-04T20:12:42.181] [INFO] default - authenticated
+[2019-05-04T20:12:42.187] [INFO] default - inside share
+[2019-05-04T20:12:42.191] [INFO] default - noteID[] :  8216eef0-6e79-11e9-ab77-d71ef1de5655
+[2019-05-04T20:12:42.196] [INFO] default - userIds[] :  301168d0-69c2-11e9-8de5-793a91fe9fee
+[2019-05-04T20:12:42.199] [INFO] default - ReferenceError: noteId is not defined
+    at shareNote (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\server\api\v1\notes\notes.controller.js:101:27)
+    at Layer.handle [as handle_request] (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\express\lib\router\layer.js:95:5)
+    at D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\express\lib\router\index.js:275:10)
+    at Request.request.post [as _callback] (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\server\services\auth.service.js:36:13)
+    at Request.self.callback (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\request\request.js:185:22)
+    at Request.emit (events.js:189:13)
+    at Request.<anonymous> (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\request\request.js:1161:10)
+    at Request.emit (events.js:189:13)
+    at IncomingMessage.<anonymous> (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\request\request.js:1083:12)
+    at Object.onceWrapper (events.js:277:13)
+    at IncomingMessage.emit (events.js:194:15)
