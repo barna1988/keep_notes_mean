@@ -50,14 +50,14 @@ const getAllNoteForUserID = (userID) => {
                     message: 'Error while getting notes',
                     status: 500
                 });
-            } else if (!notes) {
+            } else if (!notes || notes.length === 0) {
                 resolve({
                     message: `No Notes found for userID ${userID}`,
                     status: 200
                 });
             } else {
                 resolve({
-                    message: 'Notes added',
+                    message: `Notes recieved for user ${userID}`,
                     status: 200,
                     notes: notes
                 });
@@ -74,7 +74,8 @@ const updateNotes = (noteid, note) => {
             $set: {
                 title: note.title,
                 text: note.text,
-                state: note.state
+                state: note.state,
+                modifiedOn: Date.now()
             }
         };
 
@@ -145,15 +146,19 @@ const shareNote = (noteid, userIds) => {
     return new Promise((resolve, reject) => {
 
         const criteria = {
-            id: { $in: noteid }
+            id: noteid
         };
 
         const dataToUpdate = {
-            $push: { sharedTo: userIds }
+            $push: {
+                sharedTo: userIds
+            },
+            $set : {
+                modifiedOn: Date.now()
+            }
         };
 
-        noteModel.update(criteria, dataToUpdate, { multi: true }, (error, data) => {
-
+        noteModel.findOneAndUpdate(criteria, dataToUpdate, { new: true }, (error, data) => {
             if (error) {
                 reject({
                     message: "error : " + error.message,
@@ -161,28 +166,27 @@ const shareNote = (noteid, userIds) => {
                 });
             } else if (data) {
 
-                if (data.nModified > 0 && data.n > 0) {
-                    resolve({
-                        message: "Notes shared ",
-                        updateResult: result,
-                        status: 201
-                    });
-                } else {
-                    reject({
-                        message: "No data found for notes : " + notes,
-                        status: 404
-                    });
-                }
+                resolve({
+                    message: "Notes shared ",
+                    updateResult: data,
+                    status: 201
+                });
+            } else {
+                reject({
+                    message: "No data found for noteid : " + noteid,
+                    status: 404
+                });
             }
         });
-
     });
 };
 
-const deleteNotes = (noteIds) => {
+const deleteNotes = (noteId) => {
     return new Promise((resolve, reject) => {
         try {
-            noteModel.remove({ id: { $in: noteIds } }, (err) => {
+
+            log.info(`note id to delete ${noteId}`);
+            noteModel.remove({ id: noteId }, (err) => {
                 if (err) {
                     throw err;
                 } else {
@@ -198,27 +202,39 @@ const deleteNotes = (noteIds) => {
     });
 };
 
-const addNoteToFavourites = (noteIds) => {
+const addNoteToFavourites = (noteId, isFavourite) => {
     return new Promise((resolve, reject) => {
         try {
-            log.info('adding notes to favourites');
+            log.info(`adding/removing notes to favourites for noteid - ${noteId} as ${isFavourite}`);
 
-            var criteria = {
-                id: { $in: noteIds }
+            let criteria = {
+                id: noteId
             };
 
-            noteModel.update(criteria, { isFavourite: true }, { multi: true }, (err, document) => {
+            let updatedData = {
+                $set : {
+                    isFavourite: isFavourite,
+                    modifiedOn: Date.now()
+                }
+            };
+
+            noteModel.findOneAndUpdate(criteria, updatedData, { new: true }, (err, document) => {
                 if (err) {
+                    log.info('error in fav update - ', err);
                     throw err;
-                } else if (document) {
-                    log.debug('notes updated and added to favourites: ');
+                } else if(document){
+                    log.debug('notes updated and added to favourites');
                     resolve({
                         message: 'notes added to favourites: ',
                         updateResult: document,
                         status: 200
                     });
+                } else {
+                    reject({
+                        message: 'No data found to update',
+                        status: 404
+                    });
                 }
-
             });
         } catch (err) {
             log.error(err);
@@ -230,28 +246,42 @@ const addNoteToFavourites = (noteIds) => {
     });
 };
 
-const addNoteToGroup = (groupName, noteIds) => {
+const addNoteToGroup = (groupName, noteId) => {
     return new Promise((resolve, reject) => {
         try {
             log.info('adding notes to group: ' + groupName);
 
-            var criteria = {
-                id: { $in: noteIds }
+            let criteria = {
+                id: noteId
             };
 
-            noteModel.update(criteria, { groupName: groupName }, { multi: true }, (err, document) => {
+            let updatedData = {
+                $push : {
+                    groupName: groupName,
+                },
+                $set : {
+                    modifiedOn: Date.now()
+                }
+            }
+
+            noteModel.findOneAndUpdate(criteria, updatedData, { new: true }, (err, document) => {
                 if (err) {
                     throw err;
                 } else if (document) {
-                    log.debug('notes updated and added to group: ', document);
+                    log.debug('notes updated and added to group: ');
                     resolve({
                         message: 'notes added to group: ' + groupName,
                         updateResult: document,
                         status: 200
                     });
+                } else {
+                    reject({
+                        message: 'No data found to update',
+                        status: 404
+                    });
                 }
-
             });
+
         } catch (err) {
             log.error(err);
             reject({
@@ -277,9 +307,9 @@ const isUserAllowedForNote = (userid, noteid) => {
 
                 let sharedTo;
                 if (note.sharedTo) {
-                    sharedTo = note.collaborators.find(element => element === userId);
+                    sharedTo = note.sharedTo.find(element => element === userid);
                 }
-                if (note.userId === userId || sharedTo) {
+                if (note.userId === userid || sharedTo) {
                     resolve({
                         message: 'Access allowed',
                         status: 200

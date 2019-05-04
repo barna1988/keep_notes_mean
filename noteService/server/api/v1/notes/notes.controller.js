@@ -8,7 +8,7 @@ const createNote = (req, res) => {
         
         svc.createNote(userid, req.body)
             .then((response) => {
-                res.status(response.status).send(response.note);
+                res.status(response.status).send(response);
             }).catch((error) => {
                 res.status(error.status).send(error);
             });
@@ -24,9 +24,9 @@ const getNoteForUserID = (req, res) => {
     try {
         const userid = req.query.userId;    //**userId** will be passed as **query param**
 
-        svc.getNoteForUserID(noteid)
+        svc.getNoteForUserID(userid)
             .then((response) => {
-                res.status(response.status).send(response.notes);
+                res.status(response.status).send(response);
             }).catch((error) => {
                 res.status(error.status).send(error);
             });
@@ -44,7 +44,7 @@ const updateNotes = (req, res) => {
 
         svc.updateNotes(noteid, req.body)
             .then((response) => {
-                res.status(response.status).send(response.note);
+                res.status(response.status).send(response);
             }).catch((error) => {
                 res.status(error.status).send(error);
             });
@@ -61,7 +61,7 @@ const getNoteForNoteID = (req, res) => {
 
         svc.getNoteForNoteID(noteid)
             .then((response) => {
-                res.status(response.status).send(response.note);
+                res.status(response.status).send(response);
             }).catch((error) => {
                 res.status(error.status).send(error);
             });
@@ -81,7 +81,7 @@ const shareNote = (req, res) => {
 
         svc.shareNote(noteid, userIds)
             .then((response) => {
-                res.status(response.status).send(response.updateResult);
+                res.status(response.status).send(response);
             }).catch((error) => {
                 res.status(error.status).send(error);
             });
@@ -94,9 +94,9 @@ const shareNote = (req, res) => {
 const deleteNotes = (req, res) => {
 
     try {
-        const noteIds = req.body.noteIds;   //**noteIds** will be passed as request body
+        const noteId = req.params.noteId;   //**noteId** will be passed as route parameters into url
 
-        svc.deleteNotes(noteIds)
+        svc.deleteNotes(noteId)
             .then((response) => {
                 res.status(response.status).send(response);
             }).catch((error) => {
@@ -111,11 +111,11 @@ const deleteNotes = (req, res) => {
 const addNoteToFavourites = (req, res) => {
 
     try {
-        const noteIds = req.body.noteIds;   //**noteIds** will be passed as request body
+        const noteId = req.params.noteId;   //**noteId** will be passed as route parameters into url
 
-        svc.addNoteToFavourites(noteIds)
+        svc.addNoteToFavourites(noteId, true)
             .then((response) => {
-                res.status(response.status).send(response.updateResult);
+                res.status(response.status).send(response);
             }).catch((error) => {
                 res.status(error.status).send(error);
             });
@@ -125,15 +125,32 @@ const addNoteToFavourites = (req, res) => {
     }
 };
 
-const addNoteToGroup = (groupName, noteIds) => {
+const removeNoteFromFavourites = (req, res) => {
+    
+        try {
+            const noteId = req.params.noteId;   //**noteId** will be passed as route parameters into url
+    
+            svc.addNoteToFavourites(noteId, false)
+                .then((response) => {
+                    res.status(response.status).send(response);
+                }).catch((error) => {
+                    res.status(error.status).send(error);
+                });
+        } catch (error) {
+            log.info(error);
+            res.status(error.status).send(error);
+        }
+    };
+
+const addNoteToGroup = (req, res) => {
 
     try {
-        const noteIds = req.body.noteIds;   //**noteIds** will be passed as request body
+        const noteId = req.params.noteId;   //**noteId** will be passed as route parameters into url
         const groupName = req.body.groupName;   //**groupName** will be passed as request body
 
-        svc.addNoteToGroup(groupName, noteIds)
+        svc.addNoteToGroup(groupName, noteId)
             .then((response) => {
-                res.status(response.status).send(response.updateResult);
+                res.status(response.status).send(response);
             }).catch((error) => {
                 res.status(error.status).send(error);
             });
@@ -143,7 +160,7 @@ const addNoteToGroup = (groupName, noteIds) => {
     }
 };
 
-const isUserAllowedForNote = (userid, noteid) => {
+const isUserAllowedForNote = (req, res) => {
     //return svc.isUserAllowedForNote(userid, noteid);
 
     try {
@@ -170,6 +187,7 @@ module.exports = {
     shareNote,
     deleteNotes,
     addNoteToFavourites,
+    removeNoteFromFavourites,
     addNoteToGroup,
     isUserAllowedForNote
 };

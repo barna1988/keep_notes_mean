@@ -40,3 +40,40 @@
 [2019-04-28T20:40:47.237] [INFO] default - Setting up API middleware
 [2019-04-28T20:40:47.282] [INFO] default - Server is running on port 3000
 [2019-04-28T20:40:48.324] [INFO] default - Successfully connected to database: mongodb://localhost:27017/keep
+[2019-04-28T20:57:50.179] [INFO] default - Authentication check
+[2019-04-28T20:57:50.188] [INFO] default - User authenticated
+[2019-04-28T20:57:50.191] [ERROR] default - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at ServerResponse.header (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\express\lib\response.js:767:10)
+    at ServerResponse.send (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\express\lib\response.js:267:15)
+    at ServerResponse.send (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\express\lib\response.js:158:21)
+    at authService.verifyToken (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\server\api\v1\auth\auth.middleware.js:37:23)
+    at jwt.verify (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\server\api\v1\auth\auth.service.js:12:22)
+    at D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\jsonwebtoken\verify.js:133:14
+    at getSecret (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\jsonwebtoken\verify.js:94:10)
+    at Object.verifyToken (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\server\api\v1\auth\auth.service.js:11:9)
+    at checkAuthentication (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\server\api\v1\auth\auth.middleware.js:25:17)
+    at Layer.handle [as handle_request] (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\userService\node_modules\express\lib\router\layer.js:95:5)
+[2019-04-28T20:58:15.189] [INFO] default - login user: {"username":"hermione","password":"granger"}
+[2019-04-28T20:58:15.233] [INFO] default - login with payload { userName: 'hermione',
+  userId: '301168d0-69c2-11e9-8de5-793a91fe9fee' }
+[2019-04-28T20:58:15.244] [INFO] default - err null
+[2019-04-28T20:59:14.662] [INFO] default - Authentication check
+[2019-04-28T20:59:14.666] [INFO] default - User authenticated
+[2019-04-28T21:02:33.199] [INFO] default - Authentication check
+[2019-04-28T21:02:33.203] [INFO] default - User authenticated
+[2019-04-28T21:09:34.690] [INFO] default - Authentication check
+[2019-04-28T21:09:34.695] [INFO] default - User authenticated
+[2019-04-28T21:11:44.620] [INFO] default - Authentication check
+[2019-04-28T21:11:44.624] [INFO] default - User authenticated
+[2019-04-28T21:14:56.915] [INFO] default - Authentication check
+[2019-04-28T21:14:56.923] [INFO] default - User authenticated
+[2019-04-28T21:18:19.355] [INFO] default - Authentication check
+[2019-04-28T21:18:19.359] [INFO] default - User authenticated
+[2019-04-28T21:20:48.468] [INFO] default - Authentication check
+[2019-04-28T21:20:48.474] [INFO] default - User authenticated

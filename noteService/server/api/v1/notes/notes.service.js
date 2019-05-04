@@ -5,7 +5,7 @@ const createNote = (data, userId) => {
 };
 
 const getNoteForUserID = (userId) => {
-  return dao.getNoteForUserID(userId);
+  return dao.getAllNoteForUserID(userId);
 };
 
 const updateNotes = (noteid, data) => {
@@ -20,16 +20,16 @@ const shareNote = (noteid, userIds) => {
     return dao.shareNote(noteid, userIds);
 };
 
-const deleteNotes = (noteIds) => {
-    return dao.deleteNotes(noteIds);
+const deleteNotes = (noteId) => {
+    return dao.deleteNotes(noteId);
 };
 
-const addNoteToFavourites = (noteIds) => {
-    return dao.addNoteToFavourites(noteIds);
+const addNoteToFavourites = (noteId, isFav) => {
+    return dao.addNoteToFavourites(noteId, isFav);
 };
 
-const addNoteToGroup = (groupName, noteIds) => {
-    return dao.addNoteToGroup(groupName, noteIds);
+const addNoteToGroup = (groupName, noteId) => {
+    return dao.addNoteToGroup(groupName, noteId);
 };
 
 const isUserAllowedForNote = (userid, noteid) => {

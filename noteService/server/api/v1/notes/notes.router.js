@@ -12,14 +12,16 @@ router.get('/:noteId', controller.getNoteForNoteID);
 
 router.put('/:noteId', controller.updateNotes);
 
-router.put('/share', controller.shareNote);
+router.delete('/:noteId', controller.deleteNotes);
 
-router.delete('/delete', controller.deleteNotes);
+router.put('/:noteId/share', controller.shareNote);
 
-router.put('/addFavorites', controller.addNoteToFavourites);
+router.put('/:noteId/addFavorites', controller.addNoteToFavourites);
 
-router.put('/addGroup', controller.addNoteToGroup);
+router.put('/:noteId/removeFavorites', controller.removeNoteFromFavourites);
 
-router.get('/isAllowed', controller.isUserAllowedForNote);
+router.put('/:noteId/addGroup', controller.addNoteToGroup);
+
+router.get('/:noteId/isAllowed', controller.isUserAllowedForNote);
 
 module.exports = router;
