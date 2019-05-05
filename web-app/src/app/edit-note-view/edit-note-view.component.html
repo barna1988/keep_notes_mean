@@ -2,9 +2,11 @@
   <mat-toolbar-row>
     <span>Edit Note - <span class='note-id'>{{note.id}}</span></span>
     <span class="example-spacer"></span>
-    <button mat-icon-button>
-      <mat-icon *ngIf='!isFavourite' aria-label="Add Favourite" matTooltip="Add to Favourite" (click)='onFavourite(true)'>favorite</mat-icon>
-      <mat-icon *ngIf='isFavourite' color="warn" aria-label="Remove Favourite" matTooltip="Remove from Favourite" (click)='onFavourite(false)'>favorite</mat-icon>
+    <button mat-icon-button *ngIf='!isFavourite' matTooltip="Add to Favourite." (click)='onFavourite(true)'>
+      <mat-icon aria-label="Add Favourite" >favorite</mat-icon>
+    </button>
+    <button mat-icon-button *ngIf='isFavourite' matTooltip="Remove from Favourite." (click)='onFavourite(false)'>
+      <mat-icon color="warn" aria-label="Remove Favourite" >favorite</mat-icon>
     </button>
   </mat-toolbar-row>
 </mat-toolbar>

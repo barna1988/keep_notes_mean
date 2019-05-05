@@ -18,8 +18,8 @@ export class Note {
         this.userId = '';
         this.createdOn = new Date();
         this.modifiedOn = new Date();
-        //this.sharedTo = [''];
-        this.groupName = [''];
+        this.sharedTo = null;
+        this.groupName = null;
         this.isFavourite = false;
         this.checked = false;
     }

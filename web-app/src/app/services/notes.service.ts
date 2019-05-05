@@ -34,7 +34,6 @@ export class NotesService {
 
       //this.notes = [];
       if (response['notes']) {
-        console.log('adding notes', response['notes']);
         this.notes = response['notes'];
 
         this.notes.forEach(note => {
@@ -87,7 +86,11 @@ export class NotesService {
       }
     });
 
-    const deleteNoteObserver = this.httpClient.post<Note>(environment.url_notes_delete, noteToDelete, httpOptions);
+    let requestdata = {
+      noteId : noteToDelete
+    }
+
+    const deleteNoteObserver = this.httpClient.post(environment.url_notes_delete, requestdata, httpOptions);
 
     return deleteNoteObserver.pipe(tap(response => {
       console.log('resp in delete',response);
@@ -95,15 +98,12 @@ export class NotesService {
       let status = response['status'];
 
       if(status === 200) {
-        
         this.notes  = noteList.filter(element => !element.checked);
-
         console.log('filtered list : ' , this.notes);
       }
       
-      
       this.notesSubject.next(this.notes);
-    }))
+    }));
 
   }
 
@@ -154,6 +154,7 @@ export class NotesService {
       this.notesSubject.next(this.notes);
     }));
   }
+
 
   getNoteById(noteId): Note {
     console.log('notes in getNoteById :', this.notes);

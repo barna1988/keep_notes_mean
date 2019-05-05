@@ -39,7 +39,6 @@ export class EditNoteViewComponent {
         }
       }
     );
-
   }
 
   onFavourite(isFav) {
@@ -49,9 +48,7 @@ export class EditNoteViewComponent {
     const addFavNoteObs = this.noteService.addToFavourite(this.note);
 
     addFavNoteObs.subscribe(
-      (response) => {
-        this.isFavourite = isFav;
-      },
+      (response) => this.isFavourite = isFav,
       (err) => {
         if (err.error) {
           this.errMessage = err.error.message;

@@ -217,8 +217,8 @@ const deleteNotes = (noteId) => {
     return new Promise((resolve, reject) => {
         try {
 
-            log.info(`note id to delete ${noteId}`);
-            noteModel.remove({ id: { $in: noteId } }, (err) => {
+            log.info('note id to delete', noteId);
+            noteModel.deleteMany({ id: { $in: noteId } }, (err) => {
                 if (err) {
                     throw err;
                 } else {
@@ -396,7 +396,7 @@ const addNoteToGroup = (groupName, noteids) => {
 const isUserAllowedForNote = (userid, noteid) => {
     return new Promise((resolve, reject) => {
         try {
-            log.info(`checking note (${noteid}) permissions for user: ${userid}`);
+            log.info(`checking note(${ noteid }) permissions for user: ${ userid } `);
 
             noteModel.findOne({ id: noteid }, (err, note) => {
                 if (err) {
@@ -436,7 +436,7 @@ const isUserAllowedForNote = (userid, noteid) => {
 const searchNoteByTitle = (titlename, userid) => {
     return new Promise((resolve, reject) => {
         try {
-            log.info(`searching notes by title - ${titlename} by user - ${userid}`);
+            log.info(`searching notes by title - ${ titlename } by user - ${ userid } `);
 
             let searchCriteria = {
                 title: {$regex: titlename,  $options: 'i'}, //regex search

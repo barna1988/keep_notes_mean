@@ -127,7 +127,7 @@ const deleteNotes = (req, res) => {
 
     try {
         const noteId = req.body.noteId;   //**noteId** will be passed as request body
-        const noteArr = [];
+        let noteArr = [];
         if (Array.isArray(noteId)) {
             noteArr = noteId;
         } else {

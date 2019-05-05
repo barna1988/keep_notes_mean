@@ -23,7 +23,6 @@ export class NoteActionsComponent {
     )
     
   }
-
   getNotes() {
     let noteList = [];
     const noteObs = this.noteSvc.getNotes();
@@ -37,6 +36,21 @@ export class NoteActionsComponent {
     );
 
     return noteList;
+  }
+
+  getNotesSelected() {
+    let noteList = [];
+    const noteObs = this.noteSvc.getNotes();
+
+    noteObs.subscribe(
+      (response) => {
+        console.log('resp in NoteViewComponent nginit : ', response);
+        noteList = response;
+      },
+      (error) => console.log(error.message)
+    );
+
+    return noteList.filter(element => element.checked);
   }
 
 }
