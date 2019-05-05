@@ -155,6 +155,65 @@ export class NotesService {
     }));
   }
 
+  shareNotes(selectedNoteIDs : Array<string>, selectedUsers : Array<string>, access : string) {
+    const token = this.authSvc.getBearerToken();
+    const httpOptions = {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`)
+    };
+
+    const data = {
+      noteId : selectedNoteIDs,
+      userId : selectedUsers,
+      access : access
+    }
+
+    let shareNoteObserver = this.httpClient.put<Note>(environment.url_notes_share, data, httpOptions);
+
+    return shareNoteObserver.pipe(tap(response => {
+
+      let addedNote = response['updateResult'];
+      console.log('updated fav: ', addedNote);
+
+      this.notes.forEach(element => {
+        if(element.checked) {
+          element.sharedTo.concat(selectedUsers);
+        }
+      });
+
+      this.notesSubject.next(this.notes);
+
+    }));    
+  }
+
+  groupNotes(selectedNoteIDs : Array<string>, selectedGroups : Array<string>) {
+    const token = this.authSvc.getBearerToken();
+    const httpOptions = {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`)
+    };
+
+    const data = {
+      noteId : selectedNoteIDs,
+      groupName : selectedGroups
+    }
+
+    let groupNoteObserver = this.httpClient.put<Note>(environment.url_notes_addGroup, data, httpOptions);
+
+    return groupNoteObserver.pipe(tap(response => {
+
+      let addedNote = response['updateResult'];
+      console.log('updated fav: ', addedNote);
+
+      this.notes.forEach(element => {
+        if(element.checked) {
+          element.groupName.concat(selectedGroups);
+        }
+      });
+
+      this.notesSubject.next(this.notes);
+
+    }));    
+  }
+
 
   getNoteById(noteId): Note {
     console.log('notes in getNoteById :', this.notes);

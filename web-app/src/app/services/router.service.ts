@@ -37,6 +37,20 @@ export class RouterService {
     ]);
   }
 
+  routeToNoteUserEditView(action) {
+    this.router.navigate([
+      'dashboard', {
+
+        'outlets': {
+
+          noteUserOutlet: [
+            'note', action, 'users'
+          ]
+        }
+      }
+    ]);
+  }
+
   routeBack() {
     this.location.back();
   }

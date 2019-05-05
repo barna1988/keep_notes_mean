@@ -18,6 +18,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { HeaderComponent } from './header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -34,9 +35,9 @@ import { LoginComponent } from './login/login.component';
 import { EditNoteViewComponent } from './edit-note-view/edit-note-view.component';
 import { LogoutComponent } from './logout/logout.component';
 import { RegisterComponent } from './register/register.component';
-import { NoteShareOpenerComponent } from './note-share-opener/note-share-opener.component';
-import { NoteShareViewComponent } from './note-share-view/note-share-view.component';
 import { NoteActionsComponent } from './note-actions/note-actions.component';
+import { NoteSelectUserOpenerComponent } from './note-select-user-opener/note-select-user-opener.component';
+import { NoteSelectUserViewComponent } from './note-select-user-view/note-select-user-view.component';
 
 
 @NgModule({
@@ -53,9 +54,9 @@ import { NoteActionsComponent } from './note-actions/note-actions.component';
     EditNoteViewComponent,
     LogoutComponent,
     RegisterComponent,
-    NoteShareOpenerComponent,
-    NoteShareViewComponent,
-    NoteActionsComponent
+    NoteActionsComponent,
+    NoteSelectUserOpenerComponent,
+    NoteSelectUserViewComponent
   ],
   imports: [
     AppRoutingModule,
@@ -65,6 +66,7 @@ import { NoteActionsComponent } from './note-actions/note-actions.component';
     FormsModule,
     BrowserAnimationsModule,
     MatInputModule,
+    MatRadioModule,
     MatFormFieldModule,
     MatToolbarModule,
     MatExpansionModule,
@@ -84,6 +86,9 @@ import { NoteActionsComponent } from './note-actions/note-actions.component';
     CanActivateRouteGuard
   ],
   bootstrap: [AppComponent],
-  entryComponents: [EditNoteViewComponent]
+  entryComponents: [
+    EditNoteViewComponent,
+    NoteSelectUserViewComponent
+  ]
 })
 export class AppModule { }

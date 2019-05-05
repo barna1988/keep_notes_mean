@@ -1,27 +1,17 @@
-.keep-card-notes-list {
-    width: 100%;
-    margin: auto;
-}
 .keep-card-note {
     width: 50vw;
+    height: 20vh;
     margin: auto;
     margin-bottom: 3em;
 }
-.mat-card-icon {
+
+.keep-note-actions {
     display: flex;
-    flex-direction: column;
     float: right;
 }
-.mat-card-checkbox {
+
+.keep-note-checkbox {
     display: flex;
     float: left;
-    margin-left: 20vw;
-    margin-top: 5vh;
+    margin-left: 8px;
 }
-/* .keep-card-note-title {
-    margin-left: 10%
-}
-.keep-card-note-content{
-    margin-left: 10%
-} */
-

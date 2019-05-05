@@ -1,0 +1,40 @@
+.users-container{    
+    width: 50vw;
+    margin: auto;
+  }
+  .users-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .users-wrapper > * {
+    width: 100%;
+  }
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  .user-action {
+    color:blue;
+  }
+
+  .disabled-text {
+      color: grey;
+  }
+
+  .users-list {
+      border: 1px black;
+  }
+
+  .edit-type-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+  }
+  
+  .edit-type-radio-button {
+    margin: 5px;
+  }
+  

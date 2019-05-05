@@ -1,8 +1,5 @@
-<mat-checkbox class='mat-card-checkbox' color="primary" (click)='toggleSelection()'></mat-checkbox>
-<mat-card class="keep-card-note" (click)='openNoteEditView()'>
-  <mat-icon *ngIf='note.isFavourite' class='mat-card-icon' color="warn" aria-label="Favourite" matTooltip="Favourite">favorite</mat-icon>
-  <mat-icon *ngIf='!note.isFavourite' class='mat-card-icon' aria-label="Favourite" matTooltip="Favourite">favorite</mat-icon>
-  
+<mat-card class="keep-card-note">
+
   <mat-card-title class="keep-card-note-title">
     {{note.title}}
   </mat-card-title>
@@ -10,4 +7,17 @@
     {{note.text}}
   </mat-card-content>
 
+  <mat-card-actions>
+    <mat-checkbox class='keep-note-checkbox' color="primary" (click)='toggleSelection()'></mat-checkbox>
+
+    <button mat-stroked-button class='keep-note-actions' matTooltip="View Note" 
+      (click)='openNoteEditView()'>Open</button>
+
+    <mat-icon *ngIf='note.isFavourite' class='keep-note-actions' color="warn" 
+      aria-label="Favourite" matTooltip="Favourite">favorite</mat-icon>
+    <mat-icon *ngIf='!note.isFavourite' class='keep-note-actions' 
+      aria-label="Favourite" matTooltip="Favourite">favorite</mat-icon>
+
+  </mat-card-actions>
+  
 </mat-card>

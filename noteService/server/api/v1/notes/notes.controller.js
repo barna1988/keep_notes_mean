@@ -90,21 +90,21 @@ const getNoteForNoteID = (req, res) => {
 const shareNote = (req, res) => {
     log.info('inside share');
     try {
-        const noteid = req.body.noteId;   //**noteId** will be passed as request body
+        const noteId = req.body.noteId;   //**noteId** will be passed as request body
         const userIds = req.body.userId;   //**userIds** will be passed as request body
         const access = req.body.access;   //**userIds** will be passed as request body
 
-        log.info('noteID[] : ', noteid);
+        log.info('noteID[] : ', noteId);
         log.info('userIds[] : ', userIds);
 
-        const noteArr = [];
+        let noteArr = [];
         if (Array.isArray(noteId)) {
             noteArr = noteId;
         } else {
             noteArr.push(noteId);
         }
 
-        const userArr = [];
+        let userArr = [];
         if (Array.isArray(userIds)) {
             userArr = userIds;
         } else {
@@ -198,14 +198,14 @@ const addNoteToGroup = (req, res) => {
         const noteId = req.body.noteId;   //**noteId** will be passed as request body
         const groupName = req.body.groupName;   //**groupName** will be passed as request body
 
-        const noteArr = [];
+        let noteArr = [];
         if (Array.isArray(noteId)) {
             noteArr = noteId;
         } else {
             noteArr.push(noteId);
         }
 
-        const groupArr = [];
+        let groupArr = [];
         if (Array.isArray(groupName)) {
             groupArr = groupName;
         } else {
