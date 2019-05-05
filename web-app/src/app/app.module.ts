@@ -18,6 +18,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { HeaderComponent } from './header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NoteViewComponent } from './note-view/note-view.component';
@@ -67,7 +68,8 @@ import { RegisterComponent } from './register/register.component';
     MatButtonModule,
     MatDialogModule,
     MatSelectModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatCheckboxModule
   ],
   providers: [
     AuthenticationService,
@@ -76,6 +78,6 @@ import { RegisterComponent } from './register/register.component';
     CanActivateRouteGuard
   ],
   bootstrap: [AppComponent],
-  entryComponents : [EditNoteViewComponent]
+  entryComponents: [EditNoteViewComponent]
 })
 export class AppModule { }

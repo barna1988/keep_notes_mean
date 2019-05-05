@@ -24,10 +24,9 @@ export class EditNoteOpenerComponent {
         noteId: noteId
       }
 
-    })
-      .afterClosed().subscribe(result => {
+    }).afterClosed().subscribe(result => {
         this.routerService.routeBack();
-      });
+    });
   }
 
 }

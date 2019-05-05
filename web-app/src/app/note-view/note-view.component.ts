@@ -24,12 +24,6 @@ export class NoteViewComponent implements OnInit {
       (response) => {
         console.log('resp in NoteViewComponent nginit : ', response);
         this.notes = response;
-        // if(response['notes']) {
-        //   this.notes = response['notes'];
-        // } else {
-        //   this.errMessage = response['message'];
-        //   this.notes = [];
-        // }
       },
       (error) => this.errMessage = error.message
     );

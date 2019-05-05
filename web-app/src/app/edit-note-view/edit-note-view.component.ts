@@ -13,7 +13,7 @@ export class EditNoteViewComponent {
   note: Note;
   states: Array<string> = ['not-started', 'started', 'completed'];
   errMessage: string;
-  isFavourite : boolean;
+  isFavourite: boolean;
 
   constructor(private noteService: NotesService,
     private dialogRef: MatDialogRef<EditNoteViewComponent>,
@@ -41,25 +41,31 @@ export class EditNoteViewComponent {
     );
 
   }
-  
+
   onFavourite(isFav) {
     console.log('adding isFav : ', isFav);
     this.note.isFavourite = isFav;
-    
+
     const addFavNoteObs = this.noteService.addToFavourite(this.note);
-    
-        addFavNoteObs.subscribe(
-          (response) => {
-            this.isFavourite = isFav;
-          },
-          (err) => {
-            if (err.error) {
-              this.errMessage = err.error.message;
-            } else {
-              this.errMessage = err.message;
-            }
-          }
-        );
+
+    addFavNoteObs.subscribe(
+      (response) => {
+        this.isFavourite = isFav;
+      },
+      (err) => {
+        if (err.error) {
+          this.errMessage = err.error.message;
+        } else {
+          this.errMessage = err.message;
+        }
+      }
+    );
+  }
+
+  cancel() {
+    setTimeout(() => {
+      this.dialogRef.close();
+    }, 1000);
   }
 
 }

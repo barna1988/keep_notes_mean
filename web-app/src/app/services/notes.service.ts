@@ -36,6 +36,10 @@ export class NotesService {
       if (response['notes']) {
         console.log('adding notes', response['notes']);
         this.notes = response['notes'];
+
+        this.notes.forEach(note => {
+          note.checked = false;
+        });
       }
 
       this.notesSubject.next(this.notes);

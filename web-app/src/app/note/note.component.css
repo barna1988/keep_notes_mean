@@ -3,5 +3,22 @@
     margin: auto;
 }
 .keep-card-note {
-    margin-bottom: 2em;
+    width: 50vw;
+    margin: auto;
+    margin-bottom: 3em;
 }
+.mat-card-icon {
+    display: flex;
+    flex-direction: column;
+    float: right;
+}
+.mat-card-checkbox {
+    display: flex;
+    float: left;
+    margin-left: 20vw;
+    margin-top: 5vh;
+}
+.keep-card-note-title, .keep-card-note-content{
+    margin-left: 10%
+}
+

@@ -4,12 +4,14 @@
 .keep-c-list-container {
     display: flex;
     flex-direction: column;
-    width: 25%;
-    margin: 2em;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* margin: 2em; */
 }
 .keep-c-list-container label {
     font-size: 15px;
-    padding: 0 0 1em 0;
+    /* padding: 0 0 1em 0; */
     font-family: cursive;
     color: blue;
 }

@@ -1,6 +1,8 @@
 .keep-note-taker-panel {
     width: 55vw;
     margin: auto;
+    margin-top: 2.5em;
+    margin-bottom: 3em;
 }
 .keep-note-taker-wrapper{
     display: flex;
@@ -9,10 +11,6 @@
 .keep-note--button{
     display : flex;
     justify-content: flex-end;
-}
-.keep-note-taker-panel {
-    margin-top: 2.5em;
-    margin-bottom: 3em;
 }
 .error-message {
     color: red;

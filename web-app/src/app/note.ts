@@ -9,6 +9,7 @@ export class Note {
     sharedTo: [string];
     isFavourite: boolean;
     groupName: [string];
+    checked : boolean;
 
     constructor() {
         this.title = '';
@@ -20,6 +21,6 @@ export class Note {
         //this.sharedTo = [''];
         this.groupName = [''];
         this.isFavourite = false;
-
+        this.checked = false;
     }
 }
