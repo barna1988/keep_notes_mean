@@ -1,20 +1,34 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Edit Note - <span class='note-id'>{{note.id}}</span></span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button>
+      <mat-icon *ngIf='!isFavourite' aria-label="Add Favourite" matTooltip="Add to Favourite" (click)='onFavourite(true)'>favorite</mat-icon>
+      <mat-icon *ngIf='isFavourite' color="warn" aria-label="Remove Favourite" matTooltip="Remove from Favourite" (click)='onFavourite(false)'>favorite</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class='note-container'>
+  <mat-card>
+    <div class='note-wrapper'>
+      <mat-form-field>
+        <input [(ngModel)]="note.title" name="editTitle" matInput placeholder="Title" type="text">
+      </mat-form-field>
+      <mat-form-field>
+        <textarea [(ngModel)]="note.text" name="editText" matInput placeholder="Text"></textarea>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select name="editStatus" placeholder="Select state" [(ngModel)]="note.state">
+          <mat-option *ngFor="let state of states" [value]="state">
+            {{ state }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+      <button mat-raised-button color='primary' (click)="onSave()">Save</button>
+    </div>
+  </mat-card>
+</div>
 <!-- Label to display any error messages -->
 <label class="error-message">{{ errMessage }}</label>
-
-
-<mat-form-field>
-  <input [(ngModel)]="note.title" name="editTitle" matInput placeholder="Title" type="text">
-</mat-form-field>
-<mat-form-field>
-  <textarea [(ngModel)]="note.text" name="editText" matInput placeholder="Text"></textarea>
-</mat-form-field>
-<mat-form-field>
-  <mat-select name="editStatus" placeholder="Select state" [(ngModel)]="note.state">
-    <mat-option *ngFor="let state of states" [value]="state">
-      {{ state }}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
-<div class="keep-c-done-wrapper">
-  <button mat-button (click)="onSave()">Save</button>
-</div>

@@ -7,7 +7,7 @@ export class Note {
     createdOn: Date;
     modifiedOn: Date;
     sharedTo: [string];
-    isfavourite: boolean;
+    isFavourite: boolean;
     groupName: [string];
 
     constructor() {
@@ -19,7 +19,7 @@ export class Note {
         this.modifiedOn = new Date();
         //this.sharedTo = [''];
         this.groupName = [''];
-        this.isfavourite = false;
+        this.isFavourite = false;
 
     }
 }

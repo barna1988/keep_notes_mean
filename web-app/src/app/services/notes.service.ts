@@ -82,6 +82,41 @@ export class NotesService {
     }))
   }
 
+  addToFavourite(note: Note): Observable<Note> {
+    const token = this.authSvc.getBearerToken();
+    const httpOptions = {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`)
+    };
+
+    const isFav = note.isFavourite;
+
+    const data = {
+      noteId : note.id
+    }
+
+    let addNoteObserver;
+
+    if(isFav) {
+      addNoteObserver = this.httpClient.put<Note>(environment.url_notes_add_favourite, data, httpOptions);
+    } else {
+      addNoteObserver = this.httpClient.put<Note>(environment.url_notes_remove_favourite, data, httpOptions);
+    }
+    
+    return addNoteObserver.pipe(tap(response => {
+      
+      let addedNote = response['updateResult'];
+      console.log('updated fav: ', addedNote);
+
+      this.notes.forEach(element => {
+        if(element.id === addedNote.id ) {
+          element.isFavourite = addedNote.isFavourite;
+        }
+      });
+
+      this.notesSubject.next(this.notes);
+    }));
+  }
+
   getNoteById(noteId): Note {
     console.log('notes in getNoteById :', this.notes);
 
