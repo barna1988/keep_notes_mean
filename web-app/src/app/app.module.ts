@@ -26,6 +26,10 @@ import { AuthenticationService } from './services/authentication.service';
 import { NotesService } from './services/notes.service';
 import { RouterService } from './services/router.service';
 import { CanActivateRouteGuard } from './can-activate-route.guard';
+import { NoteComponent } from './note/note.component';
+import { NoteTakerComponent } from './note-taker/note-taker.component';
+import { LoginComponent } from './login/login.component';
+import { EditNoteViewComponent } from './edit-note-view/edit-note-view.component';
 
 
 @NgModule({
@@ -35,12 +39,16 @@ import { CanActivateRouteGuard } from './can-activate-route.guard';
     DashboardComponent,
     NoteViewComponent,
     ListViewComponent,
-    EditNoteOpenerComponent
+    EditNoteOpenerComponent,
+    NoteComponent,
+    NoteTakerComponent,
+    LoginComponent,
+    EditNoteViewComponent
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserModule,
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
@@ -62,6 +70,6 @@ import { CanActivateRouteGuard } from './can-activate-route.guard';
     CanActivateRouteGuard
   ],
   bootstrap: [AppComponent],
-  entryComponents : []
+  entryComponents : [EditNoteViewComponent]
 })
 export class AppModule { }
