@@ -10,7 +10,8 @@ export const environment = {
   url_notes_create_get : 'http://localhost:3001/api/v1/notes?userId=',
   url_notes_update : 'http://localhost:3001/api/v1/notes/',
   url_notes_add_favourite : 'http://localhost:3001/api/v1/notes/addFavorites',
-  url_notes_remove_favourite : 'http://localhost:3001/api/v1/notes/removeFavorites'
+  url_notes_remove_favourite : 'http://localhost:3001/api/v1/notes/removeFavorites',
+  url_notes_delete : 'http://localhost:3001/api/v1/notes/delete'
 };
 
 /*

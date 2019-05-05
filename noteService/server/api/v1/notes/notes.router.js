@@ -10,7 +10,7 @@ router.post('/', controller.createNote);
 
 router.put('/share', controller.shareNote);
 
-router.delete('/delete', controller.deleteNotes);
+router.post('/delete', controller.deleteNotes);
 
 router.put('/addFavorites', controller.addNoteToFavourites);
 

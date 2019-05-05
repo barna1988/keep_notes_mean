@@ -1,0 +1,11 @@
+.keep-note-actions {
+    display : flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.keep-note-actions button {
+    margin-bottom: 5%;
+    margin-right: 2%;
+}

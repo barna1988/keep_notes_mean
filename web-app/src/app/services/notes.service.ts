@@ -73,6 +73,40 @@ export class NotesService {
 
   }
 
+  deleteNote(noteList: Array<Note>) {
+
+    const token = this.authSvc.getBearerToken();
+    const httpOptions = {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`)
+    };
+
+    const noteToDelete = [];
+    noteList.forEach(element => {
+      if(element.checked) {
+        noteToDelete.push(element.id)
+      }
+    });
+
+    const deleteNoteObserver = this.httpClient.post<Note>(environment.url_notes_delete, noteToDelete, httpOptions);
+
+    return deleteNoteObserver.pipe(tap(response => {
+      console.log('resp in delete',response);
+
+      let status = response['status'];
+
+      if(status === 200) {
+        
+        this.notes  = noteList.filter(element => !element.checked);
+
+        console.log('filtered list : ' , this.notes);
+      }
+      
+      
+      this.notesSubject.next(this.notes);
+    }))
+
+  }
+
   editNote(note: Note): Observable<Note> {
     const token = this.authSvc.getBearerToken();
     const httpOptions = {

@@ -34,6 +34,9 @@ import { LoginComponent } from './login/login.component';
 import { EditNoteViewComponent } from './edit-note-view/edit-note-view.component';
 import { LogoutComponent } from './logout/logout.component';
 import { RegisterComponent } from './register/register.component';
+import { NoteShareOpenerComponent } from './note-share-opener/note-share-opener.component';
+import { NoteShareViewComponent } from './note-share-view/note-share-view.component';
+import { NoteActionsComponent } from './note-actions/note-actions.component';
 
 
 @NgModule({
@@ -49,7 +52,10 @@ import { RegisterComponent } from './register/register.component';
     LoginComponent,
     EditNoteViewComponent,
     LogoutComponent,
-    RegisterComponent
+    RegisterComponent,
+    NoteShareOpenerComponent,
+    NoteShareViewComponent,
+    NoteActionsComponent
   ],
   imports: [
     AppRoutingModule,
