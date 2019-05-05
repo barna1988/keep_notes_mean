@@ -22,6 +22,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NoteViewComponent } from './note-view/note-view.component';
 import { ListViewComponent } from './list-view/list-view.component';
 import { EditNoteOpenerComponent } from './edit-note-opener/edit-note-opener.component';
+import { AuthenticationService } from './services/authentication.service';
+import { NotesService } from './services/notes.service';
+import { RouterService } from './services/router.service';
+import { CanActivateRouteGuard } from './can-activate-route.guard';
 
 
 @NgModule({
@@ -51,7 +55,12 @@ import { EditNoteOpenerComponent } from './edit-note-opener/edit-note-opener.com
     MatDialogModule,
     MatSelectModule
   ],
-  providers: [],
+  providers: [
+    AuthenticationService,
+    NotesService,
+    RouterService,
+    CanActivateRouteGuard
+  ],
   bootstrap: [AppComponent],
   entryComponents : []
 })

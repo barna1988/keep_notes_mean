@@ -246,3 +246,6 @@
 [2019-05-04T20:07:22.943] [INFO] default - User authenticated
 [2019-05-04T20:12:42.167] [INFO] default - Authentication check
 [2019-05-04T20:12:42.172] [INFO] default - User authenticated
+[2019-05-05T16:12:43.103] [INFO] default - Setting up API middleware
+[2019-05-05T16:12:43.165] [INFO] default - Server is running on port 3000
+[2019-05-05T16:12:44.290] [INFO] default - Successfully connected to database: mongodb://localhost:27017/keep
