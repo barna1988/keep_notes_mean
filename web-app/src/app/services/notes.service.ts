@@ -25,17 +25,33 @@ export class NotesService {
     const httpOptions = {
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`)
     };
+    const userId = this.authSvc.getLoginUserID();
 
-    const getNoteObserver = this.httpClient.get<Array<Note>>('http://localhost:3000/api/v1/notes', httpOptions);
+    const getNoteObserver = this.httpClient.get<Array<Note>>(`http://localhost:3001/api/v1/notes?userId=${userId}`, httpOptions);
 
-    getNoteObserver.subscribe(noteList => {
-        this.notes = noteList;
-        this.notesSubject.next(this.notes);
-      },
+    getNoteObserver.subscribe(response => {
+      
+      //this.notes = [];
+      if (response['notes']) {
+        console.log('adding notes', response['notes']);
+        this.notes = response['notes'];
+      }
+
+      this.notesSubject.next(this.notes);
+    },
       err => {
         console.log('Error in fetchNotesFromServer.', err);
       }
     );
+
+    // getNoteObserver.subscribe(noteList => {
+    //     this.notes = noteList;
+    //     this.notesSubject.next(this.notes);
+    //   },
+    //   err => {
+    //     console.log('Error in fetchNotesFromServer.', err);
+    //   }
+    // );
   }
 
   getNotes(): BehaviorSubject<Array<Note>> {
@@ -49,13 +65,15 @@ export class NotesService {
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`)
     };
 
-    const addNoteObserver = this.httpClient.post<Note>('http://localhost:3000/api/v1/notes', note, httpOptions);
+    console.log('adding note : ', note);
+    const addNoteObserver = this.httpClient.post<Note>(`http://localhost:3001/api/v1/notes?userId=${note.userId}`, note, httpOptions);
 
-    return addNoteObserver.pipe(tap(addedNote => {
+    return addNoteObserver.pipe(tap(response => {
+      let addedNote = response['note'];
       this.notes.push(addedNote);
       this.notesSubject.next(this.notes);
     }))
-    
+
   }
 
   editNote(note: Note): Observable<Note> {
@@ -64,7 +82,7 @@ export class NotesService {
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`)
     };
 
-    const addNoteObserver = this.httpClient.put<Note>(`http://localhost:3000/api/v1/notes/${note.id}`, note, httpOptions);
+    const addNoteObserver = this.httpClient.put<Note>(`http://localhost:3001/api/v1/notes/${note.id}`, note, httpOptions);
 
     return addNoteObserver.pipe(tap(addedNote => {
       this.notesSubject.next(this.notes);
@@ -72,7 +90,12 @@ export class NotesService {
   }
 
   getNoteById(noteId): Note {
-    return this.notes.find((current) => current.id === noteId);
+    console.log('notes in getNoteById :', this.notes);
+
+    let notefound = this.notes.find((current) => current.id === noteId);
+
+    console.log('returning note', notefound);
+    return notefound;
   }
 
 

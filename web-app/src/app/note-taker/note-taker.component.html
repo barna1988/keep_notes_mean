@@ -15,6 +15,8 @@
       <mat-form-field>
         <textarea matInput name='text' [(ngModel)]='note.text' placeholder='Enter Note Text'></textarea>
       </mat-form-field>
+      <label class='disabled-text'>User ID: {{note.userId}}</label>
+      
       <div class='keep-note--button'>
         <button mat-raised-button (click)='addNotes()' color='primary'>Done</button>
       </div>

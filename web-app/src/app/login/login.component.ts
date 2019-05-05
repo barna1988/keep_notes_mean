@@ -36,17 +36,20 @@ export class LoginComponent {
         resp => {
           if (resp) {
             this.authSvc.setBearerToken(resp);
+            this.authSvc.setLoginUserID(credentials.username);
             this.invalidLogin = false;
             this.routerSvc.routeToDashboard();
 
           } else {
             this.authSvc.removeBearerToken();
+            this.authSvc.removeLoginUserID();
             this.submitMessage = 'Unauthorized';
             this.invalidLogin = true;
           }
         },
         err => {
           this.authSvc.removeBearerToken();
+          this.authSvc.removeLoginUserID();
           if (err.error) {
             this.submitMessage = err.error.message;
           } else {

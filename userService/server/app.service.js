@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const db = require('./db');
 const apiV1 = require('./api/v1');
+const cors = require('cors');
 
 const log = require('./logging');
 
@@ -15,6 +16,7 @@ log.info('Setting up API middleware');
 const setMiddleware = (app) => {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: false }));
+    app.use(cors());
     //app.use('/api/v1/users/api-specs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
     morgan.token('time', () => new Date().toISOString());
     app.use(morgan('[:time] :remote-addr :method :url :status :res[content-length] :response-time ms'));
