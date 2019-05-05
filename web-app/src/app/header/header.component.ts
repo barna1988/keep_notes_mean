@@ -21,5 +21,9 @@ export class HeaderComponent {
     this.routerSvc.routeToNoteView();
   }
 
+  switchToLogout() {
+    this.isNoteView = false;
+    this.routerSvc.routeToLogout();
+  }
 
 }

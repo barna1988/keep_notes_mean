@@ -464,3 +464,33 @@
     at IncomingMessage.<anonymous> (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\request\request.js:1083:12)
     at Object.onceWrapper (events.js:277:13)
     at IncomingMessage.emit (events.js:194:15)
+[2019-05-05T16:42:59.455] [INFO] default - Setting up API middleware
+[2019-05-05T16:42:59.508] [INFO] default - Server is running on port 3001
+[2019-05-05T16:43:00.553] [INFO] default - Successfully connected to database: mongodb://localhost:27017/keep
+[2019-05-05T16:43:08.352] [INFO] default - body in auth svc undefined
+[2019-05-05T16:43:08.355] [INFO] default - error in notes auth svc { Error: connect ECONNREFUSED 127.0.0.1:3000
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1104:14)
+  errno: 'ECONNREFUSED',
+  code: 'ECONNREFUSED',
+  syscall: 'connect',
+  address: '127.0.0.1',
+  port: 3000 }
+[2019-05-05T16:45:35.553] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-05T16:45:35.558] [INFO] default - authenticated
+[2019-05-05T16:45:35.606] [INFO] default - TypeError: Assignment to constant variable.
+    at addNoteToGroup (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\server\api\v1\notes\notes.controller.js:203:21)
+    at Layer.handle [as handle_request] (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\express\lib\router\layer.js:95:5)
+    at D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\express\lib\router\index.js:275:10)
+    at Request.request.post [as _callback] (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\server\services\auth.service.js:36:13)
+    at Request.self.callback (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\request\request.js:185:22)
+    at Request.emit (events.js:189:13)
+    at Request.<anonymous> (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\request\request.js:1161:10)
+    at Request.emit (events.js:189:13)
+    at IncomingMessage.<anonymous> (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\request\request.js:1083:12)
+    at Object.onceWrapper (events.js:277:13)
+    at IncomingMessage.emit (events.js:194:15)

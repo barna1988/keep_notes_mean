@@ -12,6 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
@@ -30,6 +31,8 @@ import { NoteComponent } from './note/note.component';
 import { NoteTakerComponent } from './note-taker/note-taker.component';
 import { LoginComponent } from './login/login.component';
 import { EditNoteViewComponent } from './edit-note-view/edit-note-view.component';
+import { LogoutComponent } from './logout/logout.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -43,7 +46,9 @@ import { EditNoteViewComponent } from './edit-note-view/edit-note-view.component
     NoteComponent,
     NoteTakerComponent,
     LoginComponent,
-    EditNoteViewComponent
+    EditNoteViewComponent,
+    LogoutComponent,
+    RegisterComponent
   ],
   imports: [
     AppRoutingModule,
@@ -61,7 +66,8 @@ import { EditNoteViewComponent } from './edit-note-view/edit-note-view.component
     MatListModule,
     MatButtonModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTooltipModule
   ],
   providers: [
     AuthenticationService,

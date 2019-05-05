@@ -35,7 +35,7 @@ const createNote = (userId, note) => {
 };
 
 const getAllNoteForUserID = (userID) => {
-    // console.log('getting note for userID : ', userID);
+    log.info('getting note for userID : ', userID);
 
     return new Promise((resolve, reject) => {
 

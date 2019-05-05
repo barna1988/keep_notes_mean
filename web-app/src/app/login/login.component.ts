@@ -61,4 +61,7 @@ export class LoginComponent {
     }
   }
 
+  registration() {
+    this.routerSvc.routeToRegister();
+  }
 }

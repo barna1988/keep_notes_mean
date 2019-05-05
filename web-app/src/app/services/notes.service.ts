@@ -5,6 +5,7 @@ import { AuthenticationService } from './authentication.service';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 import { tap } from "rxjs/operators";
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -27,10 +28,10 @@ export class NotesService {
     };
     const userId = this.authSvc.getLoginUserID();
 
-    const getNoteObserver = this.httpClient.get<Array<Note>>(`http://localhost:3001/api/v1/notes?userId=${userId}`, httpOptions);
+    const getNoteObserver = this.httpClient.get<Array<Note>>(environment.url_notes_create_get + userId, httpOptions);
 
     getNoteObserver.subscribe(response => {
-      
+
       //this.notes = [];
       if (response['notes']) {
         console.log('adding notes', response['notes']);
@@ -44,14 +45,6 @@ export class NotesService {
       }
     );
 
-    // getNoteObserver.subscribe(noteList => {
-    //     this.notes = noteList;
-    //     this.notesSubject.next(this.notes);
-    //   },
-    //   err => {
-    //     console.log('Error in fetchNotesFromServer.', err);
-    //   }
-    // );
   }
 
   getNotes(): BehaviorSubject<Array<Note>> {
@@ -66,7 +59,7 @@ export class NotesService {
     };
 
     console.log('adding note : ', note);
-    const addNoteObserver = this.httpClient.post<Note>(`http://localhost:3001/api/v1/notes?userId=${note.userId}`, note, httpOptions);
+    const addNoteObserver = this.httpClient.post<Note>(environment.url_notes_create_get + note.userId, note, httpOptions);
 
     return addNoteObserver.pipe(tap(response => {
       let addedNote = response['note'];
@@ -82,7 +75,7 @@ export class NotesService {
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`)
     };
 
-    const addNoteObserver = this.httpClient.put<Note>(`http://localhost:3001/api/v1/notes/${note.id}`, note, httpOptions);
+    const addNoteObserver = this.httpClient.put<Note>(environment.url_notes_update + note.id, note, httpOptions);
 
     return addNoteObserver.pipe(tap(addedNote => {
       this.notesSubject.next(this.notes);

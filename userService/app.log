@@ -249,3 +249,12 @@
 [2019-05-05T16:12:43.103] [INFO] default - Setting up API middleware
 [2019-05-05T16:12:43.165] [INFO] default - Server is running on port 3000
 [2019-05-05T16:12:44.290] [INFO] default - Successfully connected to database: mongodb://localhost:27017/keep
+[2019-05-05T16:44:49.548] [INFO] default - Setting up API middleware
+[2019-05-05T16:44:49.586] [INFO] default - Server is running on port 3000
+[2019-05-05T16:44:50.640] [INFO] default - Successfully connected to database: mongodb://localhost:27017/keep
+[2019-05-05T16:45:11.712] [INFO] default - user login route
+[2019-05-05T16:45:11.714] [INFO] default - login user: {"username":"harry","password":"potter"}
+[2019-05-05T16:45:11.742] [INFO] default - login with payload { userName: 'harry',
+  userId: '2815f3d0-69c2-11e9-8de5-793a91fe9fee' }
+[2019-05-05T16:45:35.537] [INFO] default - Authentication check
+[2019-05-05T16:45:35.544] [INFO] default - User authenticated

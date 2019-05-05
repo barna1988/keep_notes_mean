@@ -1,0 +1,20 @@
+<!-- Label to display any error messages -->
+<label class='error-message'>{{ submitMessage }}</label>
+
+<div class='register-container'>
+  <mat-card>
+    <div class='register-wrapper'>
+      <mat-form-field>
+        <input matInput class='email' name='email' placeholder='Enter your E-mail' [formControl]='email' required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput class='username' name='username' placeholder='Enter your User Name' [formControl]='username' required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput class='password' name='password' placeholder='Enter your password' type='password' [formControl]='password'
+          required>
+      </mat-form-field>
+      <button mat-raised-button color='primary' (click)='registerSubmit()'>Register</button>
+    </div>
+  </mat-card>
+</div>

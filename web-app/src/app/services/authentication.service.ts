@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class AuthenticationService {
@@ -9,13 +10,14 @@ export class AuthenticationService {
 
   authenticateUser(data) {
 
-    return this.httpClient.post('http://localhost:3000/api/v1/users/login', data)
+    return this.httpClient.post(environment.url_user_login, data)
       .pipe(map(response => response['token']));
   }
 
   registerUser(data) {
 
-    this.httpClient.post('http://localhost:3000/api/v1/users/register', data);
+    return this.httpClient.post(environment.url_user_register, data)
+      .pipe(map(response => response['userInfo']));
   }
 
   setBearerToken(token) {
@@ -47,12 +49,16 @@ export class AuthenticationService {
     const httpOptions = {
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`)
     };
-    const resp = this.httpClient.post('http://localhost:3000/api/v1/auth', {}, httpOptions)
+    const resp = this.httpClient.post(environment.url_user_auth, {}, httpOptions)
       .pipe(map(response => response['isAuthenticated']));
 
     return resp.toPromise();
 
   }
 
+  logout() {
+    this.removeBearerToken();
+    this.removeLoginUserID();
+  }
 
 }
