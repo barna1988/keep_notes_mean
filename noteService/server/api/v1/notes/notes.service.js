@@ -16,8 +16,8 @@ const getNoteForNoteID = (noteid) => {
   return dao.getNoteForNoteID(noteid);
 };
 
-const shareNote = (noteid, userIds, access) => {
-  return dao.shareNote(noteid, userIds, access);
+const shareNote = (noteid, userIds) => {
+  return dao.shareNote(noteid, userIds);
 };
 
 const deleteNotes = (noteId) => {

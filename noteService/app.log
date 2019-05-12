@@ -494,3 +494,11 @@
     at IncomingMessage.<anonymous> (D:\FSD\Assignments\Keep_Notes_Final\keep_notes_mean\noteService\node_modules\request\request.js:1083:12)
     at Object.onceWrapper (events.js:277:13)
     at IncomingMessage.emit (events.js:194:15)
+[2019-05-12T14:55:15.842] [INFO] default - Setting up API middleware
+[2019-05-12T14:55:16.072] [INFO] default - Server is running on port 3001
+[2019-05-12T14:55:17.341] [INFO] default - Successfully connected to database: mongodb://localhost:27017/keep
+[2019-05-12T14:56:58.623] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-12T14:56:58.628] [INFO] default - authenticated
+[2019-05-12T15:05:42.021] [INFO] default - Setting up API middleware
+[2019-05-12T15:05:42.220] [INFO] default - Server is running on port 3001
+[2019-05-12T15:05:43.417] [INFO] default - Successfully connected to database: mongodb://localhost:27017/keep

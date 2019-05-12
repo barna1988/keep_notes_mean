@@ -267,3 +267,7 @@
   userId: 'a13d87d0-6f28-11e9-8c67-1db4f8475a52' }
 [2019-05-12T14:56:58.574] [INFO] default - Authentication check
 [2019-05-12T14:56:58.592] [INFO] default - User authenticated
+[2019-05-12T14:59:31.216] [INFO] default - getUsers route
+[2019-05-12T14:59:31.257] [INFO] default - getAllUsers response { message: 'UserIDs registered found',
+  status: 201,
+  userInfo: [ 'harry', 'hermione', 'ronald' ] }

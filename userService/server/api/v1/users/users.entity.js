@@ -17,11 +17,6 @@ let userSchema = new mongoose.Schema({
   email: {
     type: String
   }
-  // groupName: {
-  //   type: String,
-  //   enum: ['group1', 'group2', 'group3'],
-  //   default: 'group1'
-  // }
 });
 
 module.exports = mongoose.model('user', userSchema);

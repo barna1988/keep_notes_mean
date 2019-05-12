@@ -91,11 +91,10 @@ const shareNote = (req, res) => {
     log.info('inside share');
     try {
         const noteId = req.body.noteId;   //**noteId** will be passed as request body
-        const userIds = req.body.userId;   //**userIds** will be passed as request body
-        const access = req.body.access;   //**userIds** will be passed as request body
+        const shared = req.body.sharedTo;   //**userIds** will be passed as request body
 
         log.info('noteID[] : ', noteId);
-        log.info('userIds[] : ', userIds);
+        log.info('userIds[] : ', shared);
 
         let noteArr = [];
         if (Array.isArray(noteId)) {
@@ -104,14 +103,14 @@ const shareNote = (req, res) => {
             noteArr.push(noteId);
         }
 
-        let userArr = [];
-        if (Array.isArray(userIds)) {
-            userArr = userIds;
+        let sharedArr = [];
+        if (Array.isArray(shared)) {
+            sharedArr = shared;
         } else {
-            userArr.push(userIds);
+            sharedArr.push(shared);
         }
 
-        svc.shareNote(noteArr, userArr, access)
+        svc.shareNote(noteArr, sharedArr)
             .then((response) => {
                 res.status(response.status).send(response);
             }).catch((error) => {
@@ -150,7 +149,7 @@ const addNoteToFavourites = (req, res) => {
 
     try {
         const noteId = req.body.noteId;   //**noteId** will be passed as request body
-        const noteArr = [];
+        let noteArr = [];
         if (Array.isArray(noteId)) {
             noteArr = noteId;
         } else {
@@ -173,7 +172,7 @@ const removeNoteFromFavourites = (req, res) => {
 
     try {
         const noteId = req.body.noteId;  //**noteId** will be passed as request body
-        const noteArr = [];
+        let noteArr = [];
         if (Array.isArray(noteId)) {
             noteArr = noteId;
         } else {
@@ -195,24 +194,17 @@ const removeNoteFromFavourites = (req, res) => {
 const addNoteToGroup = (req, res) => {
 
     try {
-        const noteId = req.body.noteId;   //**noteId** will be passed as request body
+        const noteIds = req.body.noteId;   //**noteId** will be passed as request body
         const groupName = req.body.groupName;   //**groupName** will be passed as request body
 
         let noteArr = [];
-        if (Array.isArray(noteId)) {
-            noteArr = noteId;
+        if (Array.isArray(noteIds)) {
+            noteArr = noteIds;
         } else {
-            noteArr.push(noteId);
+            noteArr.push(noteIds);
         }
 
-        let groupArr = [];
-        if (Array.isArray(groupName)) {
-            groupArr = groupName;
-        } else {
-            groupArr.push(groupName);
-        }
-
-        svc.addNoteToGroup(groupArr, noteId)
+        svc.addNoteToGroup(groupName, noteArr)
             .then((response) => {
                 res.status(response.status).send(response);
             }).catch((error) => {

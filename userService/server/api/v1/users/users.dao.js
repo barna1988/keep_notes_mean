@@ -44,7 +44,8 @@ const register = (user) => {
             let userModel = new UserModel({
                 userId: uuidv1(),
                 username: user.username,
-                password: user.password
+                password: user.password,
+                email: user.email
             });
 
             let query = {

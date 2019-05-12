@@ -40,7 +40,7 @@ let noteSchema = new mongoose.Schema({
         default: false
     },
     groupName: {
-        type: [String]
+        type: String
     }
 });
 
