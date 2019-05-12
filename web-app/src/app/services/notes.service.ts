@@ -142,7 +142,7 @@ export class NotesService {
     
     return addNoteObserver.pipe(tap(response => {
       
-      let addedNote = response['updateResult'];
+      let addedNote = response['data'];
       console.log('updated fav: ', addedNote);
 
       this.notes.forEach(element => {
@@ -163,20 +163,28 @@ export class NotesService {
 
     const data = {
       noteId : selectedNoteIDs,
-      userId : selectedUsers,
-      access : access
+      sharedTo : []
     }
+
+    selectedUsers.forEach(userid => {
+      let shared = {
+        userID : userid,
+        access : access
+      };
+
+      data.sharedTo.push(shared);
+    })
 
     let shareNoteObserver = this.httpClient.put<Note>(environment.url_notes_share, data, httpOptions);
 
     return shareNoteObserver.pipe(tap(response => {
 
-      let addedNote = response['updateResult'];
+      let addedNote = response['data'];
       console.log('updated fav: ', addedNote);
 
       this.notes.forEach(element => {
         if(element.checked) {
-          element.sharedTo.concat(selectedUsers);
+          element.sharedTo.concat(data.sharedTo);
         }
       });
 
@@ -185,7 +193,7 @@ export class NotesService {
     }));    
   }
 
-  groupNotes(selectedNoteIDs : Array<string>, selectedGroups : Array<string>) {
+  groupNotes(selectedNoteIDs : Array<string>, groupName : string) {
     const token = this.authSvc.getBearerToken();
     const httpOptions = {
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`)
@@ -193,19 +201,19 @@ export class NotesService {
 
     const data = {
       noteId : selectedNoteIDs,
-      groupName : selectedGroups
+      groupName : groupName
     }
 
     let groupNoteObserver = this.httpClient.put<Note>(environment.url_notes_addGroup, data, httpOptions);
 
     return groupNoteObserver.pipe(tap(response => {
 
-      let addedNote = response['updateResult'];
+      let addedNote = response['data'];
       console.log('updated fav: ', addedNote);
 
       this.notes.forEach(element => {
         if(element.checked) {
-          element.groupName.concat(selectedGroups);
+          element.groupName = groupName;
         }
       });
 

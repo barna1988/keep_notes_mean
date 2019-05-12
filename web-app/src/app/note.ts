@@ -8,7 +8,7 @@ export class Note {
     modifiedOn: Date;
     sharedTo: [string];
     isFavourite: boolean;
-    groupName: [string];
+    groupName: string;
     checked : boolean;
 
     constructor() {

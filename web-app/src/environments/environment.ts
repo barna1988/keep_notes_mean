@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   url_user_register : 'http://localhost:3000/api/v1/users/register',
   url_user_login : 'http://localhost:3000/api/v1/users/login',
+  url_user_getusers : 'http://localhost:3000/api/v1/users/getUsers',
   url_user_auth : 'http://localhost:3000/api/v1/auth',
   url_notes_create_get : 'http://localhost:3001/api/v1/notes?userId=',
   url_notes_update : 'http://localhost:3001/api/v1/notes/',

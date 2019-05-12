@@ -502,3 +502,7 @@
 [2019-05-12T15:05:42.021] [INFO] default - Setting up API middleware
 [2019-05-12T15:05:42.220] [INFO] default - Server is running on port 3001
 [2019-05-12T15:05:43.417] [INFO] default - Successfully connected to database: mongodb://localhost:27017/keep
+[2019-05-12T15:11:29.107] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-12T15:11:29.114] [INFO] default - authenticated
+[2019-05-12T15:11:29.125] [INFO] default - adding notes to group: Dumbledore's Army
+[2019-05-12T15:11:29.212] [INFO] default - data : { n: 2, nModified: 2, ok: 1 }

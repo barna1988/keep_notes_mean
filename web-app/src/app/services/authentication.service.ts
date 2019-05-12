@@ -20,6 +20,11 @@ export class AuthenticationService {
       .pipe(map(response => response['userInfo']));
   }
 
+  getAllUsers() {
+    return this.httpClient.get(environment.url_user_getusers)
+    .pipe(map(response => response['userInfo']));
+  }
+
   setBearerToken(token) {
     localStorage.setItem('bearerToken', token);
   }
