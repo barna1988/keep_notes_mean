@@ -1,0 +1,11 @@
+.search-note-panel {
+	width: 55vw;
+	margin: auto;
+	margin-top: 1em;
+}
+
+.search-note-panel-wrapper {
+	display: flex;
+	flex-direction: column;
+	font-size: 15px;
+}

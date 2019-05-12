@@ -5,14 +5,6 @@
 
 		<span class="example-spacer"></span>
 
-		<form>
-			<mat-form-field class="keep-search-box">
-				<input matInput placeholder="Search using title">
-			</mat-form-field>
-		</form>
-
-		<span class="example-spacer"></span>
-
 		<mat-icon *ngIf="isNoteView" class="example-icon keep-header-content" aria-hidden="false" aria-label="Note View" (click)="switchToListView()"
 		 matTooltip="Note View">menu</mat-icon>
 		<mat-icon *ngIf="!isNoteView" class="example-icon keep-header-content" aria-hidden="false" aria-label="List View" (click)="switchToNoteView()"

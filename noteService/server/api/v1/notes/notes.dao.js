@@ -366,7 +366,7 @@ const searchNoteByTitle = (titlename, userid) => {
                 } else if (document && document.length > 0) {
                     resolve({
                         message: 'Notes found',
-                        updateResult: document,
+                        notes: document,
                         status: 200
                     });
                 } else {

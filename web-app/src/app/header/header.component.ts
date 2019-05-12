@@ -8,9 +8,9 @@ import { RouterService } from '../services/router.service';
 })
 export class HeaderComponent {
 
-  isNoteView = true;
-
+  isNoteView = true;  
   constructor(private routerSvc: RouterService) { }
+
   switchToListView() {
     this.isNoteView = false;
     this.routerSvc.routeToListView();

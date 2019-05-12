@@ -39,6 +39,7 @@ import { RegisterComponent } from './register/register.component';
 import { NoteActionsComponent } from './note-actions/note-actions.component';
 import { NoteSelectUserOpenerComponent } from './note-select-user-opener/note-select-user-opener.component';
 import { NoteSelectUserViewComponent } from './note-select-user-view/note-select-user-view.component';
+import { SearchNoteComponent } from './search-note/search-note.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { NoteSelectUserViewComponent } from './note-select-user-view/note-select
     RegisterComponent,
     NoteActionsComponent,
     NoteSelectUserOpenerComponent,
-    NoteSelectUserViewComponent
+    NoteSelectUserViewComponent,
+    SearchNoteComponent
   ],
   imports: [
     AppRoutingModule,
