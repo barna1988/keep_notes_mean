@@ -1,21 +1,25 @@
-<mat-toolbar color="primary">
+<mat-toolbar class='keep-header-toolbar' color="primary">
 
 	<mat-toolbar-row>
-		<span>Keep</span>
+		<span class="keep-header-content">Keep</span>
+
 		<span class="example-spacer"></span>
-		
-		<mat-icon *ngIf="isNoteView" class="example-icon" aria-hidden="false" aria-label="Note View"  
-			(click)="switchToListView()" matTooltip="Note View">menu</mat-icon>
-		<mat-icon *ngIf="!isNoteView" class="example-icon" aria-hidden="false" aria-label="List View" 
-			(click)="switchToNoteView()" matTooltip="List View">menu</mat-icon>
 
-		<mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon"
-		(click)="switchToLogout()" matTooltip="Logout">logout</mat-icon>
+		<form>
+			<mat-form-field class="keep-search-box">
+				<input matInput placeholder="Search using title">
+			</mat-form-field>
+		</form>
 
-		<!-- <div class="keep-c-toggle-view">
-				<i *ngIf="isNoteView" class="material-icons switchToListView" (click)="switchToListView()">Note View</i>
-				<i *ngIf="!isNoteView" class="material-icons switchToNoteView" (click)="switchToNoteView()">List View</i>
-			</div> -->
+		<span class="example-spacer"></span>
+
+		<mat-icon *ngIf="isNoteView" class="example-icon keep-header-content" aria-hidden="false" aria-label="Note View" (click)="switchToListView()"
+		 matTooltip="Note View">menu</mat-icon>
+		<mat-icon *ngIf="!isNoteView" class="example-icon keep-header-content" aria-hidden="false" aria-label="List View" (click)="switchToNoteView()"
+		 matTooltip="List View">menu</mat-icon>
+
+		<mat-icon class="example-icon keep-header-content" aria-hidden="false" aria-label="Example delete icon" (click)="switchToLogout()" matTooltip="Logout">logout</mat-icon>
+
 	</mat-toolbar-row>
 
 

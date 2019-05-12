@@ -46,9 +46,7 @@ export class NoteTakerComponent implements OnInit {
       const addNoteObs = this.noteSvc.addNote(this.note);
 
       addNoteObs.subscribe(
-        (response) => { 
-          console.log('notes added')
-        },
+        (response) => this.note = new Note(),
         (err) => {
           if (err.error) {
             this.errMessage = err.error.message;

@@ -11,3 +11,18 @@
 .example-spacer {
   flex: 1 1 auto;
 }
+
+.keep-header-toolbar {
+	height: 70px;
+}
+
+.keep-search-box {
+	margin-top : 1em;
+	width: 500px;
+	color: azure;
+	font-size: 15px;
+}
+
+.keep-header-content {
+	margin-top: 1em;
+}

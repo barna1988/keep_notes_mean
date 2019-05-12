@@ -1,5 +1,5 @@
-<div class="keep-c-list-container">
-  <label>Not-Started</label>
+<div class="keep-c-list-container" *ngIf='notStartedNotes.length'>
+  <label>Not-Started:</label>
 
   <!-- Populate notStartedNotes -->
   <div class="keep-card-notes-list">
@@ -7,8 +7,9 @@
     </app-note>
   </div>
 </div>
-<div class="keep-c-list-container">
-  <label>Started</label>
+
+<div class="keep-c-list-container" *ngIf='startedNotes.length'>
+  <label>Started:</label>
 
   <!-- Populate startedNotes -->
   <div class="keep-card-notes-list">
@@ -16,8 +17,9 @@
     </app-note>
   </div>
 </div>
-<div class="keep-c-list-container">
-  <label>Completed</label>
+
+<div class="keep-c-list-container" *ngIf='completedNotes.length'>
+  <label>Completed:</label>
 
   <!-- Populate completedNotes -->
   <div class="keep-card-notes-list">
