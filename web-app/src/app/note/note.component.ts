@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Note } from '../note';
 import { RouterService } from '../services/router.service';
 
@@ -10,6 +10,7 @@ import { RouterService } from '../services/router.service';
 export class NoteComponent implements OnInit{
 
   @Input() note: Note;
+  //@Output() showActionIcons = new EventEmitter<boolean>(); //TODO - check later - http://next.plnkr.co/edit/tXzr3XgTrgMWMVzAw8d7?p=preview
 
   constructor(private routeSvc: RouterService) { }
 
@@ -25,6 +26,12 @@ export class NoteComponent implements OnInit{
   toggleSelection() {
     this.note.checked = !this.note.checked;
     //console.log('checked : ', this.note.checked);
+  }
+
+  showActions() {
+    // if(this.note.checked) {
+    //   this.showActionIcons.emit(true);
+    // }
   }
 
 }

@@ -18,7 +18,6 @@ export class EditNoteOpenerComponent {
 
 
     const noteId = this.activatedRoute.snapshot.paramMap.get('noteId');
-    console.log('noteid in EditNoteOpenerComponent : ', noteId);
     this.dialog.open(EditNoteViewComponent, {
       data: {
         noteId: noteId
