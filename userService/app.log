@@ -258,3 +258,12 @@
   userId: '2815f3d0-69c2-11e9-8de5-793a91fe9fee' }
 [2019-05-05T16:45:35.537] [INFO] default - Authentication check
 [2019-05-05T16:45:35.544] [INFO] default - User authenticated
+[2019-05-12T14:54:45.107] [INFO] default - Setting up API middleware
+[2019-05-12T14:54:45.380] [INFO] default - Server is running on port 3000
+[2019-05-12T14:54:46.592] [INFO] default - Successfully connected to database: mongodb://localhost:27017/keep
+[2019-05-12T14:55:40.825] [INFO] default - user login route
+[2019-05-12T14:55:40.832] [INFO] default - login user: {"username":"ronald","password":"weasley"}
+[2019-05-12T14:55:41.190] [INFO] default - login with payload { userName: 'ronald',
+  userId: 'a13d87d0-6f28-11e9-8c67-1db4f8475a52' }
+[2019-05-12T14:56:58.574] [INFO] default - Authentication check
+[2019-05-12T14:56:58.592] [INFO] default - User authenticated

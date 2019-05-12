@@ -5,6 +5,35 @@ const appConfig = require('../../../config');
 
 const log = require('../../../logging');
 
+const getAllUsers = () => {
+    return new Promise((resolve, reject) => {
+        try {
+            UserModel.find({}, (error, document) => {
+                if (error) {
+                    log.error(error);
+                    reject({ message: 'Failed to register due to unexpected error', status: 500 });
+                } else {
+                    let userIDs = [];
+
+                    if(Array.isArray(document)) {
+                        userIDs = document.map(user => user.username);
+                    } else {
+                        userIDs.push(document.username);
+                    }
+
+                    resolve({ message: 'UserIDs registered found', status: 201, userInfo: userIDs });
+                }
+            });
+        } catch (error) {
+            log.error(err);
+            reject({
+                message: 'Failed to register due to unexpected error',
+                status: 500
+            });
+        }
+    });
+}
+
 const register = (user) => {
 
     log.info('register user: ' + JSON.stringify(user));
@@ -124,5 +153,6 @@ const login = (user) => {
 
 module.exports = {
     login,
-    register
+    register,
+    getAllUsers
 }

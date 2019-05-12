@@ -8,7 +8,12 @@ const register = (user) => {
     return svc.register(user);
 };
 
+const getAllUsers = () => {
+    return svc.getAllUsers();
+}
+
 module.exports = {
     login,
-    register
+    register,
+    getAllUsers
 }

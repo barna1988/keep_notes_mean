@@ -8,7 +8,12 @@ const register = (user) => {
     return dao.register(user);
 };
 
+const getAllUsers = () => {
+    return dao.getAllUsers();
+}
+
 module.exports = {
     login,
-    register
+    register,
+    getAllUsers
 }
