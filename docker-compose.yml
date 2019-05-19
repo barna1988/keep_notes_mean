@@ -4,13 +4,12 @@ services:
   na_webapp:
     image: 'barnasreegoswami/keep-note-final-webapp:latest'
     build: ./web-app
-    container_name: na_apigateway
+    container_name: na_webapp
     ports:
       - '4200:4200'
     networks:
       - na_network
-    restart: 
-      condition: on-failure
+    restart: on-failure
     depends_on:
       - na_apigateway
   na_apigateway:
@@ -26,8 +25,7 @@ services:
       - USER_URL=http://localhost:3000
       - NOTES_URL=http://localhost:3001
       - NOTIFICATIONS_URL=http://localhost:3003
-    restart: 
-      condition: on-failure
+    restart: on-failure
     depends_on:
       - na_users
       - na_notes
@@ -44,8 +42,7 @@ services:
       - MONGO_URL=mongodb://na_mongodb:27017/keep
       - USER_URL=http://localhost:3000/api/v1/auth
       - LOG_LEVEL=debug
-    restart: 
-      condition: on-failure
+    restart: on-failure
     depends_on:
       - na_mongodb
       - na_users
@@ -62,8 +59,7 @@ services:
       - USER_URL=http://localhost:3000
       - LOG_LEVEL=debug
       - SLEEPDURATION=10000
-    restart: 
-      condition: on-failure
+    restart: on-failure
     depends_on:
       - na_mongodb
   na_users:
@@ -78,8 +74,7 @@ services:
       - MONGO_URL=mongodb://na_mongodb:27017/keep
       #- MONGO_URL=mongodb://localhost:27017/keep
       - LOG_LEVEL=debug
-    restart: 
-      condition: on-failure
+    restart: on-failure
     depends_on:
       - na_mongodb
   na_mongodb:
