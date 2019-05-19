@@ -33,7 +33,8 @@ EXPOSE ${PORT}
 RUN npm run build -- --output-path=./dist/out
 
 # Define the command to run your app which defines your runtime, like 'npm start'
-CMD [ "npm", "start" ]
+# CMD [ "npm", "start" ]
+CMD ng serve --host 0.0.0.0
 
 # Web server config for Angular
 # FROM nginx:1.15
