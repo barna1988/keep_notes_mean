@@ -1,16 +1,16 @@
 // write your application configration here
 
 const appConfig = {
-  port: 3003,
-  sleepDuration: 5000
+  port: process.env.PORT || 3003,
+  sleepDuration: 10000
 };
 
 const dbConfig = {
-  mongoUrl: 'mongodb://localhost:27017/keep'
+  mongoUrl: process.env.MONGO_URL || 'mongodb://localhost:27017/keep'
 };
 
 const logConfig = {
-  level: 'debug'
+  level: process.env.LOG_LEVEL || 'debug'
 };
 
 const authConfig = {
@@ -20,7 +20,7 @@ const authConfig = {
 
 const externalAPI = {
   userAuthentication : {
-    URL : 'http://localhost:3000/api/v1/auth',
+    URL : process.env.USER_URL || 'http://localhost:3000/api/v1/auth',
     method : 'POST'
   }
 }

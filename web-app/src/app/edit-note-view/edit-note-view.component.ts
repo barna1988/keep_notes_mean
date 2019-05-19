@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { Note } from '../note';
 import { NotesService } from '../services/notes.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { SocketService } from '../services/socket.service';
 
 @Component({
   selector: 'app-edit-note-view',
@@ -16,6 +17,7 @@ export class EditNoteViewComponent {
   isFavourite: boolean;
 
   constructor(private noteService: NotesService,
+    private socketSvc: SocketService,
     private dialogRef: MatDialogRef<EditNoteViewComponent>,
     @Inject(MAT_DIALOG_DATA) private data: any) {
     const noteId = this.data['noteId'];
@@ -29,6 +31,7 @@ export class EditNoteViewComponent {
 
     editNoteObs.subscribe(
       (response) => {
+        this.socketSvc.enableNotification(response);
         this.dialogRef.close();
       },
       (err) => {
@@ -48,7 +51,10 @@ export class EditNoteViewComponent {
     const addFavNoteObs = this.noteService.addToFavourite(this.note);
 
     addFavNoteObs.subscribe(
-      (response) => this.isFavourite = isFav,
+      (response) => {
+        this.isFavourite = isFav;
+        this.socketSvc.enableNotification(response);
+      },
       (err) => {
         if (err.error) {
           this.errMessage = err.error.message;

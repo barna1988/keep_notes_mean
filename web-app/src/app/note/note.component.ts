@@ -1,22 +1,24 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Note } from '../note';
 import { RouterService } from '../services/router.service';
+import { NotesService } from '../services/notes.service';
+import { ReminderService } from '../services/reminder.service';
+import { SocketService } from '../services/socket.service';
 
 @Component({
   selector: 'app-note',
   templateUrl: './note.component.html',
   styleUrls: ['./note.component.css']
 })
-export class NoteComponent implements OnInit{
+export class NoteComponent {
 
   @Input() note: Note;
-  //@Output() showActionIcons = new EventEmitter<boolean>(); //TODO - check later - http://next.plnkr.co/edit/tXzr3XgTrgMWMVzAw8d7?p=preview
+  noteArray: Array<Note>;
 
-  constructor(private routeSvc: RouterService) { }
-
-  ngOnInit() {
-    //console.log('note card : ', this.note);
-  }
+  constructor(private routeSvc: RouterService,
+    private noteSvc: NotesService,
+    private reminderSvc: ReminderService,
+    private socketSvc: SocketService) { }
 
   openNoteEditView() {
     const noteID = this.note.id;
@@ -28,10 +30,51 @@ export class NoteComponent implements OnInit{
     //console.log('checked : ', this.note.checked);
   }
 
-  showActions() {
-    // if(this.note.checked) {
-    //   this.showActionIcons.emit(true);
-    // }
+  openNoteReminder() {
+    const noteID = this.note.id;
+    this.routeSvc.routeToNoteReminderView(noteID);
+  }
+
+  deleteNote() {
+    this.noteArray = [];
+    this.note.checked = true;
+    this.noteArray.push(this.note);
+
+    let notificationID = this.reminderSvc.getNotificationIDForNote(this.note);
+
+    //Delete the note
+    this.noteSvc.deleteNote(this.noteArray, false).subscribe(
+      response => {
+        console.log('resposne after delete', response);
+        this.socketSvc.enableNotification(response);
+
+        //Delete note reminder
+        if (notificationID.length > 0) {
+          notificationID.forEach(id => {
+            this.reminderSvc.dismissReminder(id).subscribe(
+              response => {
+                console.log('resposne after delete', response);
+                this.socketSvc.enableNotification(response);
+              },
+              error => {
+                console.log('error after delete', error);
+                this.socketSvc.enableNotification(response);
+              }
+            );
+          })
+        }
+      },
+      error => {
+        console.log('error after delete', error);
+        this.socketSvc.enableNotification(error);
+      }
+    );
+  }
+
+  shareNote() {
+    this.note.checked = true;
+    this.noteSvc.updateNotes(this.note);
+    this.routeSvc.routeToNoteUserEditView('share');
   }
 
 }

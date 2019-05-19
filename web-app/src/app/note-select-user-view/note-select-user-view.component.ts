@@ -2,6 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { NotesService } from '../services/notes.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AuthenticationService } from '../services/authentication.service';
+import { ReminderService } from '../services/reminder.service';
+import { SocketService } from '../services/socket.service';
 
 @Component({
   selector: 'app-note-select-user-view',
@@ -28,6 +30,8 @@ export class NoteSelectUserViewComponent {
 
   constructor(private noteService: NotesService,
     private authService: AuthenticationService,
+    private reminderSvc: ReminderService,
+    private socketSvc: SocketService,
     private dialogRef: MatDialogRef<NoteSelectUserViewComponent>,
     @Inject(MAT_DIALOG_DATA) private data: any) {
 
@@ -55,11 +59,25 @@ export class NoteSelectUserViewComponent {
     if (this.isShare) {
 
       if (this.userlist && this.userlist.length > 0 && this.selectededittype) {
-        const shareObs = this.noteService.shareNotes(this.getSelectedNotes(), this.userlist, this.selectededittype);
+        const shareObs = this.noteService.shareNotes(this.getSelectedNoteIDs(), this.userlist, this.selectededittype);
+
+        const reminderObs = this.reminderSvc.shareNoteWithReminderAt(this.getSelectedNotes(), this.userlist, this.selectededittype);
 
         shareObs.subscribe(
-          response => this.dialogRef.close(),
-          error => console.log('error in share note', error)
+          response => {
+
+            reminderObs.subscribe(resp => {
+              console.log('Note Shared with reminder');
+              this.socketSvc.enableNotification(response);
+              this.dialogRef.close();
+            });
+            
+            
+          },
+          error => {
+            console.log('error in share note', error);
+            this.socketSvc.enableNotification(error);
+          }
         );
       } else {
         this.errorMessage = 'Input data invalid.';
@@ -69,7 +87,7 @@ export class NoteSelectUserViewComponent {
     } else if (this.isGroup) {
 
       if (this.selectedgroup) {
-        const groupObs = this.noteService.groupNotes(this.getSelectedNotes(), this.selectedgroup);
+        const groupObs = this.noteService.groupNotes(this.getSelectedNoteIDs(), this.selectedgroup);
 
         groupObs.subscribe(
           response => this.dialogRef.close(),
@@ -86,7 +104,7 @@ export class NoteSelectUserViewComponent {
     let getUserObserver = this.authService.getAllUsers();
 
     getUserObserver.subscribe(
-      response => this.userIDRegistered = response,
+      response => this.userIDRegistered = response.filter(user => user !== this.authService.getLoginUserID()),
       error => console.log(error.message)
     );
   }
@@ -104,7 +122,7 @@ export class NoteSelectUserViewComponent {
     return groups;
   }
 
-  getSelectedNotes() {//Add service in Notes Service
+  getSelectedNoteIDs() {//Add service in Notes Service
     let noteList = [];
     const noteObs = this.noteService.getNotes();
 
@@ -122,6 +140,26 @@ export class NoteSelectUserViewComponent {
     })
 
     return noteIDList;
+  }
+
+  getSelectedNotes() {//Add service in Notes Service
+    let noteList = [];
+    const noteObs = this.noteService.getNotes();
+
+    noteObs.subscribe(
+      response => noteList = response,
+      error => console.log(error.message)
+    );
+
+    let selectedNotes = [];
+    
+    noteList.forEach(element => {
+      if(element.checked) {
+        selectedNotes.push(element);
+      }
+    });
+
+    return selectedNotes;
   }
 
   onCancel() {

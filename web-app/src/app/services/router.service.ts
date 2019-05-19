@@ -51,6 +51,20 @@ export class RouterService {
     ]);
   }
 
+  routeToNoteReminderView(noteId) {
+    this.router.navigate([
+      'dashboard', {
+
+        'outlets': {
+
+          noteReminderOutlet: [
+            'note', noteId, 'remind'
+          ]
+        }
+      }
+    ]);
+  }
+
   routeBack() {
     this.location.back();
   }

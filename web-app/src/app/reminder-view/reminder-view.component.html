@@ -1,0 +1,74 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Add reminder for <span class='note-id'>{{ note.title }}</span></span>
+    <span class="example-spacer"></span>
+
+    <button mat-icon-button *ngIf='!showReminderList' matTooltip="View All reminders" (click)='viewAllReminders(true)'>
+      <mat-icon aria-label="View All reminders">view_headline</mat-icon>
+    </button>
+    <button mat-icon-button *ngIf='showReminderList' matTooltip="Hide reminders" (click)='viewAllReminders(true)'>
+        <mat-icon aria-label="Hide reminders">close</mat-icon>
+      </button>
+
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+<div class="remind-note-container">
+  <mat-card>
+    <div class="remind-note-wrapper">
+      <mat-form-field>
+        <input matInput [min]="today" [matDatepicker]="picker" [formControl]="dateSelector" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select name="theHour" placeholder="Choose Hour" [(ngModel)]="selectedHour">
+          <mat-option *ngFor="let theHour of listOfHours" [value]="theHour">
+            {{ theHour }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select name="theMinute" placeholder="Choose Minutes" [(ngModel)]="selectedMinute">
+          <mat-option *ngFor="let theMinute of listOfMinutes" [value]="theMinute">
+            {{ theMinute }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class='reminder-list-container' *ngIf='showReminderList'>
+        <mat-divider></mat-divider>
+        <mat-list>
+
+          <h3 mat-subheader *ngIf='reminderListPending.length > 0'>Pending Reminders:</h3>
+          <mat-list-item *ngFor="let rem of reminderListPending">
+            <h4 mat-line>{{ rem.remindAt | date:"medium"}}</h4>
+            <span class="example-spacer"></span>
+            <mat-icon color="warn" aria-label="Delete reminder" matTooltip="Delete reminder" (click)='deleteNote(rem)'>delete</mat-icon>
+          </mat-list-item>
+
+          <mat-divider></mat-divider>
+
+          <h3 mat-subheader *ngIf='reminderListCompleted.length > 0'>Completed Reminders</h3>
+          <mat-list-item *ngFor="let rem of reminderListCompleted">
+            <h4 mat-line>{{ rem.remindAt | date:"medium"}}</h4>
+            <span class="example-spacer"></span>
+            <mat-icon color="warn" aria-label="Delete reminder" matTooltip="Delete reminder" (click)='deleteNote(rem)'>delete</mat-icon>
+          </mat-list-item>
+
+        </mat-list>
+        <mat-divider></mat-divider>
+      </div>
+
+
+      <button mat-raised-button color="primary" (click)="saveReminder()">Save Reminder</button>
+      <button mat-raised-button color='warn' (click)="cancel()">Cancel</button>
+    </div>
+  </mat-card>
+</div>
+
+<!-- Label to display any error messages -->
+<!-- <label class="error-message">{{ errorMsg }}</label> -->

@@ -1,10 +1,13 @@
 const svc = require('./notifications.service');
+const log = require('../../../logging');
 
 const notifyUsers = (req, res) => {
 
   try {
-    const userId = req.userId;
+    const userId = req.query.userId;
     const notificationWithNotes = req.body;
+
+    //log.info('notificationWithNotes ctrl : ', notificationWithNotes);
     svc.notifyUsers(userId, notificationWithNotes)
       .then(response => {
         res.status(response.status).send(response);
@@ -21,7 +24,7 @@ const notifyUsers = (req, res) => {
 const getReminders = (req, res) => {
 
   try {
-    const userId = req.userData.userId;
+    const userId = req.query.userId;
     svc.getReminders(userId)
       .then(response => {
         res.status(response.status).send(response.notifications);
@@ -38,7 +41,7 @@ const getReminders = (req, res) => {
 const addReminder = (req, res) => {
 
   try {
-    const userId = req.userId;
+    const userId = req.query.userId;
     const notification = req.body;
     svc.addReminder(userId, notification)
       .then(response => {

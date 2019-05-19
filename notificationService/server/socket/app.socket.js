@@ -17,10 +17,14 @@ const onSocketConnect = (socket) => {
   socket.on('register', userName => {
     log.debug('client is registered.');
     connectedSessions = connectedSessions.filter(thesession => thesession.userName !== userName);
-    connectedSessions.push({ 
+    
+    let newSession = {
       id: socket.id, 
-      userName: userName 
-    });
+      userName: userName
+    };
+    
+    log.info('Registering new session : ', newSession);
+    connectedSessions.push(newSession);
 
   });
 
@@ -39,6 +43,8 @@ const sendNotification = (notification) => {
   const session = connectedSessions.find(thesession => thesession.userName == notification.userName);
   
   if(session) {
+    log.info('user session found to send notification - ', session);
+
     const socketId = session.id;
     if(!notification.self) {
       io.to(socketId).emit('share-note', notification);

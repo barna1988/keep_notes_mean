@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  na_notes:
+    image: 'barnasreegoswami/keep-note-final-noteservice:latest'
+    build: .
+    container_name: na_notes
+    ports:
+      - '3001:3001'
+    networks:
+      - na_networks_notes
+    environment:
+      - MONGO_URL=mongodb://na_mongodb:27017/keep
+      - USER_PROFILE_URL=http://localhost:3000
+    restart: 
+      condition: on-failure
+    depends_on:
+      - na_mongodb
+  na_mongodb:
+    image: 'mongo:4.1.1-xenial'
+    container_name: na_mongodb
+    expose:
+      - 27017
+    ports:
+      - '27017:27017'
+    networks:
+      - na_networks_notes
+
+networks:
+  na_networks_notes:
+    driver: bridge
+    #driver: host

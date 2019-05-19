@@ -1,19 +1,25 @@
 const NotificationModel = require('./notifications.entity');
+const uuidv1 = require('uuid/v1');
+
 const log = require('../../../logging');
 
-const notifyUers = (userId, notificationNotes) => {
+//Adds notification with self=false for the userID passed.
+const addNotificationsForUserID = (userId, notificationNotes) => {
   return new Promise((resolve, reject) => {
     log.info('adding notification');
 
     try {
+      log.info('notificationWithNotes dao : ', notificationNotes);
       const notificationsToAdd = notificationNotes.notes.map(n => {
         return new NotificationModel({
+          notificationID : uuidv1(),
           userId: userId,
           userName: notificationNotes.userName,
           isReminded: false,
           remindAt: new Date().toISOString(),
           self: false,
-          note: n
+          note: n,
+          edittype : notificationNotes.edittype
         });
       });
 
@@ -35,12 +41,14 @@ const notifyUers = (userId, notificationNotes) => {
   });
 };
 
-const addNotificationsForUserID = (userId, notification) => {
+//Adds notification with self=true for the userID passed.
+const addSelfNotifications = (userId, notification) => {
   return new Promise((resolve, reject) => {
-    log.info('adding notification/ adding reminder');
+    log.info('adding notification/ adding reminder - ', notification);
 
     try {
       const notificationToAdd = new NotificationModel({
+        notificationID : uuidv1(),
         userId: userId,
         userName: notification.userName,
         isReminded: false,
@@ -99,7 +107,7 @@ const updateReminderForNotificationID = (notificationId, notification) => {
 
     try {
       const query = {
-        _id: notificationId
+        notificationID : notificationId
       };
 
       const updateData = {
@@ -107,7 +115,7 @@ const updateReminderForNotificationID = (notificationId, notification) => {
         isSent: false
       }
   
-      NotificationModel.findOneAndUpdate(query, updateData, (err, savedNotification) => {
+      NotificationModel.findOneAndUpdate(query, updateData, { new: true }, (err, savedNotification) => {
         if(err) throw err;
         log.info('reminder updated : ', savedNotification);
         
@@ -130,7 +138,7 @@ const deleteReminderForNotificationID = (notificationId) => {
     log.info('deleting notification/reminder for id - ', notificationId);
 
     try {  
-      NotificationModel.deleteOne({ _id: notificationId }, (err) => {
+      NotificationModel.deleteOne({ notificationID: notificationId }, (err) => {
         if(err) throw err;
         log.info('reminder deleted');
         resolve({ 
@@ -152,14 +160,14 @@ const markNotificationSentForNotificationID = (notificationId) => {
 
     try {
       const query = {
-        _id: notificationId
+        notificationID: notificationId
       };
 
       const updateData = {
         isSent: true
       };
   
-      NotificationModel.findOneAndUpdate(query, updateData, (err, savedNotification) => {
+      NotificationModel.findOneAndUpdate(query, updateData, { new: true }, (err, savedNotification) => {
         if(err) throw err;
         log.info('notification marked sent - ', savedNotification);
 
@@ -178,7 +186,7 @@ const markNotificationSentForNotificationID = (notificationId) => {
 };
 
 const getAllNotificationsToProcess = (callback) => {
-  log.info('getting all notifications to process');
+  //log.info('getting all notifications to process');
   NotificationModel.find()
     .exec(callback);
 };
@@ -189,7 +197,7 @@ const getReminderForNotificationID = (notificationId) => {
 
     try {
       const query = {
-        _id: notificationId
+        notificationID: notificationId
       };
 
       NotificationModel.find(query, (err, notifications) => {
@@ -211,8 +219,8 @@ const getReminderForNotificationID = (notificationId) => {
 };
 
 module.exports = {
-  notifyUers,
   addNotificationsForUserID,
+  addSelfNotifications,
   getNotificationsForSelf,
   updateReminderForNotificationID,
   deleteReminderForNotificationID,

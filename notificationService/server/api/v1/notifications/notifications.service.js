@@ -2,7 +2,7 @@ const dao = require('./notifications.dao');
 const log = require('../../../logging');
 
 const notifyUsers = (userId, notificationNotes) => {
-  return dao.notifyUers(userId, notificationNotes);
+  return dao.addNotificationsForUserID(userId, notificationNotes);
 };
 
 const getReminders = (userId) => {
@@ -10,7 +10,7 @@ const getReminders = (userId) => {
 };
 
 const addReminder = (userId, notification) => {
-  return dao.addNotificationsForUserID(userId, notification);
+  return dao.addSelfNotifications(userId, notification);
 };
 
 const snoozeReminder = (notificationId, notification) => {

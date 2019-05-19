@@ -14,13 +14,17 @@ export class NoteActionsComponent {
   deleteNotes() {
     let notes = this.getNotes();
 
-    this.noteSvc.deleteNote(notes).subscribe(
+    let isMultiple = false;
+    if(notes.length > 1) {
+      isMultiple = true;
+    }
+    this.noteSvc.deleteNote(notes, isMultiple).subscribe(
       response => {
         console.log('resposne after delete', response);
       }, error => {
         console.log('error after delete', error);
       }
-    )
+    );
 
   }
 

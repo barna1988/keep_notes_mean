@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Note } from '../note';
 import { NotesService } from '../services/notes.service';
 import { AuthenticationService } from '../services/authentication.service';
+import { SocketService } from '../services/socket.service';
 
 
 @Component({
@@ -16,7 +17,8 @@ export class NoteTakerComponent implements OnInit {
   note: Note;
   notes: Array<Note>;
 
-  constructor(private noteSvc: NotesService, private authSvc : AuthenticationService) {
+  constructor(private noteSvc: NotesService, private authSvc : AuthenticationService,
+    private socketSvc : SocketService) {
     this.title = 'Take a note';
     this.note = new Note();
     this.note.userId = authSvc.getLoginUserID();
@@ -46,7 +48,10 @@ export class NoteTakerComponent implements OnInit {
       const addNoteObs = this.noteSvc.addNote(this.note);
 
       addNoteObs.subscribe(
-        (response) => this.note = new Note(),
+        (response) => {
+          this.note = new Note();
+          this.socketSvc.enableNotification(response);
+        },
         (err) => {
           if (err.error) {
             this.errMessage = err.error.message;

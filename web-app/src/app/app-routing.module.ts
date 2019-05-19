@@ -9,6 +9,7 @@ import { NoteViewComponent } from './note-view/note-view.component';
 import { ListViewComponent } from './list-view/list-view.component';
 import { EditNoteOpenerComponent } from './edit-note-opener/edit-note-opener.component';
 import { NoteSelectUserOpenerComponent } from './note-select-user-opener/note-select-user-opener.component';
+import { ReminderOpenerComponent } from './reminder-opener/reminder-opener.component';
 
 const routes: Routes = [
     {
@@ -55,6 +56,11 @@ const routes: Routes = [
                 path: 'note/:action/users',
                 component : NoteSelectUserOpenerComponent,
                 outlet: 'noteUserOutlet'
+            },
+            {
+                path: 'note/:noteId/remind',
+                component : ReminderOpenerComponent,
+                outlet: 'noteReminderOutlet'
             }
         ]
     }

@@ -48,13 +48,13 @@ export class NotesService {
 
   }
 
-  searchNotes(searchText : string) {
+  searchNotes(searchText: string) {
     const token = this.authSvc.getBearerToken();
     const httpOptions = {
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`)
     };
     const userId = this.authSvc.getLoginUserID();
-    
+
     const getNoteObserver = this.httpClient.get<Array<Note>>(`${environment.url_notes_create_get}?userId=${userId}&title=${searchText}`, httpOptions);
 
     getNoteObserver.subscribe(response => {
@@ -70,9 +70,9 @@ export class NotesService {
 
       this.notesSubject.next(this.notes);
     }, err => {
-        console.log('Error in searchNotes.', err);
-        this.notes = [];
-        this.notesSubject.next(this.notes);
+      console.log('Error in searchNotes.', err);
+      this.notes = [];
+      this.notesSubject.next(this.notes);
     });
   }
 
@@ -97,7 +97,7 @@ export class NotesService {
 
   }
 
-  deleteNote(noteList: Array<Note>) {
+  deleteNote(noteList: Array<Note>, isMultiple: boolean) {
 
     const token = this.authSvc.getBearerToken();
     const httpOptions = {
@@ -106,13 +106,13 @@ export class NotesService {
 
     const noteToDelete = [];
     noteList.forEach(element => {
-      if(element.checked) {
+      if (element.checked) {
         noteToDelete.push(element.id)
       }
     });
 
     let requestdata = {
-      noteId : noteToDelete
+      noteId: noteToDelete
     }
 
     const deleteNoteObserver = this.httpClient.post(environment.url_notes_delete, requestdata, httpOptions);
@@ -120,11 +120,15 @@ export class NotesService {
     return deleteNoteObserver.pipe(tap(response => {
       let status = response['status'];
 
-      if(status === 200) {
-        this.notes  = noteList.filter(element => !element.checked);
-        //console.log('filtered list : ' , this.notes);
+      if (status === 200) {
+        if (isMultiple && noteList.length > 1) {
+          this.notes = noteList.filter(element => !element.checked);
+        } else if (noteList.length === 1) {
+          let note = noteList[0];
+          this.notes = this.notes.filter(element => element.id !== note.id);
+        }
       }
-      
+
       this.notesSubject.next(this.notes);
     }));
 
@@ -152,24 +156,24 @@ export class NotesService {
     const isFav = note.isFavourite;
 
     const data = {
-      noteId : note.id
+      noteId: note.id
     }
 
     let addNoteObserver;
 
-    if(isFav) {
+    if (isFav) {
       addNoteObserver = this.httpClient.put<Note>(environment.url_notes_add_favourite, data, httpOptions);
     } else {
       addNoteObserver = this.httpClient.put<Note>(environment.url_notes_remove_favourite, data, httpOptions);
     }
-    
+
     return addNoteObserver.pipe(tap(response => {
-      
+
       let addedNote = response['data'];
       //console.log('updated fav: ', addedNote);
 
       this.notes.forEach(element => {
-        if(element.id === addedNote.id ) {
+        if (element.id === addedNote.id) {
           element.isFavourite = addedNote.isFavourite;
         }
       });
@@ -178,21 +182,21 @@ export class NotesService {
     }));
   }
 
-  shareNotes(selectedNoteIDs : Array<string>, selectedUsers : Array<string>, access : string) {
+  shareNotes(selectedNoteIDs: Array<string>, selectedUsers: Array<string>, access: string) {
     const token = this.authSvc.getBearerToken();
     const httpOptions = {
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`)
     };
 
     const data = {
-      noteId : selectedNoteIDs,
-      sharedTo : []
+      noteId: selectedNoteIDs,
+      sharedTo: []
     }
 
     selectedUsers.forEach(userid => {
       let shared = {
-        userID : userid,
-        access : access
+        userID: userid,
+        access: access
       };
 
       data.sharedTo.push(shared);
@@ -206,25 +210,25 @@ export class NotesService {
       //console.log('updated fav: ', addedNote);
 
       this.notes.forEach(element => {
-        if(element.checked) {
+        if (element.checked) {
           element.sharedTo.concat(data.sharedTo);
         }
       });
 
       this.notesSubject.next(this.notes);
 
-    }));    
+    }));
   }
 
-  groupNotes(selectedNoteIDs : Array<string>, groupName : string) {
+  groupNotes(selectedNoteIDs: Array<string>, groupName: string) {
     const token = this.authSvc.getBearerToken();
     const httpOptions = {
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`)
     };
 
     const data = {
-      noteId : selectedNoteIDs,
-      groupName : groupName
+      noteId: selectedNoteIDs,
+      groupName: groupName
     }
 
     let groupNoteObserver = this.httpClient.put<Note>(environment.url_notes_addGroup, data, httpOptions);
@@ -235,17 +239,15 @@ export class NotesService {
       //console.log('updated fav: ', addedNote);
 
       this.notes.forEach(element => {
-        if(element.checked) {
+        if (element.checked) {
           element.groupName = groupName;
         }
       });
 
       this.notesSubject.next(this.notes);
 
-    }));    
+    }));
   }
-
-  
 
   getNoteById(noteId): Note {
     //console.log('notes in getNoteById :', this.notes);
@@ -256,5 +258,20 @@ export class NotesService {
     return notefound;
   }
 
+  addNoteShared(note: Note) {
+    this.notes.push(note);
+    this.notesSubject.next(this.notes);
+  }
+
+  updateNotes(note: Note) {
+
+    this.notes.map(n => {
+      if(n.id === note.id) {
+        n = note;
+      }
+    });
+
+    this.notesSubject.next(this.notes);
+  }
 
 }

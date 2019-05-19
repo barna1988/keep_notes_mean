@@ -1,0 +1,27 @@
+.remind-note-container{    
+  width: 50vw;
+  margin: auto;
+  padding-top: 10vh;
+}
+.remind-note-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.remind-note-wrapper > * {
+  width: 100%;
+}
+.error-message {
+  color: red;
+  padding: 1em 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+.note-id {
+  color: burlywood;
+}

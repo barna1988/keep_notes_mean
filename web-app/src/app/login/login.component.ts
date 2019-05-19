@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { RouterService } from '../services/router.service';
 import { AuthenticationService } from '../services/authentication.service';
+import { SocketService } from '../services/socket.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent {
 
 
   constructor(private routerSvc: RouterService,
-    private authSvc: AuthenticationService
+    private authSvc: AuthenticationService,
+    private socketSvc: SocketService
   ) { }
 
   loginSubmit() {
@@ -34,18 +36,32 @@ export class LoginComponent {
 
       authObs.subscribe(
         resp => {
+
+          let notifyResp;
           if (resp) {
             this.authSvc.setBearerToken(resp);
             this.authSvc.setLoginUserID(credentials.username);
             this.invalidLogin = false;
             this.routerSvc.routeToDashboard();
 
+            notifyResp = {
+              status: 200,
+              message: `Logged as ${credentials.username}`
+            }
+
           } else {
             this.authSvc.removeBearerToken();
             this.authSvc.removeLoginUserID();
             this.submitMessage = 'Unauthorized';
             this.invalidLogin = true;
+
+            notifyResp = {
+              status: 401,
+              message: this.submitMessage
+            }
           }
+
+          this.socketSvc.enableNotification(notifyResp);
         },
         err => {
           this.authSvc.removeBearerToken();
@@ -56,6 +72,7 @@ export class LoginComponent {
             this.submitMessage = err.message;
           }
           this.invalidLogin = true;
+          this.socketSvc.enableNotification(err);
         }
       );
     }

@@ -17,7 +17,7 @@ The application is expected to handle concurrent requests of 200 to 300 per seco
 Core features (mandatory to implement)
 
     Subscribed users can List Notes, Save notes, Group  the notes, can mark specific notes as favorit
-    Perform operations on one or more selected notes and add them to a group, mark as favourite, share with other users, delete them and bulk upload. 
+    Perform operations on one or more selected notes and add them to a group, mark as favourite, share with other users, delete them and bulk upload. (bulk upload) - ??
     Search notes based on title. 
     Integration of User Interface with backend logic.
 

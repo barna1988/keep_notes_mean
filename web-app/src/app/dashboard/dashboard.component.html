@@ -5,7 +5,7 @@
 <app-note-taker></app-note-taker>
 
 <!-- Actions on Notes -->
-<app-note-actions></app-note-actions>
+<!-- <app-note-actions></app-note-actions> -->
 
 <!-- Following router outlet displays the NoteViewComponent or ListViewComponent based on primary route -->
 <router-outlet></router-outlet>
@@ -15,3 +15,9 @@
 
 <!-- Following named router outlet displays the NoteSelectUserOpenerComponent based on the secondary route -->
 <router-outlet name="noteUserOutlet"></router-outlet>
+
+<!-- Following named router outlet displays the ReminderOpenerComponent based on the secondary route -->
+<router-outlet name="noteReminderOutlet"></router-outlet>
+
+<!-- Show Notifications/Reminders - Last -->
+<app-notification></app-notification>

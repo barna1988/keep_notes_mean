@@ -18,9 +18,11 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { HeaderComponent } from './header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NoteViewComponent } from './note-view/note-view.component';
@@ -29,6 +31,8 @@ import { EditNoteOpenerComponent } from './edit-note-opener/edit-note-opener.com
 import { AuthenticationService } from './services/authentication.service';
 import { NotesService } from './services/notes.service';
 import { RouterService } from './services/router.service';
+import { SocketService } from './services/socket.service';
+import { ReminderService } from './services/reminder.service';
 import { CanActivateRouteGuard } from './can-activate-route.guard';
 import { NoteComponent } from './note/note.component';
 import { NoteTakerComponent } from './note-taker/note-taker.component';
@@ -40,7 +44,10 @@ import { NoteActionsComponent } from './note-actions/note-actions.component';
 import { NoteSelectUserOpenerComponent } from './note-select-user-opener/note-select-user-opener.component';
 import { NoteSelectUserViewComponent } from './note-select-user-view/note-select-user-view.component';
 import { SearchNoteComponent } from './search-note/search-note.component';
-
+import { NotificationComponent } from './notification/notification.component';
+import { ReminderOpenerComponent } from './reminder-opener/reminder-opener.component';
+import { ReminderViewComponent } from './reminder-view/reminder-view.component';
+import { MatNativeDateModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -59,7 +66,10 @@ import { SearchNoteComponent } from './search-note/search-note.component';
     NoteActionsComponent,
     NoteSelectUserOpenerComponent,
     NoteSelectUserViewComponent,
-    SearchNoteComponent
+    SearchNoteComponent,
+    NotificationComponent,
+    ReminderOpenerComponent,
+    ReminderViewComponent
   ],
   imports: [
     AppRoutingModule,
@@ -81,18 +91,26 @@ import { SearchNoteComponent } from './search-note/search-note.component';
     MatSelectModule,
     MatTooltipModule,
     MatCheckboxModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatSnackBarModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     AuthenticationService,
     NotesService,
     RouterService,
-    CanActivateRouteGuard
+    SocketService,
+    ReminderService,
+    CanActivateRouteGuard,
+    MatDatepickerModule
+    
   ],
   bootstrap: [AppComponent],
   entryComponents: [
     EditNoteViewComponent,
-    NoteSelectUserViewComponent
+    NoteSelectUserViewComponent,
+    ReminderViewComponent
   ]
 })
 export class AppModule { }
