@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  na_notification:
+    image: 'barnasreegoswami/keep-note-final-notificationservice:latest'
+    build: .
+    container_name: na_notification
+    ports:
+      - '3003:3003'
+    networks:
+      - na_networks_notification
+    environment:
+      - MONGO_URL=mongodb://na_mongodb:27017/keep
+      - USER_URL=http://localhost:3000
+    restart: 
+      condition: on-failure
+    depends_on:
+      - na_mongodb
+  na_mongodb:
+    image: 'mongo:4.1.1-xenial'
+    container_name: na_mongodb
+    expose:
+      - 27017
+    ports:
+      - '27017:27017'
+    networks:
+      - na_networks_notification
+
+networks:
+  na_networks_notification:
+    driver: bridge
+    #driver: host
