@@ -11,7 +11,7 @@ services:
       - na_networks_notes
     environment:
       - MONGO_URL=mongodb://na_mongodb:27017/keep
-      - USER_PROFILE_URL=http://localhost:3000
+      - USER_URL=http://localhost:3000/api/v1/auth
     restart: 
       condition: on-failure
     depends_on:
