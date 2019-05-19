@@ -8,13 +8,13 @@ services:
     ports:
       - '3003:3003'
     networks:
-      - na_networks_notification
+      - na_network
     environment:
       - MONGO_URL=mongodb://na_mongodb:27017/keep
       - USER_URL=http://localhost:3000
+      - LOG_LEVEL=debug
       - SLEEPDURATION=10000
-    restart: 
-      condition: on-failure
+    restart: on-failure
     depends_on:
       - na_mongodb
   na_mongodb:
@@ -25,9 +25,9 @@ services:
     ports:
       - '27017:27017'
     networks:
-      - na_networks_notification
+      - na_network
 
 networks:
-  na_networks_notification:
+  na_network:
     driver: bridge
     #driver: host

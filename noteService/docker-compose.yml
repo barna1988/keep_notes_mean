@@ -8,12 +8,28 @@ services:
     ports:
       - '3001:3001'
     networks:
-      - na_networks_notes
+      - na_network
     environment:
       - MONGO_URL=mongodb://na_mongodb:27017/keep
       - USER_URL=http://localhost:3000/api/v1/auth
-    restart: 
-      condition: on-failure
+      - LOG_LEVEL=debug
+    restart: on-failure
+    depends_on:
+      - na_mongodb
+      - na_users
+  na_users:
+    image: 'barnasreegoswami/keep-note-final-userservice:latest'
+    build: ../userService
+    container_name: na_users
+    ports:
+      - '3000:3000'
+    networks:
+      - na_network
+    environment:
+      - MONGO_URL=mongodb://na_mongodb:27017/keep
+      #- MONGO_URL=mongodb://localhost:27017/keep
+      - LOG_LEVEL=debug
+    restart: on-failure
     depends_on:
       - na_mongodb
   na_mongodb:
@@ -24,9 +40,9 @@ services:
     ports:
       - '27017:27017'
     networks:
-      - na_networks_notes
+      - na_network
 
 networks:
-  na_networks_notes:
+  na_network:
     driver: bridge
     #driver: host

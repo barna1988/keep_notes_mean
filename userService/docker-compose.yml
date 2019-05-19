@@ -8,12 +8,12 @@ services:
     ports:
       - '3000:3000'
     networks:
-      - na_networks_users
+      - na_network
     environment:
       - MONGO_URL=mongodb://na_mongodb:27017/keep
       #- MONGO_URL=mongodb://localhost:27017/keep
-    restart: 
-      condition: on-failure
+      - LOG_LEVEL=debug
+    restart: on-failure
     depends_on:
       - na_mongodb
   na_mongodb:
@@ -24,9 +24,9 @@ services:
     ports:
       - '27017:27017'
     networks:
-      - na_networks_users
+      - na_network
 
 networks:
-  na_networks_users:
+  na_network:
     driver: bridge
     #driver: host
