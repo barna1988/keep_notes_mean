@@ -11,6 +11,9 @@ ENV PORT 4200
 # this will be the working directory for your application
 WORKDIR /usr/src/app
 
+# add `/usr/src/app/node_modules/.bin` to $PATH
+ENV PATH /usr/src/app/node_modules/.bin:$PATH
+
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
@@ -18,6 +21,7 @@ COPY package*.json ./
 
 # Install all npm packages
 RUN npm install
+RUN npm install -g @angular/cli
 
 # Bundle your app's source code inside the Docker image
 COPY . .
@@ -28,9 +32,12 @@ EXPOSE ${PORT}
 # Build Angular
 RUN npm run build -- --output-path=./dist/out
 
+# Define the command to run your app which defines your runtime, like 'npm start'
+CMD [ "npm", "start" ]
+
 # Web server config for Angular
-FROM nginx:1.15
+# FROM nginx:1.15
 
-COPY --from=builder /usr/src/app/dist/out/ /usr/share/nginx/html
+# COPY --from=builder /usr/src/app/dist/out/ /usr/share/nginx/html
 
-COPY --from=builder /usr/src/app/nginx.conf /etc/nginx/conf.d/default.conf
+# COPY --from=builder /usr/src/app/nginx.conf /etc/nginx/conf.d/default.conf
