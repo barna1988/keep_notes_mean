@@ -1,0 +1,98 @@
+version: '3'
+
+services:
+  na_webapp:
+    image: 'barnasreegoswami/keep-note-final-webapp:latest'
+    build: ./web-app
+    container_name: na_apigateway
+    ports:
+      - '4200:4200'
+    networks:
+      - na_network
+    restart: 
+      condition: on-failure
+    depends_on:
+      - na_apigateway
+  na_apigateway:
+    image: 'barnasreegoswami/keep-note-final-apigateway:latest'
+    build: ./apigateway
+    container_name: na_apigateway
+    ports:
+      - '8000:8000'
+    networks:
+      - na_network
+    environment:
+      - MONGO_URL=mongodb://na_mongodb:27017/keep
+      - USER_URL=http://localhost:3000
+      - NOTES_URL=http://localhost:3001
+      - NOTIFICATIONS_URL=http://localhost:3003
+    restart: 
+      condition: on-failure
+    depends_on:
+      - na_users
+      - na_notes
+      - na_notification
+  na_notes:
+    image: 'barnasreegoswami/keep-note-final-noteservice:latest'
+    build: ./noteService
+    container_name: na_notes
+    ports:
+      - '3001:3001'
+    networks:
+      - na_network
+    environment:
+      - MONGO_URL=mongodb://na_mongodb:27017/keep
+      - USER_URL=http://localhost:3000/api/v1/auth
+      - LOG_LEVEL=debug
+    restart: 
+      condition: on-failure
+    depends_on:
+      - na_mongodb
+      - na_users
+  na_notification:
+    image: 'barnasreegoswami/keep-note-final-notificationservice:latest'
+    build: ./notificationService
+    container_name: na_notification
+    ports:
+      - '3003:3003'
+    networks:
+      - na_network
+    environment:
+      - MONGO_URL=mongodb://na_mongodb:27017/keep
+      - USER_URL=http://localhost:3000
+      - LOG_LEVEL=debug
+      - SLEEPDURATION=10000
+    restart: 
+      condition: on-failure
+    depends_on:
+      - na_mongodb
+  na_users:
+    image: 'barnasreegoswami/keep-note-final-userservice:latest'
+    build: ./userService
+    container_name: na_users
+    ports:
+      - '3000:3000'
+    networks:
+      - na_network
+    environment:
+      - MONGO_URL=mongodb://na_mongodb:27017/keep
+      #- MONGO_URL=mongodb://localhost:27017/keep
+      - LOG_LEVEL=debug
+    restart: 
+      condition: on-failure
+    depends_on:
+      - na_mongodb
+  na_mongodb:
+    image: 'mongo:4.1.1-xenial'
+    container_name: na_mongodb
+    expose:
+      - 27017
+    ports:
+      - '27017:27017'
+    networks:
+      - na_network
+
+networks:
+  na_network:
+    driver: bridge
+    #driver: host

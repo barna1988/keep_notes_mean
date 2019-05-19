@@ -12,6 +12,7 @@ services:
     environment:
       - MONGO_URL=mongodb://na_mongodb:27017/keep
       - USER_URL=http://localhost:3000
+      - SLEEPDURATION=10000
     restart: 
       condition: on-failure
     depends_on:
