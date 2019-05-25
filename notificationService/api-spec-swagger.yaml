@@ -1,0 +1,322 @@
+openapi: 3.0.1
+info:
+  title: Keep Notes - Notification Micro Service
+  version: 1.0.0
+  description: >-
+    This micro service is used for sharing notes as notifications and
+    add/snooze/dismiss reminders. It authenticated using 'Bearer' token.
+servers:
+  - url: 'http://localhost:3003/api/v1'
+paths:
+  /:
+    summary: Notify users when a 'note' is shared
+    post:
+      summary: Notify users when a 'note' is shared
+      tags:
+        - notifications
+      security:
+        - BearerAuth: []
+      parameters:
+        - in: query
+          name: userId
+          schema:
+            type: string
+          required: true
+          description: Users ID of note shared
+      requestBody:
+        description: Notifications for a note shared
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Notification'
+        required: true
+      responses:
+        '201':
+          description: Notification response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationResponse'
+        '403':
+          description: Invalid request data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnAuthorizedError'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /reminders:
+    summary: Add Reminders or Get details of Reminders for a UserID
+    get:
+      summary: Get Details of Reminders for a user
+      tags:
+        - notifications
+      security:
+        - BearerAuth: []
+      parameters:
+        - in: query
+          name: userId
+          schema:
+            type: string
+          required: true
+          description: Users ID of note shared
+      responses:
+        '200':
+          description: Notification response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationResponse'
+        '403':
+          description: Invalid request data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnAuthorizedError'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Adds self reminders for a user
+      tags:
+        - notifications
+      security:
+        - BearerAuth: []
+      parameters:
+        - in: query
+          name: userId
+          schema:
+            type: string
+          required: true
+          description: Users ID of reminder
+      requestBody:
+        description: Self Reminder for a note
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Notification'
+        required: true
+      responses:
+        '201':
+          description: Notification response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationResponse'
+        '403':
+          description: Invalid request data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnAuthorizedError'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  '/reminders/:reminderId':
+    summary: Update/Snooze a Reminder or Get details of a Reminder or Delete a reminder
+    get:
+      summary: Get details of a Reminder
+      tags:
+        - notifications
+      security:
+        - BearerAuth: []
+      parameters:
+        - in: path
+          name: reminderId
+          schema:
+            type: string
+          required: true
+          description: reminder ID to get details
+      responses:
+        '200':
+          description: Notification response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationResponse'
+        '403':
+          description: Invalid request data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnAuthorizedError'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      summary: Update/Snooze a Reminder using reminder ID
+      tags:
+        - notifications
+      security:
+        - BearerAuth: []
+      parameters:
+        - in: path
+          name: reminderId
+          schema:
+            type: string
+          required: true
+          description: reminder ID to update
+      requestBody:
+        description: Reminder for update
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Notification'
+        required: true
+      responses:
+        '200':
+          description: Notification response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationResponse'
+        '403':
+          description: Invalid request data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnAuthorizedError'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      summary: Delete a reminder
+      tags:
+        - notifications
+      security:
+        - BearerAuth: []
+      parameters:
+        - in: path
+          name: reminderId
+          schema:
+            type: string
+          required: true
+          description: reminder ID to delete
+      responses:
+        '200':
+          description: Notification response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Success'
+        '403':
+          description: Invalid request data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnAuthorizedError'
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+security:
+  - ApiKeyAuth: []
+  - OAuth2:
+      - read
+      - write
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    Note:
+      required:
+        - title
+        - text
+      type: object
+      properties:
+        title:
+          type: string
+        text:
+          type: string
+    Notification:
+      required:
+        - notificationID
+        - userId
+        - userName
+        - remindAt
+        - note
+        - self
+      type: object
+      properties:
+        notificationID:
+          type: string
+        userId:
+          type: string
+        userName:
+          type: string
+        remindAt:
+          type: string
+        note:
+          $ref: '#/components/schemas/Note'
+        self:
+          type: boolean
+          default: true
+        isSent:
+          type: boolean
+          default: false
+        edittype:
+          type: string
+          enum:
+            - View
+            - Edit
+          default: View
+    NotificationResponse:
+      required:
+        - message
+        - status
+        - notifications
+      type: object
+      properties:
+        message:
+          type: string
+        status:
+          type: string
+        notifications:
+          $ref: '#/components/schemas/Notification'
+    UnAuthorizedError:
+      type: object
+      properties:
+        isAuthenticated:
+          type: boolean
+        message:
+          type: string
+    Error:
+      required:
+        - message
+        - status
+      type: object
+      properties:
+        message:
+          type: string
+        status:
+          type: string
+    Success:
+      required:
+        - message
+        - status
+      type: object
+      properties:
+        message:
+          type: string
+        status:
+          type: string

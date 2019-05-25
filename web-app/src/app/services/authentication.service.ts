@@ -11,7 +11,10 @@ export class AuthenticationService {
   authenticateUser(data) {
 
     return this.httpClient.post(environment.url_user_login, data)
-      .pipe(map(response => response['token']));
+      .pipe(map(response => {
+        // console.log('response in authenticateUser: ', response);
+        return response['token'];
+      }));
   }
 
   registerUser(data) {
