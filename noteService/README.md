@@ -14,4 +14,4 @@ Micro service using Node.js & MongoDB for CRUD operations on NOTE.
 
 
 ### API Spec
-YTS
+Swagger UI - http://localhost:3001/api-docs

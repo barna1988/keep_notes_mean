@@ -11,7 +11,5 @@
 }
 .keep-c-list-container label {
     font-size: 15px;
-    /* padding: 0 0 1em 0; */
-    font-family: cursive;
-    color: blue;
+    color: #3f51b5;
 }

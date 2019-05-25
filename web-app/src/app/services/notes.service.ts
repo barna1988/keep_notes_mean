@@ -268,6 +268,8 @@ export class NotesService {
     this.notes.map(n => {
       if (n.id === note.id) {
         n = note;
+      } else {
+        n.checked = false;
       }
     });
 

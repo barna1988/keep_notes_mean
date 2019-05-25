@@ -8,12 +8,16 @@
 
   </mat-card-title>
   <mat-card-content class="keep-card-note-content">
-    {{note.text}}
+    <span class='note-head'>Text:</span> {{note.text}}
+  </mat-card-content>
+  <mat-card-content class="keep-card-note-content">
+    <span class='note-head'>State:</span> {{note.state}}
   </mat-card-content>
 
   <mat-card-actions>
-    <mat-checkbox class='keep-note-checkbox' color="primary" (click)='toggleSelection();showActions()'></mat-checkbox>
+    <!-- <mat-checkbox class='keep-note-checkbox' color="primary" (click)='toggleSelection();showActions()'></mat-checkbox> -->
 
+    <mat-icon class='keep-note-actions' color="primary" aria-label="Group note" matTooltip="Group note" (click)='groupNote()'>group_add</mat-icon>
     <mat-icon class='keep-note-actions' color="primary" aria-label="Share note" matTooltip="Share note" (click)='shareNote()'>share</mat-icon>
     <mat-icon class='keep-note-actions' color="primary" aria-label="Delete reminder" matTooltip="Delete reminder" (click)='deleteNote()'>delete</mat-icon>
     <mat-icon class='keep-note-actions' color="primary" aria-label="Add a reminder" matTooltip="Add a reminder" (click)='openNoteReminder()'>add_alarm</mat-icon>

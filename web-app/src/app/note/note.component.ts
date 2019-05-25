@@ -77,4 +77,10 @@ export class NoteComponent {
     this.routeSvc.routeToNoteUserEditView('share');
   }
 
+  groupNote() {
+    this.note.checked = true;
+    this.noteSvc.updateNotes(this.note);
+    this.routeSvc.routeToNoteUserEditView('group');
+  }
+
 }

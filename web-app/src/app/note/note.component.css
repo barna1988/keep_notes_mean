@@ -16,3 +16,7 @@
     float: left;
     margin-left: 8px;
 }
+
+.note-head {
+    color: grey;
+}

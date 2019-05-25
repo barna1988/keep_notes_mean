@@ -67,7 +67,7 @@ export class NoteSelectUserViewComponent {
           response => {
 
             reminderObs.subscribe(resp => {
-              console.log('Note Shared with reminder');
+              // console.log('Note Shared with reminder');
               this.socketSvc.enableNotification(response);
               this.dialogRef.close();
             });
@@ -80,21 +80,30 @@ export class NoteSelectUserViewComponent {
           }
         );
       } else {
-        this.errorMessage = 'Input data invalid.';
+        this.errorMessage = 'Please select the mandatory fields';
+        this.socketSvc.showNotificationMessage(this.errorMessage);
       }
 
 
     } else if (this.isGroup) {
 
-      if (this.selectedgroup) {
+      if (this.selectedgroup && this.getSelectedNoteIDs().length !== 0) {
         const groupObs = this.noteService.groupNotes(this.getSelectedNoteIDs(), this.selectedgroup);
 
         groupObs.subscribe(
-          response => this.dialogRef.close(),
-          error => console.log('error in grouping note', error)
+          response => {
+            // console.log('Note Shared with reminder');
+            this.socketSvc.enableNotification(response);
+            this.dialogRef.close();
+          },
+          error => {
+            console.log('error in grouping note', error);
+            this.socketSvc.enableNotification(error);
+          }
         );
       } else {
-        this.errorMessage = 'Input data invalid.';
+        this.errorMessage = 'Please select the mandatory fields';
+        this.socketSvc.showNotificationMessage(this.errorMessage);
       }
 
     }
@@ -115,7 +124,14 @@ export class NoteSelectUserViewComponent {
     const noteObs = this.noteService.getNotes();
 
     noteObs.subscribe(
-      response => response.map(note => groups.push(note.groupName)),
+      response => response.map(note => {
+        
+        let groupExists = groups.find(element => element === note.groupName);
+        
+        if(!groupExists) {
+          groups.push(note.groupName);
+        }
+      }),
       error => console.log(error.message)
     );
 
