@@ -2,7 +2,7 @@ version: '3'
 
 services:
   na_notes:
-    image: 'barnasreegoswami/keep-note-final-noteservice:latest'
+    image: 'barna1988/keep-note-final-noteservice:latest'
     build: .
     container_name: na_notes
     ports:
@@ -11,14 +11,14 @@ services:
       - na_network
     environment:
       - MONGO_URL=mongodb://na_mongodb:27017/keep
-      - USER_URL=http://localhost:3000/api/v1/auth
+      - USER_URL=http://na_users:3000/api/v1/auth
       - LOG_LEVEL=debug
     restart: on-failure
     depends_on:
       - na_mongodb
       - na_users
   na_users:
-    image: 'barnasreegoswami/keep-note-final-userservice:latest'
+    image: 'barna1988/keep-note-final-userservice:latest'
     build: ../userService
     container_name: na_users
     ports:

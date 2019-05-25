@@ -28,8 +28,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Docker
 
-1. Build Docker image - ```docker build -t barnasreegoswami/keep-note-final-webapp .```
-2. Run Docker image (docker port = 4200(1) - app port = (4200)) - ```docker run -p 4200:4200 barnasreegoswami/keep-note-final-webapp```
+1. Build Docker image - ```docker build -t barna1988/keep-note-final-webapp .```
+2. Run Docker image (docker port = 4200(1) - app port = (4200)) - ```docker run -p 4200:4200 barna1988/keep-note-final-webapp```
 3. App will be accessible using - http://localhost:4200
 4. Login into docker: ```docker login```
-5. Push to Docker hub Repository  - ```docker push barnasreegoswami/keep-note-final-webapp:latest```
+5. Push to Docker hub Repository  - ```docker push barna1988/keep-note-final-webapp:latest```

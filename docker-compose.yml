@@ -2,7 +2,7 @@ version: '3'
 
 services:
   na_webapp:
-    image: 'barnasreegoswami/keep-note-final-webapp:latest'
+    image: 'barna1988/keep-note-final-webapp:latest'
     build: ./web-app
     container_name: na_webapp
     ports:
@@ -13,7 +13,7 @@ services:
     depends_on:
       - na_apigateway
   na_apigateway:
-    image: 'barnasreegoswami/keep-note-final-apigateway:latest'
+    image: 'barna1988/keep-note-final-apigateway:latest'
     build: ./apigateway
     container_name: na_apigateway
     ports:
@@ -22,16 +22,16 @@ services:
       - na_network
     environment:
       - MONGO_URL=mongodb://na_mongodb:27017/keep
-      - USER_URL=http://localhost:3000
-      - NOTES_URL=http://localhost:3001
-      - NOTIFICATIONS_URL=http://localhost:3003
+      - - USER_URL=http://na_users:3000
+      - NOTES_URL=http://na_notes:3001
+      - NOTIFICATIONS_URL=http://na_notification:3003
     restart: on-failure
     depends_on:
       - na_users
       - na_notes
       - na_notification
   na_notes:
-    image: 'barnasreegoswami/keep-note-final-noteservice:latest'
+    image: 'barna1988/keep-note-final-noteservice:latest'
     build: ./noteService
     container_name: na_notes
     ports:
@@ -40,14 +40,14 @@ services:
       - na_network
     environment:
       - MONGO_URL=mongodb://na_mongodb:27017/keep
-      - USER_URL=http://localhost:3000/api/v1/auth
+      - USER_URL=http://na_users:3000/api/v1/auth
       - LOG_LEVEL=debug
     restart: on-failure
     depends_on:
       - na_mongodb
       - na_users
   na_notification:
-    image: 'barnasreegoswami/keep-note-final-notificationservice:latest'
+    image: 'barna1988/keep-note-final-notificationservice:latest'
     build: ./notificationService
     container_name: na_notification
     ports:
@@ -56,14 +56,15 @@ services:
       - na_network
     environment:
       - MONGO_URL=mongodb://na_mongodb:27017/keep
-      - USER_URL=http://localhost:3000
+      - USER_URL=http://na_users:3000
       - LOG_LEVEL=debug
       - SLEEPDURATION=10000
     restart: on-failure
     depends_on:
+      - na_users
       - na_mongodb
   na_users:
-    image: 'barnasreegoswami/keep-note-final-userservice:latest'
+    image: 'barna1988/keep-note-final-userservice:latest'
     build: ./userService
     container_name: na_users
     ports:
@@ -72,7 +73,6 @@ services:
       - na_network
     environment:
       - MONGO_URL=mongodb://na_mongodb:27017/keep
-      #- MONGO_URL=mongodb://localhost:27017/keep
       - LOG_LEVEL=debug
     restart: on-failure
     depends_on:

@@ -6,11 +6,11 @@ Micro service using http-proxy middleware to enable proxy
 2. Start Server  - ```npm start```
 
 ### Run using docker
-1. Build Docker image - ```docker build -t barnasreegoswami/keep-note-final-apigateway .```
-2. Run Docker image (docker port = 8000(1) - app port = (8000)) - ```docker run -p 8000:8000 barnasreegoswami/keep-note-final-apigateway```
+1. Build Docker image - ```docker build -t barna1988/keep-note-final-apigateway .```
+2. Run Docker image (docker port = 8000(1) - app port = (8000)) - ```docker run -p 8000:8000 barna1988/keep-note-final-apigateway```
 3. App will be accessible using - http://localhost:8000
 4. Login into docker: ```docker login```
-5. Push to Docker hub Repository  - ```docker push barnasreegoswami/keep-note-final-apigateway:latest```
+5. Push to Docker hub Repository  - ```docker push barna1988/keep-note-final-apigateway:latest```
 
 ### API Spec
 YTS
