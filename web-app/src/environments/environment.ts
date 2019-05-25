@@ -20,7 +20,7 @@ export const environment = {
   // url_notification_reminder : 'http://localhost:3003/api/v1/notifications/reminders',
   // url_notification : 'http://localhost:3003/api/v1/notifications'
   url_notification_reminder: 'http://localhost:8000/notifications/reminders',
-  url_notification: 'hhttp://localhost:8000/notifications/'
+  url_notification: 'http://localhost:8000/notifications/'
 };
 
 /*

@@ -9,7 +9,7 @@ const registerSocket = () => {
     (next) => { //Function to repeated
       processNotifications();
       //Repeat after the delay
-      setTimeout(() => { /* eslint-disable-line no-undef */
+      setTimeout(() => { 
         next();
       }, appConfig.sleepDuration)
     },
@@ -21,7 +21,7 @@ const registerSocket = () => {
 }
 
 const processNotifications = () => {
-  //log.info('starting notification process');
+  log.info('starting notification process');
 
   notificationsDao.getAllNotificationsToProcess((err, notifications) => {
     if(err) {

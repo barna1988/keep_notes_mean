@@ -43,7 +43,7 @@
         <mat-divider></mat-divider>
         <mat-list>
 
-          <h3 mat-subheader *ngIf='reminderListPending.length > 0'>Pending Reminders:</h3>
+          <h3 mat-subheader *ngIf='reminderListPending.length > 0'>Reminders:</h3>
           <mat-list-item *ngFor="let rem of reminderListPending">
             <h4 mat-line>{{ rem.remindAt | date:"medium"}}</h4>
             <span class="example-spacer"></span>
@@ -52,7 +52,7 @@
 
           <mat-divider></mat-divider>
 
-          <h3 mat-subheader *ngIf='reminderListCompleted.length > 0'>Completed Reminders</h3>
+          <h3 mat-subheader *ngIf='reminderListCompleted.length > 0'>Reminders</h3>
           <mat-list-item *ngFor="let rem of reminderListCompleted">
             <h4 mat-line>{{ rem.remindAt | date:"medium"}}</h4>
             <span class="example-spacer"></span>
