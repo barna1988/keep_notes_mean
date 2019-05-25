@@ -9,6 +9,7 @@ const log = require('./logging');
 //swagger
 const swaggerUi = require('swagger-ui-express');
 const YAML = require('yamljs');
+const path = require('path');
 
 const setMiddleware = (app) => {
     app.use(bodyParser.json());
@@ -17,7 +18,7 @@ const setMiddleware = (app) => {
     
     //swagger setup
     const apiSpec = path.resolve(__dirname, '..', 'api-spec-swagger.yaml'); 
-    const swaggerDocument = YAML.load(apiSpec);
+    const swaggerDoc = YAML.load(apiSpec);
     
     app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 

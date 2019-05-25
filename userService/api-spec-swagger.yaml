@@ -2,6 +2,9 @@ openapi: 3.0.1
 info:
   title: Keep Notes - User Micro Service
   version: 1.0.0
+  description: >-
+    This micro service is used for user registration/login etc. It authenticated
+    using 'Bearer' token.
 servers:
 - url: 'http://localhost:3000/api/v1'
 paths:
@@ -23,7 +26,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/RegisterResponse'
         403:
           description: Invalid request data
           content:
@@ -54,7 +57,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/LoginResponse'
         403:
           description: Invalid request data
           content:
@@ -74,11 +77,11 @@ paths:
       summary: Fetch all registered users
       responses:
         200:
-          description: Fetched all users
+          description: Fetched the username for all users
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Users'
+                $ref: '#/components/schemas/GetUserResponse'
         403:
           description: Invalid request data
           content:
@@ -109,7 +112,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/AuthSuccess'
         403:
           description: Invalid bearer token
           content:
@@ -148,10 +151,52 @@ components:
           type: string
         email:
           type: string
-    Users:
-      type: array
-      items:
-        type: string
+    GetUserResponse:
+      required:
+      - message
+      - status
+      - userInfo
+      type: object
+      properties:
+        message:
+          type: string
+        status:
+          type: string
+        userInfo:
+          type: array
+          items:
+            type: string
+    RegisterResponse:
+      required:
+      - message
+      - status
+      - userInfo
+      type: object
+      properties:
+        message:
+          type: string
+        status:
+          type: string
+        userInfo:
+          type: object
+          properties:
+            userName:
+              type: string
+            userId:
+              type: string
+    LoginResponse:
+      required:
+      - token
+      - user
+      - status
+      type: object
+      properties:
+        token:
+          type: string
+        user:
+          $ref: '#/components/schemas/User'
+        status:
+          type: string
     Error:
       required:
       - message
@@ -167,4 +212,11 @@ components:
       properties:
         Authorization:
           type: string
-    
+    AuthSuccess:
+      type: object
+      properties:
+        isAuthenticated: 
+          type: boolean
+        message:
+          type: string
+        

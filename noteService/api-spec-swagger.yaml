@@ -1,0 +1,495 @@
+openapi: 3.0.1
+info:
+  title: Keep Notes - Notes Micro Service
+  version: 1.0.0
+  description: >-
+    This micro service is used creating/saving/modifying and all other
+    operations related to notes. It uses 'Bearer' Token for User authentication
+servers:
+  - url: http://localhost:3001/api/v1
+paths:
+  /:
+    get:
+      summary: Filters and fetches a note for a user
+      tags:
+        - notes and users
+      security:
+        - BearerAuth: []
+      parameters:
+        - in: query
+          name: userId
+          schema:
+            type: string
+          required: true
+          description: Users ID to filter notes
+      responses:
+        '200':
+          description: Succesfully fetched notes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessNotes'
+        '500':
+          description: Unexpected Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Access Token is Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnAuthorizedError'
+    post:
+      summary: Creates a note for a user
+      tags:
+        - notes and users
+      security:
+        - BearerAuth: []
+      parameters:
+        - in: query
+          name: userId
+          schema:
+            type: string
+          required: true
+          description: Users ID to create notes
+      requestBody:
+        description: Details to create a Note
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Note'
+        required: true
+      responses:
+        '201':
+          description: Succesfully created notes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessNote'
+        '500':
+          description: Unexpected Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Access Token is Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnAuthorizedError'
+  /share:
+    summary: Shares one or multiple Notes as 'notifications' to other users
+    put:
+      tags:
+        - notes and users
+      security:
+        - BearerAuth: []
+      requestBody:
+        description: List of NoteIDs to update with the List of UserIDs
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ShareNotes'
+        required: true
+      responses:
+        '200':
+          description: Succesfully created notes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessNote'
+        '500':
+          description: Unexpected Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Access Token is Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnAuthorizedError'
+  /delete:
+    summary: Deletes one or multiple Notes
+    post:
+      summary: Deletes one or more notes
+      tags:
+        - notes
+      security:
+        - BearerAuth: []
+      requestBody:
+        description: List of NoteIDs to delete
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/NotesIDs'
+        required: true
+      responses:
+        '200':
+          description: Succesfully created notes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessNote'
+        '500':
+          description: Unexpected Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Access Token is Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnAuthorizedError'
+  /addFavorites:
+    summary: Marks one or multiple Notes as 'favourites'
+    put:
+      summary: Add one or more Notes to favourites
+      tags:
+        - notes
+      security:
+        - BearerAuth: []
+      requestBody:
+        description: List of NoteIDs to update
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/NotesIDs'
+        required: true
+      responses:
+        '200':
+          description: Succesfully created notes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessNote'
+        '500':
+          description: Unexpected Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Access Token is Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnAuthorizedError'
+  /removeFavorites:
+    summary: Marks one or multiple Notes as not 'favourites'
+    put:
+      summary: Remove one or more Notes from favourites
+      tags:
+        - notes
+      security:
+        - BearerAuth: []
+      requestBody:
+        description: List of NoteIDs to update
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/NotesIDs'
+        required: true
+      responses:
+        '200':
+          description: Succesfully created notes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessNote'
+        '500':
+          description: Unexpected Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Access Token is Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnAuthorizedError'
+  /addGroup:
+    summary: Adds one or multiple Notes to a Group
+    put:
+      summary: Adds one or More notes to a specific Group
+      tags:
+        - notes
+      security:
+        - BearerAuth: []
+      requestBody:
+        description: List of NoteIDs to update with a group
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/GroupNotes'
+        required: true
+      responses:
+        '200':
+          description: Succesfully created notes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessNote'
+        '500':
+          description: Unexpected Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Access Token is Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnAuthorizedError'
+  '/:noteId':
+    summary: Fetch a Note using id
+    get:
+      summary: Retrieves Data for a NoteID
+      tags:
+        - notes
+      security:
+        - BearerAuth: []
+      parameters:
+        - in: path
+          name: noteId
+          schema:
+            type: string
+          required: true
+          description: Note ID to get details
+      responses:
+        '200':
+          description: Succesfully created notes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessNote'
+        '500':
+          description: Unexpected Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Access Token is Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnAuthorizedError'
+    put:
+      summary: Update Note for a given Note ID
+      tags:
+        - notes
+      security:
+        - BearerAuth: []
+      parameters:
+        - in: path
+          name: noteId
+          schema:
+            type: string
+          required: true
+          description: Note ID to update
+      requestBody:
+        description: Note details to update
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Note'
+        required: true
+      responses:
+        '200':
+          description: Succesfully created notes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessNote'
+        '500':
+          description: Unexpected Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: Access Token is Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnAuthorizedError'
+  '/:noteId/isAllowed':
+    summary: Checks if the Note is allowed for an user
+    get:
+      summary: Checks if a user is allowed for a particular Note
+      tags:
+        - notes and users
+      security:
+        - BearerAuth: []
+      parameters:
+        - in: path
+          name: noteId
+          schema:
+            type: string
+          required: true
+          description: Note ID to check access
+        - in: query
+          name: userId
+          schema:
+            type: string
+          required: true
+          description: Users ID to check access
+      responses:
+        '200':
+          description: User is allowed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessResponse'
+        '400':
+          description: User is not allowed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessResponse'
+        '500':
+          description: Unexpected Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessResponse'
+        '403':
+          description: Access Token is Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnAuthorizedError'
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Note:
+      required:
+        - id
+        - title
+        - text
+        - userId
+        - createdOn
+        - modifiedOn
+        - isFavourite
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        text:
+          type: string
+        state:
+          type: string
+          enum:
+            - started
+            - not-started
+            - completed
+        userId:
+          type: string
+        createdOn:
+          type: string
+          format: date-time
+        modifiedOn:
+          type: string
+          format: date-time
+        sharedTo:
+          type: array
+          items:
+            type: string
+        isFavourite:
+          type: boolean
+        groupName:
+          type: string
+    SuccessNote:
+      required:
+        - message
+        - status
+      type: object
+      properties:
+        message:
+          type: string
+        status:
+          type: string
+        note:
+          $ref: '#/components/schemas/Note'
+        data:
+          type: object
+    SuccessNotes:
+      required:
+        - message
+        - status
+      type: object
+      properties:
+        message:
+          type: string
+        status:
+          type: string
+        notes:
+          type: array
+          items: 
+            $ref: '#/components/schemas/Note'
+        data:
+          type: object
+    Error:
+      required:
+        - message
+        - status
+      type: object
+      properties:
+        message:
+          type: string
+        status:
+          type: string
+    ShareNotes:
+      type: object
+      properties:
+        noteId:
+          type: array
+          items:
+            $ref: '#/components/schemas/NotesIDs'
+        sharedTo:
+          type: array
+          items:
+            type: string
+    GroupNotes:
+      type: object
+      properties:
+        noteId:
+          type: array
+          items:
+            $ref: '#/components/schemas/NotesIDs'
+        groupName:
+          type: string
+    NotesIDs:
+      type: object
+      properties:
+        noteId:
+          type: array
+          items:
+            type: string
+    AccessResponse:
+      type: object
+      properties:
+        isUserAllowed:
+          type: boolean
+    UnAuthorizedError:
+      type: object
+      properties:
+        isAuthenticated: 
+          type: boolean
+        message: 
+          type: string
