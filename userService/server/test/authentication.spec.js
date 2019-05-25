@@ -3,8 +3,6 @@ const { signJWTToken, verifyJWTToken } = require('../module');
 const testConfig = require('./test.config');
 
 describe('JWT Token test scenarios', function () {
-  before(function (done) { done(); });
-  after(function (done) { done(); });
 
   it('Assert signing & verification methods exists and are valid', function () {
     expect(signJWTToken).to.not.equal(undefined);
@@ -100,7 +98,7 @@ describe('JWT Token test scenarios', function () {
 
       expect(error).to.equal('jwt malformed');
       done();
-      
+
     });
 
   });

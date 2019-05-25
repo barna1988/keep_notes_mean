@@ -1,0 +1,154 @@
+swagger: '2.0'
+info:
+  version: '1.0.0'
+  title: 'Keep Notes - User Micro Service'
+schemes:
+  - 'http'
+paths:
+  /users/register:
+    post:
+      summary: 'User Registration'
+      tags:
+        - 'users'
+      consumes:
+        - 'application/x-www-form-urlencoded'
+      produces:
+        - 'application/json'
+      parameters:
+      - in: 'body'
+        name: 'body'
+        description: 'Details for registration like username, password and email'
+        required: true
+        schema:
+          $ref: '#/definitions/User'
+      responses:
+        201:
+          description: Successful user registration
+          schema:
+              $ref: '#/definitions/User'
+        403:
+          description: Invalid request data
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /users/login:
+    post:
+      summary: 'User Login'
+      tags:
+        - 'users'
+      consumes:
+        - 'application/x-www-form-urlencoded'
+      produces:
+        - 'application/json'
+      parameters:
+      - in: 'body'
+        name: 'body'
+        description: 'Details for Login like username & password'
+        required: true
+        schema:
+          $ref: '#/definitions/User'
+      responses:
+        200:
+          description: Successful user login
+          schema:
+            $ref: '#/definitions/User'
+        403:
+          description: Invalid request data
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /users/getUsers:
+    get:
+      summary: 'Fetch all registered users'
+      tags:
+        - 'users'
+      produces:
+        - 'application/json'
+      responses:
+        200:
+          description: Fetched all users
+          schema:
+            $ref: '#/definitions/Users'
+        403:
+          description: Invalid request data
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+  /auth:  
+    post:
+      summary: 'User authentication with Bearer Token'
+      tags:
+        - 'auth'
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      parameters:
+      - in: 'body'
+        name: 'body'
+        description: 'Bearer token for user authentication'
+        required: true
+        schema:
+          $ref: '#/definitions/Auth'
+      responses:
+        200:
+          description: Successful bearer token generated
+          schema:
+            $ref: '#/definitions/User'
+        403:
+          description: Invalid bearer token
+          schema:
+            $ref: '#/definitions/Error'
+        500:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+securityDefinitions: #to be checked later
+  BearerAuth:
+    type: 'http'
+    scheme: 'bearer'
+definitions:
+  Auth:
+    type: 'object'
+    properties:
+      Authorization:
+        type: 'string'
+  User:
+    type: 'object'
+    required:
+      - 'userId'
+      - 'username'
+      - 'password'
+    properties:
+      userId:
+        type: 'string'
+      username:
+        type: 'string'
+      password:
+        type: 'string'
+      email:
+        type: 'string'
+  Users:
+    type: 'array'
+    items:
+      type: 'string' #to be checked later
+  Error:
+    required:
+      - 'message'
+      - 'status'
+    properties:
+      message:
+        type: 'string'
+      status:
+        type: 'string'
+    
