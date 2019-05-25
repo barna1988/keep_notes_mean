@@ -34,7 +34,7 @@ const apiSetup = (app) => {
     app.use('/api/v1/', apiV1);
 
     app.get('/', (req, res) => {
-        res.send('ok');
+        res.status(200).send('ok');
     })
 }
 

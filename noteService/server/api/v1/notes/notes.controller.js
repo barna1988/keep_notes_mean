@@ -35,7 +35,7 @@ const getNoteForUserID = (req, res) => {
                 });
         } else {
             log.info('search using userid')
-            
+
             svc.getNoteForUserID(userid)
                 .then((response) => {
                     res.status(response.status).send(response);

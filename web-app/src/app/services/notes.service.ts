@@ -266,7 +266,7 @@ export class NotesService {
   updateNotes(note: Note) {
 
     this.notes.map(n => {
-      if(n.id === note.id) {
+      if (n.id === note.id) {
         n = note;
       }
     });

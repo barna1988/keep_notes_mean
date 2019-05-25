@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const controller = require('./notes.controller');
-const checkAuthentication = require('../../../services');
+const authSvc = require('../../../services');
 
-router.use(checkAuthentication); //Notes will be accessible only if User is authenticated
+router.use(authSvc.checkAuth); //Notes will be accessible only if User is authenticated
 
 router.get('/', controller.getNoteForUserID);
 

@@ -8,7 +8,7 @@ const createNote = (userId, note) => {
 
     return new Promise((resolve, reject) => {
 
-        if(!userId && !note) {
+        if (!userId && !note) {
             reject({
                 message: 'User ID and Note should be provided.',
                 status: 500
@@ -21,7 +21,7 @@ const createNote = (userId, note) => {
                 state: note.state,
                 userId: userId
             });
-    
+
             newNote.save((err, note) => {
                 if (err) {
                     log.error(err);
@@ -38,7 +38,7 @@ const createNote = (userId, note) => {
                 }
             });
         }
-        
+
     });
 };
 
@@ -240,13 +240,13 @@ const addNoteToFavourites = (noteids, isFavourite) => {
 
                     if (isFavourite) {
                         resolve({
-                            message: "Notes added to favourites ",
+                            message: "Notes added to favourites.",
                             data: data,
                             status: 200
                         });
                     } else {
                         resolve({
-                            message: "Notes removed from favourites ",
+                            message: "Notes removed from favourites.",
                             data: data,
                             status: 200
                         });
@@ -286,7 +286,7 @@ const addNoteToGroup = (groupName, noteids) => {
 
             //Update all the notes
             noteModel.update(notesToFind, dataToUpdate, { multi: true, new: true }, (error, data) => {
-                log.info('data :', data)
+
                 if (error) {
                     reject({
                         message: "Cannot update note groupname : " + error.message,

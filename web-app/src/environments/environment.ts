@@ -5,22 +5,22 @@
 export const environment = {
   production: false,
   reminder_snooze_minutes: 20,
-  url_user_register : 'http://localhost:8000/users/register',
-  url_user_login : 'http://localhost:8000/users/login',
-  url_user_getusers : 'http://localhost:8000/users/getUsers',
-  url_user_auth : 'http://localhost:8000/auth/',
-  url_notes_create_get : 'http://localhost:8000/notes/',
-  url_notes_update : 'http://localhost:8000/notes/',
-  url_notes_add_favourite : 'http://localhost:8000/notes/addFavorites',
-  url_notes_remove_favourite : 'http://localhost:8000/notes/removeFavorites',
-  url_notes_delete : 'http://localhost:8000/notes/delete',
-  url_notes_share : 'http://localhost:8000/notes/share',
-  url_notes_addGroup : 'http://localhost:8000/notes/addGroup',
-  url_notification_gateway : 'http://localhost:8000/',
+  url_user_register: 'http://localhost:8000/users/register',
+  url_user_login: 'http://localhost:8000/users/login',
+  url_user_getusers: 'http://localhost:8000/users/getUsers',
+  url_user_auth: 'http://localhost:8000/auth/',
+  url_notes_create_get: 'http://localhost:8000/notes/',
+  url_notes_update: 'http://localhost:8000/notes/',
+  url_notes_add_favourite: 'http://localhost:8000/notes/addFavorites',
+  url_notes_remove_favourite: 'http://localhost:8000/notes/removeFavorites',
+  url_notes_delete: 'http://localhost:8000/notes/delete',
+  url_notes_share: 'http://localhost:8000/notes/share',
+  url_notes_addGroup: 'http://localhost:8000/notes/addGroup',
+  url_notification_gateway: 'http://localhost:8000/',
   // url_notification_reminder : 'http://localhost:3003/api/v1/notifications/reminders',
   // url_notification : 'http://localhost:3003/api/v1/notifications'
-  url_notification_reminder : 'http://localhost:8000/notifications/reminders',
-  url_notification : 'hhttp://localhost:8000/notifications/'
+  url_notification_reminder: 'http://localhost:8000/notifications/reminders',
+  url_notification: 'hhttp://localhost:8000/notifications/'
 };
 
 /*
