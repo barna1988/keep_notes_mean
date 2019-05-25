@@ -51,12 +51,18 @@ const getNotificationProxy = () => {
     return proxy({
         target: config.NOTIFICATION_URL,
         changeOrigin: true,
-        //ws: true,
-        secure: false,
         pathRewrite: {
             '^/notifications/': '/api/v1/notifications/'
         }
     });
+}
+
+const getSocketProxy = () => {
+    return proxy({
+        target: config.NOTIFICATION_URL,
+        changeOrigin: true,
+        ws: true
+    })
 }
 
 const setAPIproxy = (app) => {
@@ -76,6 +82,9 @@ const setAPIproxy = (app) => {
 
     //authentication proxy
     app.use('/auth/', getAuthenticationProxy());
+
+    //socket proxy
+    app.use('/', getSocketProxy());
 
     //error
     app.use((request, response) => {

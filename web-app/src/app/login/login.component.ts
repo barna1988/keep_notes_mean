@@ -72,7 +72,7 @@ export class LoginComponent {
             this.submitMessage = err.message;
           }
           this.invalidLogin = true;
-          this.socketSvc.enableNotification(err);
+          this.socketSvc.showNotificationMessage(this.submitMessage);
         }
       );
     }

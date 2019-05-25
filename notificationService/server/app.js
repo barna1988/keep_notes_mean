@@ -14,8 +14,4 @@ appSvc.setMiddleware(app);
 // api configuration
 app.use('/api/v1/', apiV1);
 
-app.use('/', (req, res) => {
-    res.send('ok notification service');
-})
-
 module.exports = app;

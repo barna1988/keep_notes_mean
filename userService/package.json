@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./server/bin/www",
-    "test": "mocha ./server/test/**/*.js",
+    "test": "mocha ./server/test/**/*spec.js",
     "lint": "eslint './server/**/*.js' --ignore-path .eslintignore"
   },
   "keywords": [],
