@@ -49,7 +49,7 @@ export class NoteTakerComponent implements OnInit {
 
       addNoteObs.subscribe(
         (response) => {
-          this.note = new Note();
+          // this.note = new Note();
           this.socketSvc.enableNotification(response);
         },
         (err) => {

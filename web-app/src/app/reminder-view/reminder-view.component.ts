@@ -61,7 +61,8 @@ export class ReminderViewComponent implements OnInit {
     const selectedDate = this.dateSelector.value as Date;
     selectedDate.setMinutes(this.selectedMinute);
     selectedDate.setHours(this.selectedHour);
-
+    selectedDate.setSeconds(0);
+    
     let reminderObserver = this.reminderSvc.setReminderAt(selectedDate, this.note);
 
     reminderObserver.subscribe(

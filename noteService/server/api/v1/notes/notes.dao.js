@@ -8,29 +8,37 @@ const createNote = (userId, note) => {
 
     return new Promise((resolve, reject) => {
 
-        let newNote = new noteModel({
-            id: uuidv1(),
-            title: note.title,
-            text: note.text,
-            state: note.state,
-            userId: userId
-        });
-
-        newNote.save((err, note) => {
-            if (err) {
-                log.error(err);
-                reject({
-                    message: 'Internal Server Error',
-                    status: 500
-                });
-            } else {
-                resolve({
-                    note: note,
-                    message: 'Note is added successfully',
-                    status: 201
-                });
-            }
-        });
+        if(!userId && !note) {
+            reject({
+                message: 'User ID and Note should be provided.',
+                status: 500
+            });
+        } else {
+            let newNote = new noteModel({
+                id: uuidv1(),
+                title: note.title,
+                text: note.text,
+                state: note.state,
+                userId: userId
+            });
+    
+            newNote.save((err, note) => {
+                if (err) {
+                    log.error(err);
+                    reject({
+                        message: 'Internal Server Error',
+                        status: 500
+                    });
+                } else {
+                    resolve({
+                        note: note,
+                        message: 'Note is added successfully',
+                        status: 201
+                    });
+                }
+            });
+        }
+        
     });
 };
 

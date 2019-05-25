@@ -16,6 +16,21 @@ services:
       - SLEEPDURATION=10000
     restart: on-failure
     depends_on:
+      - na_users
+      - na_mongodb
+  na_users:
+    image: 'barna1988/keep-note-final-userservice:latest'
+    build: .
+    container_name: na_users
+    ports:
+      - '3000:3000'
+    networks:
+      - na_network
+    environment:
+      - MONGO_URL=mongodb://na_mongodb:27017/keep
+      - LOG_LEVEL=debug
+    restart: on-failure
+    depends_on:
       - na_mongodb
   na_mongodb:
     image: 'mongo:4.1.1-xenial'
@@ -25,7 +40,6 @@ services:
     ports:
       - '27017:27017'
     networks:
-      - na_users
       - na_network
 
 networks:

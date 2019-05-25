@@ -51,7 +51,7 @@ const getNotificationProxy = () => {
     return proxy({
         target: config.NOTIFICATION_URL,
         changeOrigin: true,
-        ws: true,
+        //ws: true,
         secure: false,
         pathRewrite: {
             '^/notifications/': '/api/v1/notifications/'
