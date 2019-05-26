@@ -506,3 +506,304 @@
 [2019-05-12T15:11:29.114] [INFO] default - authenticated
 [2019-05-12T15:11:29.125] [INFO] default - adding notes to group: Dumbledore's Army
 [2019-05-12T15:11:29.212] [INFO] default - data : { n: 2, nModified: 2, ok: 1 }
+[2019-05-26T20:23:14.393] [INFO] default - Server is running on port 3001
+[2019-05-26T20:23:15.463] [INFO] default - Successfully connected to database: mongodb://localhost:27017/keep
+[2019-05-26T20:29:54.738] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T20:29:54.744] [INFO] default - authenticated
+[2019-05-26T20:29:54.746] [INFO] default - search using userid
+[2019-05-26T20:29:54.748] [INFO] default - getting note for userID :  harry
+[2019-05-26T20:30:04.621] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T20:30:04.626] [INFO] default - authenticated
+[2019-05-26T20:30:17.680] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T20:30:17.683] [INFO] default - authenticated
+[2019-05-26T20:30:17.684] [INFO] default - search using title and userid
+[2019-05-26T20:30:17.686] [INFO] default - searching notes by title - arry by user - harry 
+[2019-05-26T20:30:17.691] [INFO] default - { title: { '$regex': 'arry', '$options': 'i' },
+  userId: 'harry' }
+[2019-05-26T20:30:25.455] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T20:30:25.459] [INFO] default - authenticated
+[2019-05-26T20:30:44.603] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T20:30:44.606] [INFO] default - authenticated
+[2019-05-26T20:30:44.609] [INFO] default - search using title and userid
+[2019-05-26T20:30:44.610] [INFO] default - searching notes by title - harry by user - harry 
+[2019-05-26T20:30:44.611] [INFO] default - { title: { '$regex': 'harry', '$options': 'i' },
+  userId: 'harry' }
+[2019-05-26T20:31:12.243] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T20:31:12.250] [INFO] default - authenticated
+[2019-05-26T20:31:12.253] [INFO] default - search using userid
+[2019-05-26T20:31:12.254] [INFO] default - getting note for userID :  harry
+[2019-05-26T20:31:19.709] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T20:31:19.713] [INFO] default - authenticated
+[2019-05-26T20:31:19.714] [INFO] default - search using title and userid
+[2019-05-26T20:31:19.716] [INFO] default - searching notes by title - her by user - harry 
+[2019-05-26T20:31:19.717] [INFO] default - { title: { '$regex': 'her', '$options': 'i' }, userId: 'harry' }
+[2019-05-26T20:31:26.343] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T20:31:26.348] [INFO] default - authenticated
+[2019-05-26T20:31:26.349] [INFO] default - search using userid
+[2019-05-26T20:31:26.352] [INFO] default - getting note for userID :  harry
+[2019-05-26T20:31:43.258] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T20:31:43.264] [INFO] default - authenticated
+[2019-05-26T20:31:43.320] [INFO] default - data : { n: 1, nModified: 1, ok: 1 }
+[2019-05-26T20:31:50.207] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T20:31:50.212] [INFO] default - authenticated
+[2019-05-26T20:32:28.519] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T20:32:28.523] [INFO] default - authenticated
+[2019-05-26T20:32:28.525] [INFO] default - adding notes to group: JK Rowling
+[2019-05-26T20:33:34.021] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T20:33:34.029] [INFO] default - authenticated
+[2019-05-26T20:33:34.031] [INFO] default - search using userid
+[2019-05-26T20:33:34.034] [INFO] default - getting note for userID :  harry
+[2019-05-26T20:34:20.726] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T20:34:20.733] [INFO] default - authenticated
+[2019-05-26T20:34:20.738] [INFO] default - search using userid
+[2019-05-26T20:34:20.744] [INFO] default - getting note for userID :  harry
+[2019-05-26T20:34:41.462] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T20:34:41.469] [INFO] default - authenticated
+[2019-05-26T20:34:41.476] [INFO] default - search using userid
+[2019-05-26T20:34:41.479] [INFO] default - getting note for userID :  harry
+[2019-05-26T20:38:16.835] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T20:38:16.842] [INFO] default - authenticated
+[2019-05-26T20:38:16.845] [INFO] default - search using userid
+[2019-05-26T20:38:16.845] [INFO] default - getting note for userID :  harry
+[2019-05-26T20:39:46.706] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T20:39:46.713] [INFO] default - authenticated
+[2019-05-26T20:39:46.721] [INFO] default - search using userid
+[2019-05-26T20:39:46.730] [INFO] default - getting note for userID :  harry
+[2019-05-26T20:39:55.840] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T20:39:55.847] [INFO] default - authenticated
+[2019-05-26T20:39:55.855] [INFO] default - search using userid
+[2019-05-26T20:39:55.862] [INFO] default - getting note for userID :  harry
+[2019-05-26T20:45:08.854] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T20:45:08.858] [INFO] default - authenticated
+[2019-05-26T20:45:08.862] [INFO] default - search using userid
+[2019-05-26T20:45:08.864] [INFO] default - getting note for userID :  harry
+[2019-05-26T20:45:20.038] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T20:45:20.072] [INFO] default - authenticated
+[2019-05-26T20:45:20.074] [INFO] default - search using userid
+[2019-05-26T20:45:20.076] [INFO] default - getting note for userID :  harry
+[2019-05-26T20:45:29.022] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T20:45:29.031] [INFO] default - authenticated
+[2019-05-26T20:45:29.036] [INFO] default - data : { n: 1, nModified: 1, ok: 1 }
+[2019-05-26T20:45:30.573] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T20:45:30.580] [INFO] default - authenticated
+[2019-05-26T20:45:30.587] [INFO] default - data : { n: 1, nModified: 1, ok: 1 }
+[2019-05-26T20:45:33.598] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T20:45:33.604] [INFO] default - authenticated
+[2019-05-26T20:48:33.544] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T20:48:33.551] [INFO] default - authenticated
+[2019-05-26T20:48:33.553] [INFO] default - search using userid
+[2019-05-26T20:48:33.555] [INFO] default - getting note for userID :  harry
+[2019-05-26T20:50:29.200] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T20:50:29.208] [INFO] default - authenticated
+[2019-05-26T20:50:29.213] [INFO] default - search using userid
+[2019-05-26T20:50:29.216] [INFO] default - getting note for userID :  harry
+[2019-05-26T20:55:26.117] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T20:55:26.130] [INFO] default - authenticated
+[2019-05-26T20:55:26.133] [INFO] default - search using userid
+[2019-05-26T20:55:26.138] [INFO] default - getting note for userID :  harry
+[2019-05-26T20:56:38.634] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T20:56:38.637] [INFO] default - authenticated
+[2019-05-26T20:56:38.640] [INFO] default - search using userid
+[2019-05-26T20:56:38.643] [INFO] default - getting note for userID :  harry
+[2019-05-26T20:57:38.787] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T20:57:38.797] [INFO] default - authenticated
+[2019-05-26T20:57:38.800] [INFO] default - search using userid
+[2019-05-26T20:57:38.806] [INFO] default - getting note for userID :  harry
+[2019-05-26T20:59:07.509] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T20:59:07.512] [INFO] default - authenticated
+[2019-05-26T21:08:08.830] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:08:08.834] [INFO] default - authenticated
+[2019-05-26T21:08:08.835] [INFO] default - inside share
+[2019-05-26T21:08:08.838] [INFO] default - noteID[] :  [ 'fe15e250-7fc6-11e9-9362-7dfe8d4e9ffa' ]
+[2019-05-26T21:08:08.841] [INFO] default - userIds[] :  [ { userID: 'hermione', access: 'View' } ]
+[2019-05-26T21:08:08.896] [INFO] default - data : { n: 1, nModified: 1, ok: 1 }
+[2019-05-26T21:08:34.323] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:08:34.329] [INFO] default - authenticated
+[2019-05-26T21:08:34.332] [INFO] default - search using userid
+[2019-05-26T21:08:34.333] [INFO] default - getting note for userID :  hermione
+[2019-05-26T21:08:50.790] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:08:50.793] [INFO] default - authenticated
+[2019-05-26T21:09:32.923] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:09:32.928] [INFO] default - authenticated
+[2019-05-26T21:09:32.931] [INFO] default - adding notes to group: jK rowling
+[2019-05-26T21:09:37.526] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:09:37.529] [INFO] default - authenticated
+[2019-05-26T21:09:37.530] [INFO] default - adding notes to group: jK rowling
+[2019-05-26T21:09:45.385] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:09:45.389] [INFO] default - authenticated
+[2019-05-26T21:09:45.393] [INFO] default - adding notes to group: JK Rowling
+[2019-05-26T21:09:53.324] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:09:53.328] [INFO] default - authenticated
+[2019-05-26T21:09:53.331] [INFO] default - adding notes to group: JK Rowling
+[2019-05-26T21:10:11.956] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:10:11.964] [INFO] default - authenticated
+[2019-05-26T21:10:11.967] [INFO] default - search using userid
+[2019-05-26T21:10:11.975] [INFO] default - getting note for userID :  hermione
+[2019-05-26T21:11:29.617] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:11:29.620] [INFO] default - authenticated
+[2019-05-26T21:11:29.624] [INFO] default - search using userid
+[2019-05-26T21:11:29.628] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:11:42.856] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:11:42.861] [INFO] default - authenticated
+[2019-05-26T21:11:42.863] [INFO] default - inside share
+[2019-05-26T21:11:42.864] [INFO] default - noteID[] :  [ 'fe15e250-7fc6-11e9-9362-7dfe8d4e9ffa' ]
+[2019-05-26T21:11:42.865] [INFO] default - userIds[] :  [ { userID: 'hermione', access: 'Edit' } ]
+[2019-05-26T21:11:42.870] [INFO] default - data : { n: 1, nModified: 1, ok: 1 }
+[2019-05-26T21:12:13.561] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:12:13.567] [INFO] default - authenticated
+[2019-05-26T21:12:13.572] [INFO] default - search using userid
+[2019-05-26T21:12:13.575] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:12:38.998] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:12:39.005] [INFO] default - authenticated
+[2019-05-26T21:12:39.009] [INFO] default - search using userid
+[2019-05-26T21:12:39.011] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:17:00.132] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:17:00.138] [INFO] default - authenticated
+[2019-05-26T21:17:00.140] [INFO] default - search using userid
+[2019-05-26T21:17:00.141] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:20:03.798] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:20:03.801] [INFO] default - authenticated
+[2019-05-26T21:20:03.803] [INFO] default - search using userid
+[2019-05-26T21:20:03.804] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:23:35.689] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:23:35.692] [INFO] default - authenticated
+[2019-05-26T21:23:35.693] [INFO] default - search using userid
+[2019-05-26T21:23:35.696] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:23:56.833] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:23:56.834] [INFO] default - authenticated
+[2019-05-26T21:23:56.835] [INFO] default - inside share
+[2019-05-26T21:23:56.835] [INFO] default - noteID[] :  [ 'fe15e250-7fc6-11e9-9362-7dfe8d4e9ffa' ]
+[2019-05-26T21:23:56.836] [INFO] default - userIds[] :  [ { userID: 'hermione', access: 'View' } ]
+[2019-05-26T21:23:56.839] [INFO] default - data : { n: 1, nModified: 1, ok: 1 }
+[2019-05-26T21:24:08.109] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:24:08.112] [INFO] default - authenticated
+[2019-05-26T21:24:08.113] [INFO] default - search using userid
+[2019-05-26T21:24:08.114] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:31:35.578] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:31:35.581] [INFO] default - authenticated
+[2019-05-26T21:31:35.582] [INFO] default - search using userid
+[2019-05-26T21:31:35.583] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:31:36.386] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:31:36.390] [INFO] default - authenticated
+[2019-05-26T21:31:36.391] [INFO] default - search using userid
+[2019-05-26T21:31:36.393] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:36:21.678] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:36:21.680] [INFO] default - authenticated
+[2019-05-26T21:36:21.683] [INFO] default - search using userid
+[2019-05-26T21:36:21.685] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:36:22.176] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:36:22.179] [INFO] default - authenticated
+[2019-05-26T21:36:22.180] [INFO] default - search using userid
+[2019-05-26T21:36:22.181] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:36:41.753] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:36:41.754] [INFO] default - authenticated
+[2019-05-26T21:36:41.756] [INFO] default - search using userid
+[2019-05-26T21:36:41.757] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:36:42.969] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:36:42.971] [INFO] default - authenticated
+[2019-05-26T21:36:42.973] [INFO] default - search using userid
+[2019-05-26T21:36:42.974] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:37:20.704] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:37:20.706] [INFO] default - authenticated
+[2019-05-26T21:37:20.707] [INFO] default - search using userid
+[2019-05-26T21:37:20.711] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:37:20.936] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:37:20.939] [INFO] default - authenticated
+[2019-05-26T21:37:20.940] [INFO] default - search using userid
+[2019-05-26T21:37:20.943] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:38:32.677] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:38:32.679] [INFO] default - authenticated
+[2019-05-26T21:38:32.680] [INFO] default - search using userid
+[2019-05-26T21:38:32.682] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:38:32.929] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:38:32.932] [INFO] default - authenticated
+[2019-05-26T21:38:32.936] [INFO] default - search using userid
+[2019-05-26T21:38:32.938] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:39:50.377] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:39:50.379] [INFO] default - authenticated
+[2019-05-26T21:39:50.381] [INFO] default - search using userid
+[2019-05-26T21:39:50.383] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:39:50.775] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:39:50.777] [INFO] default - authenticated
+[2019-05-26T21:39:50.779] [INFO] default - search using userid
+[2019-05-26T21:39:50.780] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:40:18.355] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:40:18.357] [INFO] default - authenticated
+[2019-05-26T21:40:18.358] [INFO] default - search using userid
+[2019-05-26T21:40:18.359] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:40:18.719] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:40:18.722] [INFO] default - authenticated
+[2019-05-26T21:40:18.723] [INFO] default - search using userid
+[2019-05-26T21:40:18.724] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:41:38.071] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:41:38.075] [INFO] default - authenticated
+[2019-05-26T21:41:38.076] [INFO] default - search using userid
+[2019-05-26T21:41:38.078] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:41:38.118] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:41:38.120] [INFO] default - authenticated
+[2019-05-26T21:41:38.123] [INFO] default - search using userid
+[2019-05-26T21:41:38.124] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:42:09.297] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:42:09.298] [INFO] default - authenticated
+[2019-05-26T21:42:09.299] [INFO] default - search using userid
+[2019-05-26T21:42:09.300] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:42:09.492] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:42:09.495] [INFO] default - authenticated
+[2019-05-26T21:42:09.497] [INFO] default - search using userid
+[2019-05-26T21:42:09.499] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:42:23.583] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:42:23.585] [INFO] default - authenticated
+[2019-05-26T21:42:23.587] [INFO] default - search using userid
+[2019-05-26T21:42:23.589] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:42:24.046] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:42:24.050] [INFO] default - authenticated
+[2019-05-26T21:42:24.051] [INFO] default - search using userid
+[2019-05-26T21:42:24.053] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:43:42.087] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:43:42.090] [INFO] default - authenticated
+[2019-05-26T21:43:42.092] [INFO] default - search using userid
+[2019-05-26T21:43:42.093] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:43:42.382] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:43:42.384] [INFO] default - authenticated
+[2019-05-26T21:43:42.386] [INFO] default - search using userid
+[2019-05-26T21:43:42.387] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:43:58.496] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:43:58.500] [INFO] default - authenticated
+[2019-05-26T21:43:58.501] [INFO] default - search using userid
+[2019-05-26T21:43:58.503] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:43:59.043] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:43:59.046] [INFO] default - authenticated
+[2019-05-26T21:43:59.047] [INFO] default - search using userid
+[2019-05-26T21:43:59.049] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:44:27.390] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:44:27.392] [INFO] default - authenticated
+[2019-05-26T21:44:27.393] [INFO] default - search using userid
+[2019-05-26T21:44:27.395] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:44:28.298] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:44:28.300] [INFO] default - authenticated
+[2019-05-26T21:44:28.301] [INFO] default - search using userid
+[2019-05-26T21:44:28.304] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:46:46.109] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:46:46.111] [INFO] default - authenticated
+[2019-05-26T21:46:46.113] [INFO] default - search using userid
+[2019-05-26T21:46:46.114] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:46:46.605] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:46:46.607] [INFO] default - authenticated
+[2019-05-26T21:46:46.609] [INFO] default - search using userid
+[2019-05-26T21:46:46.611] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:47:12.214] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:47:12.216] [INFO] default - authenticated
+[2019-05-26T21:47:12.219] [INFO] default - search using userid
+[2019-05-26T21:47:12.220] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:47:12.657] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:47:12.662] [INFO] default - authenticated
+[2019-05-26T21:47:12.664] [INFO] default - search using userid
+[2019-05-26T21:47:12.665] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:47:24.879] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:47:24.881] [INFO] default - authenticated
+[2019-05-26T21:47:24.883] [INFO] default - search using userid
+[2019-05-26T21:47:24.884] [INFO] default - getting note for userID :  harry
+[2019-05-26T21:47:25.881] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-26T21:47:25.885] [INFO] default - authenticated
+[2019-05-26T21:47:25.887] [INFO] default - search using userid
+[2019-05-26T21:47:25.888] [INFO] default - getting note for userID :  harry

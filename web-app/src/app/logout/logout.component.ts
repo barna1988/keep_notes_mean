@@ -20,7 +20,7 @@ export class LogoutComponent implements OnInit {
 
       let resp = {
         status: 200,
-        message: 'Logout successfull.'
+        message: 'Logout successful.'
       }
       this.socketSvc.enableNotification(resp);
       this.authSvc.logout();

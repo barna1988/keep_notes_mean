@@ -3,10 +3,10 @@
     <span>Edit Note - <span class='note-id'>{{note.id}}</span></span>
     <span class="example-spacer"></span>
     <button mat-icon-button *ngIf='!isFavourite' matTooltip="Add to Favourite." (click)='onFavourite(true)'>
-      <mat-icon aria-label="Add Favourite" >favorite</mat-icon>
+      <mat-icon aria-label="Add Favourite" >thumb_up</mat-icon>
     </button>
     <button mat-icon-button *ngIf='isFavourite' matTooltip="Remove from Favourite." (click)='onFavourite(false)'>
-      <mat-icon color="warn" aria-label="Remove Favourite" >favorite</mat-icon>
+      <mat-icon color="warn" aria-label="Remove Favourite" >thumb_up</mat-icon>
     </button>
   </mat-toolbar-row>
 </mat-toolbar>
