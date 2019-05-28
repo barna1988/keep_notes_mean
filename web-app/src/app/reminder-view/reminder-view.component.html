@@ -47,7 +47,7 @@
           <mat-list-item *ngFor="let rem of reminderListPending">
             <h4 mat-line>{{ rem.remindAt | date:"medium"}}</h4>
             <span class="example-spacer"></span>
-            <mat-icon color="warn" aria-label="Delete reminder" matTooltip="Delete reminder" (click)='deleteNote(rem)'>delete_forever</mat-icon>
+            <mat-icon color="warn" aria-label="Delete reminder" matTooltip="Delete reminder" (click)='deleteNote(rem)'>notifications_off</mat-icon>
           </mat-list-item>
 
           <mat-divider></mat-divider>
@@ -56,7 +56,7 @@
           <mat-list-item *ngFor="let rem of reminderListCompleted">
             <h4 mat-line>{{ rem.remindAt | date:"medium"}}</h4>
             <span class="example-spacer"></span>
-            <mat-icon color="warn" aria-label="Delete reminder" matTooltip="Delete reminder" (click)='deleteNote(rem)'>delete_forever</mat-icon>
+            <mat-icon color="warn" aria-label="Delete reminder" matTooltip="Delete reminder" (click)='deleteNote(rem)'>notifications_off</mat-icon>
           </mat-list-item>
 
         </mat-list>
