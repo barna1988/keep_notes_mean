@@ -1,0 +1,19 @@
+<div class="keep-c-list-container" *ngIf='nullGroup.length'>
+  <label>Not Grouped:</label>
+
+  <!-- Populate nullGroup -->
+  <div class="keep-card-notes-list">
+    <app-note [note]='note' *ngFor="let note of nullGroup">
+    </app-note>
+  </div>
+</div>
+
+<div class="keep-c-list-container" *ngIf='hasGroup.length'>
+  <label>Grouped:</label>
+
+  <!-- Populate hasGroup -->
+  <div class="keep-card-notes-list">
+    <app-note [note]='note' *ngFor="let note of hasGroup">
+    </app-note>
+  </div>
+</div>

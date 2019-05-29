@@ -76,4 +76,9 @@ export class RouterService {
   routeToListView() {
     this.router.navigate(['dashboard/view/listview']);
   }
+
+  routeToGroupView() {
+    this.router.navigate(['dashboard/view/groupview']);
+  }
+
 }

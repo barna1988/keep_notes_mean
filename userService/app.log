@@ -771,3 +771,216 @@
 [2019-05-26T21:47:25.878] [INFO] default - User authenticated
 [2019-05-26T21:47:25.919] [INFO] default - Authentication check
 [2019-05-26T21:47:25.921] [INFO] default - User authenticated
+[2019-05-29T22:33:03.951] [INFO] default - Server is running on port 3000
+[2019-05-29T22:33:05.217] [INFO] default - Successfully connected to database: mongodb://localhost:27017/keep
+[2019-05-29T22:38:05.496] [INFO] default - Authentication check
+[2019-05-29T22:39:33.712] [INFO] default - user login route
+[2019-05-29T22:39:33.725] [INFO] default - login user: {"username":"hermione","password":"granger"}
+[2019-05-29T22:39:33.889] [INFO] default - login with payload { userName: 'hermione',
+  userId: '7594d0f0-6363-11e9-80ff-e1d3bb073bab' }
+[2019-05-29T22:39:34.025] [INFO] default - Authentication check
+[2019-05-29T22:39:34.050] [INFO] default - User authenticated
+[2019-05-29T22:39:34.616] [INFO] default - Authentication check
+[2019-05-29T22:39:34.628] [INFO] default - User authenticated
+[2019-05-29T22:39:34.758] [INFO] default - Authentication check
+[2019-05-29T22:39:34.769] [INFO] default - User authenticated
+[2019-05-29T22:46:05.578] [INFO] default - getUsers route
+[2019-05-29T22:46:05.617] [INFO] default - getAllUsers response { message: 'UserIDs registered found',
+  status: 200,
+  userInfo: [ 'harry', 'hermione' ] }
+[2019-05-29T22:53:06.080] [INFO] default - Authentication check
+[2019-05-29T22:53:06.093] [INFO] default - User authenticated
+[2019-05-29T22:53:06.580] [INFO] default - getUsers route
+[2019-05-29T22:53:06.600] [INFO] default - getAllUsers response { message: 'UserIDs registered found',
+  status: 200,
+  userInfo: [ 'harry', 'hermione' ] }
+[2019-05-29T22:53:07.220] [INFO] default - Authentication check
+[2019-05-29T22:53:07.243] [INFO] default - User authenticated
+[2019-05-29T22:53:07.428] [INFO] default - Authentication check
+[2019-05-29T22:53:07.461] [INFO] default - User authenticated
+[2019-05-29T22:54:48.807] [INFO] default - Authentication check
+[2019-05-29T22:54:48.821] [INFO] default - User authenticated
+[2019-05-29T22:54:49.245] [INFO] default - getUsers route
+[2019-05-29T22:54:49.267] [INFO] default - getAllUsers response { message: 'UserIDs registered found',
+  status: 200,
+  userInfo: [ 'harry', 'hermione' ] }
+[2019-05-29T22:54:49.660] [INFO] default - Authentication check
+[2019-05-29T22:54:49.669] [INFO] default - User authenticated
+[2019-05-29T22:54:50.144] [INFO] default - Authentication check
+[2019-05-29T22:54:50.157] [INFO] default - User authenticated
+[2019-05-29T23:00:23.242] [INFO] default - Authentication check
+[2019-05-29T23:00:23.254] [INFO] default - User authenticated
+[2019-05-29T23:00:25.331] [INFO] default - getUsers route
+[2019-05-29T23:00:25.351] [INFO] default - getAllUsers response { message: 'UserIDs registered found',
+  status: 200,
+  userInfo: [ 'harry', 'hermione' ] }
+[2019-05-29T23:00:25.863] [INFO] default - Authentication check
+[2019-05-29T23:00:25.874] [INFO] default - User authenticated
+[2019-05-29T23:00:26.547] [INFO] default - Authentication check
+[2019-05-29T23:00:26.565] [INFO] default - User authenticated
+[2019-05-29T23:01:45.126] [INFO] default - Authentication check
+[2019-05-29T23:01:45.154] [INFO] default - User authenticated
+[2019-05-29T23:01:45.471] [INFO] default - getUsers route
+[2019-05-29T23:01:45.493] [INFO] default - getAllUsers response { message: 'UserIDs registered found',
+  status: 200,
+  userInfo: [ 'harry', 'hermione' ] }
+[2019-05-29T23:01:45.817] [INFO] default - Authentication check
+[2019-05-29T23:01:45.833] [INFO] default - User authenticated
+[2019-05-29T23:01:46.189] [INFO] default - Authentication check
+[2019-05-29T23:01:46.211] [INFO] default - User authenticated
+[2019-05-29T23:02:04.688] [INFO] default - getUsers route
+[2019-05-29T23:02:04.705] [INFO] default - getAllUsers response { message: 'UserIDs registered found',
+  status: 200,
+  userInfo: [ 'harry', 'hermione' ] }
+[2019-05-29T23:02:07.159] [INFO] default - Authentication check
+[2019-05-29T23:02:07.169] [INFO] default - User authenticated
+[2019-05-29T23:02:10.576] [INFO] default - getUsers route
+[2019-05-29T23:02:10.592] [INFO] default - getAllUsers response { message: 'UserIDs registered found',
+  status: 200,
+  userInfo: [ 'harry', 'hermione' ] }
+[2019-05-29T23:02:12.856] [INFO] default - Authentication check
+[2019-05-29T23:02:12.866] [INFO] default - User authenticated
+[2019-05-29T23:07:02.226] [INFO] default - Authentication check
+[2019-05-29T23:07:02.237] [INFO] default - User authenticated
+[2019-05-29T23:07:05.203] [INFO] default - Authentication check
+[2019-05-29T23:07:05.214] [INFO] default - User authenticated
+[2019-05-29T23:07:05.919] [INFO] default - Authentication check
+[2019-05-29T23:07:05.937] [INFO] default - User authenticated
+[2019-05-29T23:22:28.028] [INFO] default - Authentication check
+[2019-05-29T23:22:28.038] [INFO] default - User authenticated
+[2019-05-29T23:22:28.837] [INFO] default - Authentication check
+[2019-05-29T23:22:28.846] [INFO] default - User authenticated
+[2019-05-29T23:22:29.202] [INFO] default - Authentication check
+[2019-05-29T23:22:29.227] [INFO] default - User authenticated
+[2019-05-29T23:23:12.430] [INFO] default - Authentication check
+[2019-05-29T23:23:12.443] [INFO] default - User authenticated
+[2019-05-29T23:23:13.412] [INFO] default - Authentication check
+[2019-05-29T23:23:13.423] [INFO] default - User authenticated
+[2019-05-29T23:23:13.624] [INFO] default - Authentication check
+[2019-05-29T23:23:13.642] [INFO] default - User authenticated
+[2019-05-29T23:23:30.085] [INFO] default - Authentication check
+[2019-05-29T23:23:30.099] [INFO] default - User authenticated
+[2019-05-29T23:23:30.627] [INFO] default - Authentication check
+[2019-05-29T23:23:30.640] [INFO] default - User authenticated
+[2019-05-29T23:23:30.981] [INFO] default - Authentication check
+[2019-05-29T23:23:31.004] [INFO] default - User authenticated
+[2019-05-29T23:23:56.664] [INFO] default - Authentication check
+[2019-05-29T23:23:56.679] [INFO] default - User authenticated
+[2019-05-29T23:23:57.317] [INFO] default - Authentication check
+[2019-05-29T23:23:57.352] [INFO] default - User authenticated
+[2019-05-29T23:23:57.678] [INFO] default - Authentication check
+[2019-05-29T23:23:57.698] [INFO] default - User authenticated
+[2019-05-29T23:24:25.748] [INFO] default - Authentication check
+[2019-05-29T23:24:25.785] [INFO] default - User authenticated
+[2019-05-29T23:24:26.389] [INFO] default - Authentication check
+[2019-05-29T23:24:26.401] [INFO] default - User authenticated
+[2019-05-29T23:24:26.577] [INFO] default - Authentication check
+[2019-05-29T23:24:26.601] [INFO] default - User authenticated
+[2019-05-29T23:24:54.775] [INFO] default - Authentication check
+[2019-05-29T23:24:54.788] [INFO] default - User authenticated
+[2019-05-29T23:24:55.256] [INFO] default - Authentication check
+[2019-05-29T23:24:55.286] [INFO] default - User authenticated
+[2019-05-29T23:24:55.846] [INFO] default - Authentication check
+[2019-05-29T23:24:55.968] [INFO] default - User authenticated
+[2019-05-29T23:25:23.255] [INFO] default - Authentication check
+[2019-05-29T23:25:23.267] [INFO] default - User authenticated
+[2019-05-29T23:25:23.848] [INFO] default - Authentication check
+[2019-05-29T23:25:23.861] [INFO] default - User authenticated
+[2019-05-29T23:25:24.084] [INFO] default - Authentication check
+[2019-05-29T23:25:24.104] [INFO] default - User authenticated
+[2019-05-29T23:25:50.984] [INFO] default - Authentication check
+[2019-05-29T23:25:51.005] [INFO] default - User authenticated
+[2019-05-29T23:25:51.559] [INFO] default - Authentication check
+[2019-05-29T23:25:51.572] [INFO] default - User authenticated
+[2019-05-29T23:25:51.718] [INFO] default - Authentication check
+[2019-05-29T23:25:51.736] [INFO] default - User authenticated
+[2019-05-29T23:26:19.229] [INFO] default - Authentication check
+[2019-05-29T23:26:19.259] [INFO] default - User authenticated
+[2019-05-29T23:26:20.088] [INFO] default - Authentication check
+[2019-05-29T23:26:20.117] [INFO] default - User authenticated
+[2019-05-29T23:26:20.346] [INFO] default - Authentication check
+[2019-05-29T23:26:20.366] [INFO] default - User authenticated
+[2019-05-29T23:26:32.223] [INFO] default - Authentication check
+[2019-05-29T23:26:32.233] [INFO] default - User authenticated
+[2019-05-29T23:26:32.997] [INFO] default - Authentication check
+[2019-05-29T23:26:33.009] [INFO] default - User authenticated
+[2019-05-29T23:26:33.400] [INFO] default - Authentication check
+[2019-05-29T23:26:33.426] [INFO] default - User authenticated
+[2019-05-29T23:28:56.982] [INFO] default - Authentication check
+[2019-05-29T23:28:57.003] [INFO] default - User authenticated
+[2019-05-29T23:29:00.818] [INFO] default - Authentication check
+[2019-05-29T23:29:00.829] [INFO] default - User authenticated
+[2019-05-29T23:29:01.188] [INFO] default - Authentication check
+[2019-05-29T23:29:01.211] [INFO] default - User authenticated
+[2019-05-29T23:30:01.446] [INFO] default - Authentication check
+[2019-05-29T23:30:01.454] [INFO] default - User authenticated
+[2019-05-29T23:30:03.874] [INFO] default - Authentication check
+[2019-05-29T23:30:03.882] [INFO] default - User authenticated
+[2019-05-29T23:30:04.292] [INFO] default - Authentication check
+[2019-05-29T23:30:04.305] [INFO] default - User authenticated
+[2019-05-29T23:32:27.060] [INFO] default - Authentication check
+[2019-05-29T23:32:27.072] [INFO] default - User authenticated
+[2019-05-29T23:32:27.775] [INFO] default - Authentication check
+[2019-05-29T23:32:27.787] [INFO] default - User authenticated
+[2019-05-29T23:32:28.047] [INFO] default - Authentication check
+[2019-05-29T23:32:28.059] [INFO] default - User authenticated
+[2019-05-29T23:33:01.621] [INFO] default - Authentication check
+[2019-05-29T23:33:01.636] [INFO] default - User authenticated
+[2019-05-29T23:33:02.284] [INFO] default - Authentication check
+[2019-05-29T23:33:02.296] [INFO] default - User authenticated
+[2019-05-29T23:33:02.489] [INFO] default - Authentication check
+[2019-05-29T23:33:02.509] [INFO] default - User authenticated
+[2019-05-29T23:35:53.381] [INFO] default - Authentication check
+[2019-05-29T23:35:53.391] [INFO] default - User authenticated
+[2019-05-29T23:35:54.049] [INFO] default - Authentication check
+[2019-05-29T23:35:54.056] [INFO] default - User authenticated
+[2019-05-29T23:35:54.240] [INFO] default - Authentication check
+[2019-05-29T23:35:54.258] [INFO] default - User authenticated
+[2019-05-29T23:36:54.214] [INFO] default - Authentication check
+[2019-05-29T23:36:54.320] [INFO] default - User authenticated
+[2019-05-29T23:36:55.021] [INFO] default - Authentication check
+[2019-05-29T23:36:55.031] [INFO] default - User authenticated
+[2019-05-29T23:36:55.240] [INFO] default - Authentication check
+[2019-05-29T23:36:55.256] [INFO] default - User authenticated
+[2019-05-29T23:37:52.258] [INFO] default - Authentication check
+[2019-05-29T23:37:52.266] [INFO] default - User authenticated
+[2019-05-29T23:37:53.104] [INFO] default - Authentication check
+[2019-05-29T23:37:53.119] [INFO] default - User authenticated
+[2019-05-29T23:37:53.640] [INFO] default - Authentication check
+[2019-05-29T23:37:53.657] [INFO] default - User authenticated
+[2019-05-29T23:41:00.984] [INFO] default - Authentication check
+[2019-05-29T23:41:00.998] [INFO] default - User authenticated
+[2019-05-29T23:41:04.571] [INFO] default - Authentication check
+[2019-05-29T23:41:04.580] [INFO] default - User authenticated
+[2019-05-29T23:41:05.082] [INFO] default - Authentication check
+[2019-05-29T23:41:05.100] [INFO] default - User authenticated
+[2019-05-29T23:42:21.558] [INFO] default - Authentication check
+[2019-05-29T23:42:21.570] [INFO] default - User authenticated
+[2019-05-29T23:42:24.686] [INFO] default - Authentication check
+[2019-05-29T23:42:24.700] [INFO] default - User authenticated
+[2019-05-29T23:42:25.145] [INFO] default - Authentication check
+[2019-05-29T23:42:25.162] [INFO] default - User authenticated
+[2019-05-29T23:45:40.308] [INFO] default - Authentication check
+[2019-05-29T23:45:40.321] [INFO] default - User authenticated
+[2019-05-29T23:45:43.667] [INFO] default - Authentication check
+[2019-05-29T23:45:43.680] [INFO] default - User authenticated
+[2019-05-29T23:45:44.140] [INFO] default - Authentication check
+[2019-05-29T23:45:44.157] [INFO] default - User authenticated
+[2019-05-29T23:45:58.167] [INFO] default - getUsers route
+[2019-05-29T23:45:58.191] [INFO] default - getAllUsers response { message: 'UserIDs registered found',
+  status: 200,
+  userInfo: [ 'harry', 'hermione' ] }
+[2019-05-29T23:46:53.404] [INFO] default - Authentication check
+[2019-05-29T23:46:53.414] [INFO] default - User authenticated
+[2019-05-29T23:48:44.550] [INFO] default - Authentication check
+[2019-05-29T23:48:44.564] [INFO] default - User authenticated
+[2019-05-29T23:48:45.443] [INFO] default - Authentication check
+[2019-05-29T23:48:45.454] [INFO] default - User authenticated
+[2019-05-29T23:48:46.125] [INFO] default - Authentication check
+[2019-05-29T23:48:46.141] [INFO] default - User authenticated
+[2019-05-29T23:55:35.975] [INFO] default - Authentication check
+[2019-05-29T23:55:35.988] [INFO] default - User authenticated
+[2019-05-29T23:55:40.539] [INFO] default - Authentication check
+[2019-05-29T23:55:40.555] [INFO] default - User authenticated
+[2019-05-29T23:55:41.652] [INFO] default - Authentication check
+[2019-05-29T23:55:41.664] [INFO] default - User authenticated

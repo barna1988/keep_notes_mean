@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CanActivateRouteGuard } from './can-activate-route.guard';
 import { NoteViewComponent } from './note-view/note-view.component';
 import { ListViewComponent } from './list-view/list-view.component';
+import { GroupViewComponent } from './group-view/group-view.component';
 import { EditNoteOpenerComponent } from './edit-note-opener/edit-note-opener.component';
 import { NoteSelectUserOpenerComponent } from './note-select-user-opener/note-select-user-opener.component';
 import { ReminderOpenerComponent } from './reminder-opener/reminder-opener.component';
@@ -46,6 +47,10 @@ const routes: Routes = [
             {
                 path: 'view/listview',
                 component: ListViewComponent
+            },
+            {
+                path: 'view/groupview',
+                component: GroupViewComponent
             },
             {
                 path: 'note/:noteId/edit',

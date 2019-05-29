@@ -28,6 +28,7 @@ import { HeaderComponent } from './header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NoteViewComponent } from './note-view/note-view.component';
 import { ListViewComponent } from './list-view/list-view.component';
+import { GroupViewComponent } from './group-view/group-view.component';
 import { EditNoteOpenerComponent } from './edit-note-opener/edit-note-opener.component';
 import { AuthenticationService } from './services/authentication.service';
 import { NotesService } from './services/notes.service';
@@ -57,6 +58,7 @@ import { MatNativeDateModule } from '@angular/material';
     DashboardComponent,
     NoteViewComponent,
     ListViewComponent,
+    GroupViewComponent,
     EditNoteOpenerComponent,
     NoteComponent,
     NoteTakerComponent,

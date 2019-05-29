@@ -807,3 +807,125 @@
 [2019-05-26T21:47:25.885] [INFO] default - authenticated
 [2019-05-26T21:47:25.887] [INFO] default - search using userid
 [2019-05-26T21:47:25.888] [INFO] default - getting note for userID :  harry
+[2019-05-29T22:32:14.270] [INFO] default - Server is running on port 3001
+[2019-05-29T22:32:15.573] [INFO] default - Successfully connected to database: mongodb://localhost:27017/keep
+[2019-05-29T22:39:34.663] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-29T22:39:34.669] [INFO] default - authenticated
+[2019-05-29T22:39:34.679] [INFO] default - search using userid
+[2019-05-29T22:39:34.698] [INFO] default - getting note for userID :  hermione
+[2019-05-29T22:53:07.260] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-29T22:53:07.278] [INFO] default - authenticated
+[2019-05-29T22:53:07.291] [INFO] default - search using userid
+[2019-05-29T22:53:07.298] [INFO] default - getting note for userID :  hermione
+[2019-05-29T22:54:49.678] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-29T22:54:49.694] [INFO] default - authenticated
+[2019-05-29T22:54:49.705] [INFO] default - search using userid
+[2019-05-29T22:54:49.710] [INFO] default - getting note for userID :  hermione
+[2019-05-29T23:00:25.888] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-29T23:00:25.902] [INFO] default - authenticated
+[2019-05-29T23:00:25.913] [INFO] default - search using userid
+[2019-05-29T23:00:25.928] [INFO] default - getting note for userID :  hermione
+[2019-05-29T23:01:45.844] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-29T23:01:45.872] [INFO] default - authenticated
+[2019-05-29T23:01:45.894] [INFO] default - search using userid
+[2019-05-29T23:01:45.906] [INFO] default - getting note for userID :  hermione
+[2019-05-29T23:02:07.179] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-29T23:02:07.195] [INFO] default - authenticated
+[2019-05-29T23:02:07.204] [INFO] default - adding notes to group: JK Rowling
+[2019-05-29T23:02:12.875] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-29T23:02:12.892] [INFO] default - authenticated
+[2019-05-29T23:02:12.898] [INFO] default - adding notes to group: jK rowling
+[2019-05-29T23:07:05.227] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-29T23:07:05.243] [INFO] default - authenticated
+[2019-05-29T23:07:05.254] [INFO] default - search using userid
+[2019-05-29T23:07:05.265] [INFO] default - getting note for userID :  hermione
+[2019-05-29T23:22:28.865] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-29T23:22:28.879] [INFO] default - authenticated
+[2019-05-29T23:22:28.899] [INFO] default - search using userid
+[2019-05-29T23:22:28.912] [INFO] default - getting note for userID :  hermione
+[2019-05-29T23:23:13.431] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-29T23:23:13.450] [INFO] default - authenticated
+[2019-05-29T23:23:13.456] [INFO] default - search using userid
+[2019-05-29T23:23:13.462] [INFO] default - getting note for userID :  hermione
+[2019-05-29T23:23:30.655] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-29T23:23:30.694] [INFO] default - authenticated
+[2019-05-29T23:23:30.712] [INFO] default - search using userid
+[2019-05-29T23:23:30.720] [INFO] default - getting note for userID :  hermione
+[2019-05-29T23:23:57.364] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-29T23:23:57.385] [INFO] default - authenticated
+[2019-05-29T23:23:57.395] [INFO] default - search using userid
+[2019-05-29T23:23:57.411] [INFO] default - getting note for userID :  hermione
+[2019-05-29T23:24:26.413] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-29T23:24:26.435] [INFO] default - authenticated
+[2019-05-29T23:24:26.443] [INFO] default - search using userid
+[2019-05-29T23:24:26.449] [INFO] default - getting note for userID :  hermione
+[2019-05-29T23:24:55.298] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-29T23:24:55.338] [INFO] default - authenticated
+[2019-05-29T23:24:55.347] [INFO] default - search using userid
+[2019-05-29T23:24:55.363] [INFO] default - getting note for userID :  hermione
+[2019-05-29T23:25:23.877] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-29T23:25:23.905] [INFO] default - authenticated
+[2019-05-29T23:25:23.909] [INFO] default - search using userid
+[2019-05-29T23:25:23.927] [INFO] default - getting note for userID :  hermione
+[2019-05-29T23:25:51.587] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-29T23:25:51.602] [INFO] default - authenticated
+[2019-05-29T23:25:51.609] [INFO] default - search using userid
+[2019-05-29T23:25:51.615] [INFO] default - getting note for userID :  hermione
+[2019-05-29T23:26:20.132] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-29T23:26:20.165] [INFO] default - authenticated
+[2019-05-29T23:26:20.182] [INFO] default - search using userid
+[2019-05-29T23:26:20.191] [INFO] default - getting note for userID :  hermione
+[2019-05-29T23:26:33.018] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-29T23:26:33.032] [INFO] default - authenticated
+[2019-05-29T23:26:33.038] [INFO] default - search using userid
+[2019-05-29T23:26:33.048] [INFO] default - getting note for userID :  hermione
+[2019-05-29T23:29:00.843] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-29T23:29:00.866] [INFO] default - authenticated
+[2019-05-29T23:29:00.873] [INFO] default - search using userid
+[2019-05-29T23:29:00.879] [INFO] default - getting note for userID :  hermione
+[2019-05-29T23:30:03.891] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-29T23:30:03.910] [INFO] default - authenticated
+[2019-05-29T23:30:03.927] [INFO] default - search using userid
+[2019-05-29T23:30:03.930] [INFO] default - getting note for userID :  hermione
+[2019-05-29T23:32:27.804] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-29T23:32:27.815] [INFO] default - authenticated
+[2019-05-29T23:32:27.850] [INFO] default - search using userid
+[2019-05-29T23:32:27.857] [INFO] default - getting note for userID :  hermione
+[2019-05-29T23:33:02.308] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-29T23:33:02.327] [INFO] default - authenticated
+[2019-05-29T23:33:02.341] [INFO] default - search using userid
+[2019-05-29T23:33:02.353] [INFO] default - getting note for userID :  hermione
+[2019-05-29T23:35:54.073] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-29T23:35:54.090] [INFO] default - authenticated
+[2019-05-29T23:35:54.096] [INFO] default - search using userid
+[2019-05-29T23:35:54.101] [INFO] default - getting note for userID :  hermione
+[2019-05-29T23:36:55.038] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-29T23:36:55.053] [INFO] default - authenticated
+[2019-05-29T23:36:55.065] [INFO] default - search using userid
+[2019-05-29T23:36:55.079] [INFO] default - getting note for userID :  hermione
+[2019-05-29T23:37:53.133] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-29T23:37:53.149] [INFO] default - authenticated
+[2019-05-29T23:37:53.171] [INFO] default - search using userid
+[2019-05-29T23:37:53.178] [INFO] default - getting note for userID :  hermione
+[2019-05-29T23:41:04.597] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-29T23:41:04.628] [INFO] default - authenticated
+[2019-05-29T23:41:04.637] [INFO] default - search using userid
+[2019-05-29T23:41:04.647] [INFO] default - getting note for userID :  hermione
+[2019-05-29T23:42:24.712] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-29T23:42:24.729] [INFO] default - authenticated
+[2019-05-29T23:42:24.734] [INFO] default - search using userid
+[2019-05-29T23:42:24.742] [INFO] default - getting note for userID :  hermione
+[2019-05-29T23:45:43.698] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-29T23:45:43.718] [INFO] default - authenticated
+[2019-05-29T23:45:43.724] [INFO] default - search using userid
+[2019-05-29T23:45:43.731] [INFO] default - getting note for userID :  hermione
+[2019-05-29T23:46:53.422] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-29T23:46:53.435] [INFO] default - authenticated
+[2019-05-29T23:48:45.462] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-29T23:48:45.470] [INFO] default - authenticated
+[2019-05-29T23:48:45.488] [INFO] default - search using userid
+[2019-05-29T23:48:45.494] [INFO] default - getting note for userID :  hermione
+[2019-05-29T23:55:40.568] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-05-29T23:55:40.592] [INFO] default - authenticated
+[2019-05-29T23:55:40.606] [INFO] default - search using userid
+[2019-05-29T23:55:40.614] [INFO] default - getting note for userID :  hermione
