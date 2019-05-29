@@ -33,14 +33,18 @@ export class NotesService {
     getNoteObserver.subscribe(response => {
 
       //this.notes = [];
+      
       if (response['notes']) {
         this.notes = response['notes'];
 
         this.notes.forEach(note => {
           note.checked = false;
         });
+      } else {
+        this.notes = [];
       }
 
+      console.log('saving notes array as :: ', this.notes);
       this.notesSubject.next(this.notes);
     },
       err => console.log('Error in fetchNotesFromServer.', err)

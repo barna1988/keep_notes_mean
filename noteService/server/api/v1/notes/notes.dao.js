@@ -47,12 +47,12 @@ const getAllNoteForUserID = (userID) => {
 
     return new Promise((resolve, reject) => {
 
-        let noteToFind = {
-            userId: userID
-        };
+        // let noteToFind = {
+        //     userId: userID
+        // };
         // console.log('note', noteToFind);
 
-        noteModel.find(noteToFind, (error, notes) => {
+        noteModel.find({}, (error, notes) => {
             if (error) {
                 reject({
                     message: 'Error while getting notes',
@@ -64,11 +64,34 @@ const getAllNoteForUserID = (userID) => {
                     status: 200
                 });
             } else {
-                resolve({
-                    message: `Notes recieved for user ${userID}`,
-                    status: 200,
-                    notes: notes
+                let finalNotes = [];
+                notes.forEach(note => {
+                    console.log('my note:: ',note);
+                    let sharedTo;
+                    if(note.sharedTo){
+                        sharedTo = note.sharedTo.find(element => element.userID === userID);
+                        console.log('sharedTo:: ',sharedTo);
+                    }
+                    console.log('note.userId:: ',note.userId);
+                    console.log('userID:: ',userID);
+                    if(note.userId === userID || sharedTo){
+                        finalNotes.push(note);
+                        console.log('pushing note :: ', note.text);
+                    }
                 });
+                console.log('finalNotes length :: ', finalNotes.length);
+                if(finalNotes.length !== 0){
+                    resolve({
+                        message: `Notes recieved for user ${userID}`,
+                        status: 200,
+                        notes: finalNotes
+                    });
+                }else{
+                    resolve({
+                        message: `No Notes found for userID ${userID}`,
+                        status: 200
+                    });
+                }
             }
         });
     });

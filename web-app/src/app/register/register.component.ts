@@ -41,6 +41,8 @@ export class RegisterComponent {
           const username = response['userName'];
           this.submitMessage = `Registration success for user - ${username}`;
           response.message = this.submitMessage;
+          response.status = 200;
+          
           this.socketSvc.enableNotification(response);
           setTimeout(() => {
             this.routerSvc.routeToLogin();

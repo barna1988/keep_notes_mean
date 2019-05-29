@@ -17,33 +17,44 @@ const checkAuthentication = (req, res, next) => {
     }
     const token = authHeader.replace('Bearer ', '');
     if (!token) {
+      //console.log('token not found');
       res.status(403).send({
         isAuthenticated: false,
         message: 'Unauthorised'
       });
-    }
-    authService.verifyToken(token, authConfig.secret, (err, decoded) => {
-      if (err) {
-        res.status(403).send({
-          isAuthenticated: false,
-          message: 'Invalid token'
-        });
-      }
-      req.userData = decoded;
-      log.info('User authenticated');
-
-      //next();
-
-      res.status(200).send({
-        isAuthenticated: true,
-        message: 'User Authenticated'
+    } else {
+      //console.log('token found');
+      authService.verifyToken(token, authConfig.secret, (err, decoded) => {
+        //console.log('token in auth middleware b4 verify - ', token);
+        //console.log('err in auth middleware verify - ' , err);
+        if (err) {
+          //console.log('token found + error');
+          res.status(403).send({
+            isAuthenticated: false,
+            message: 'Invalid token'
+          });
+        } else {
+          //console.log('token found + success');
+          req.userData = decoded;
+          log.info('User authenticated');
+    
+          //next();
+    
+          res.status(200).send({
+            isAuthenticated: true,
+            message: 'User Authenticated'
+          });
+        }
+        
+  
+  
       });
+    }
 
-
-    });
+    
   } catch (err) {
     log.error(err);
-    res.status(403).send('Error occurred in authentication. Error: ', err); return;
+    res.status(403).send('Error occurred in authentication. Error: ', err);
   }
 }
 
