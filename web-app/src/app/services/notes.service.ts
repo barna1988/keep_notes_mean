@@ -38,6 +38,7 @@ export class NotesService {
         this.notes = response['notes'];
 
         this.notes.forEach(note => {
+          console.log(' note.groupName :: -----------------------', note.groupName);
           note.checked = false;
         });
       } else {

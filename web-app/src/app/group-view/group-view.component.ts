@@ -17,8 +17,8 @@ export class GroupViewComponent {
 
     noteObs.subscribe(
       (response) => {
-        this.nullGroup = response.filter((note) => '' === note.groupName);
-        this.hasGroup = response.filter((note) => '' !== note.groupName);
+        this.nullGroup = response.filter((note) => !note.groupName);
+        this.hasGroup = response.filter((note) => note.groupName);
       },
       (error) => {
         console.log('Error in Getting All the notes');
