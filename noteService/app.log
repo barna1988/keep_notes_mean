@@ -929,3 +929,5 @@
 [2019-05-29T23:55:40.592] [INFO] default - authenticated
 [2019-05-29T23:55:40.606] [INFO] default - search using userid
 [2019-05-29T23:55:40.614] [INFO] default - getting note for userID :  hermione
+[2019-06-02T14:37:26.580] [INFO] default - Server is running on port 3001
+[2019-06-02T14:37:27.621] [INFO] default - Successfully connected to database: mongodb://localhost:27017/keep

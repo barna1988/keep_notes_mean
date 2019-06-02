@@ -984,3 +984,5 @@
 [2019-05-29T23:55:40.555] [INFO] default - User authenticated
 [2019-05-29T23:55:41.652] [INFO] default - Authentication check
 [2019-05-29T23:55:41.664] [INFO] default - User authenticated
+[2019-06-02T14:37:41.138] [INFO] default - Server is running on port 3000
+[2019-06-02T14:37:42.188] [INFO] default - Successfully connected to database: mongodb://localhost:27017/keep

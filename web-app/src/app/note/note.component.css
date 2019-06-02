@@ -2,7 +2,8 @@
     width: 50vw;
     height: 20vh;
     margin: auto;
-    margin-bottom: 3em;
+    margin-bottom: 3em;    
+    background-color: lightcyan;
 }
 
 .keep-note-actions {
