@@ -931,3 +931,113 @@
 [2019-05-29T23:55:40.614] [INFO] default - getting note for userID :  hermione
 [2019-06-02T14:37:26.580] [INFO] default - Server is running on port 3001
 [2019-06-02T14:37:27.621] [INFO] default - Successfully connected to database: mongodb://localhost:27017/keep
+[2019-06-03T19:17:51.864] [ERROR] default - Failed to connect to database.
+[2019-06-03T19:17:51.865] [ERROR] default - { MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
+    at Pool.<anonymous> (/home/ubuntu/Desktop/keep_app_mean/keep_notes_mean/noteService/node_modules/mongodb-core/lib/topologies/server.js:564:11)
+    at emitOne (events.js:116:13)
+    at Pool.emit (events.js:211:7)
+    at Connection.<anonymous> (/home/ubuntu/Desktop/keep_app_mean/keep_notes_mean/noteService/node_modules/mongodb-core/lib/connection/pool.js:317:12)
+    at Object.onceWrapper (events.js:317:30)
+    at emitTwo (events.js:126:13)
+    at Connection.emit (events.js:214:7)
+    at Socket.<anonymous> (/home/ubuntu/Desktop/keep_app_mean/keep_notes_mean/noteService/node_modules/mongodb-core/lib/connection/connection.js:246:50)
+    at Object.onceWrapper (events.js:315:30)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at emitErrorNT (internal/streams/destroy.js:64:8)
+    at _combinedTickCallback (internal/process/next_tick.js:138:11)
+    at process._tickCallback (internal/process/next_tick.js:180:9)
+  name: 'MongoNetworkError',
+  errorLabels: [ 'TransientTransactionError' ],
+  [Symbol(mongoErrorContextSymbol)]: {} }
+[2019-06-03T19:17:51.869] [ERROR] default - Failed to connect to database.
+[2019-06-03T19:17:51.869] [ERROR] default - { MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
+    at Pool.<anonymous> (/home/ubuntu/Desktop/keep_app_mean/keep_notes_mean/noteService/node_modules/mongodb-core/lib/topologies/server.js:564:11)
+    at emitOne (events.js:116:13)
+    at Pool.emit (events.js:211:7)
+    at Connection.<anonymous> (/home/ubuntu/Desktop/keep_app_mean/keep_notes_mean/noteService/node_modules/mongodb-core/lib/connection/pool.js:317:12)
+    at Object.onceWrapper (events.js:317:30)
+    at emitTwo (events.js:126:13)
+    at Connection.emit (events.js:214:7)
+    at Socket.<anonymous> (/home/ubuntu/Desktop/keep_app_mean/keep_notes_mean/noteService/node_modules/mongodb-core/lib/connection/connection.js:246:50)
+    at Object.onceWrapper (events.js:315:30)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at emitErrorNT (internal/streams/destroy.js:64:8)
+    at _combinedTickCallback (internal/process/next_tick.js:138:11)
+    at process._tickCallback (internal/process/next_tick.js:180:9)
+  name: 'MongoNetworkError',
+  errorLabels: [ 'TransientTransactionError' ],
+  [Symbol(mongoErrorContextSymbol)]: {} }
+[2019-06-03T19:21:19.612] [INFO] default - Successfully connected to database: mongodb://localhost:27017/keep
+[2019-06-03T19:21:19.748] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-06-03T19:21:19.748] [INFO] default - authenticated
+[2019-06-03T19:21:19.781] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-06-03T19:21:19.781] [INFO] default - authenticated
+[2019-06-03T19:21:19.791] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-06-03T19:21:19.791] [INFO] default - authenticated
+[2019-06-03T19:21:19.791] [INFO] default - search using userid
+[2019-06-03T19:21:19.792] [INFO] default - getting note for userID :  user-id-1
+[2019-06-03T19:21:19.812] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-06-03T19:21:19.812] [INFO] default - authenticated
+[2019-06-03T19:21:19.813] [INFO] default - search using userid
+[2019-06-03T19:21:19.813] [INFO] default - getting note for userID :  user-id-2
+[2019-06-03T19:21:19.825] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-06-03T19:21:19.825] [INFO] default - authenticated
+[2019-06-03T19:21:19.845] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-06-03T19:21:19.846] [INFO] default - authenticated
+[2019-06-03T19:21:19.869] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-06-03T19:21:19.869] [INFO] default - authenticated
+[2019-06-03T19:21:19.869] [INFO] default - inside share
+[2019-06-03T19:21:19.869] [INFO] default - noteID[] :  [ 'aa6ac300-8606-11e9-aeab-cb36a2ab86ab' ]
+[2019-06-03T19:21:19.870] [INFO] default - userIds[] :  [ { userID: 'user-id-1', access: 'view' } ]
+[2019-06-03T19:21:19.873] [INFO] default - data : { n: 1, nModified: 1, ok: 1 }
+[2019-06-03T19:21:19.881] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-06-03T19:21:19.881] [INFO] default - authenticated
+[2019-06-03T19:21:19.882] [INFO] default - adding notes to group: group1
+[2019-06-03T19:21:19.902] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-06-03T19:21:19.903] [INFO] default - authenticated
+[2019-06-03T19:21:19.903] [INFO] default - note id to delete [ 'aa6fa500-8606-11e9-aeab-cb36a2ab86ab' ]
+[2019-06-03T19:21:19.908] [DEBUG] default - notes deleted
+[2019-06-03T19:21:19.917] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-06-03T19:21:19.917] [INFO] default - authenticated
+[2019-06-03T19:21:19.922] [INFO] default - data : { n: 1, nModified: 1, ok: 1 }
+[2019-06-03T19:21:19.934] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-06-03T19:21:19.935] [INFO] default - authenticated
+[2019-06-03T19:21:19.936] [INFO] default - data : { n: 1, nModified: 1, ok: 1 }
+[2019-06-03T19:32:56.791] [INFO] default - Successfully connected to database: mongodb://localhost:27017/keep
+[2019-06-03T19:32:56.887] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-06-03T19:32:56.889] [INFO] default - authenticated
+[2019-06-03T19:32:56.921] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-06-03T19:32:56.921] [INFO] default - authenticated
+[2019-06-03T19:32:56.931] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-06-03T19:32:56.932] [INFO] default - authenticated
+[2019-06-03T19:32:56.932] [INFO] default - search using userid
+[2019-06-03T19:32:56.932] [INFO] default - getting note for userID :  user-id-1
+[2019-06-03T19:32:56.951] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-06-03T19:32:56.951] [INFO] default - authenticated
+[2019-06-03T19:32:56.951] [INFO] default - search using userid
+[2019-06-03T19:32:56.952] [INFO] default - getting note for userID :  user-id-2
+[2019-06-03T19:32:56.962] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-06-03T19:32:56.962] [INFO] default - authenticated
+[2019-06-03T19:32:56.975] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-06-03T19:32:56.975] [INFO] default - authenticated
+[2019-06-03T19:32:56.992] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-06-03T19:32:56.992] [INFO] default - authenticated
+[2019-06-03T19:32:56.993] [INFO] default - inside share
+[2019-06-03T19:32:56.993] [INFO] default - noteID[] :  [ '49f00d80-8608-11e9-846a-7565f8c8900f' ]
+[2019-06-03T19:32:56.994] [INFO] default - userIds[] :  [ { userID: 'user-id-1', access: 'view' } ]
+[2019-06-03T19:32:57.007] [INFO] default - data : { n: 1, nModified: 1, ok: 1 }
+[2019-06-03T19:32:57.015] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-06-03T19:32:57.015] [INFO] default - authenticated
+[2019-06-03T19:32:57.016] [INFO] default - adding notes to group: group1
+[2019-06-03T19:32:57.024] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-06-03T19:32:57.025] [INFO] default - authenticated
+[2019-06-03T19:32:57.025] [INFO] default - note id to delete [ '49f564b0-8608-11e9-846a-7565f8c8900f' ]
+[2019-06-03T19:32:57.030] [DEBUG] default - notes deleted
+[2019-06-03T19:32:57.037] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-06-03T19:32:57.037] [INFO] default - authenticated
+[2019-06-03T19:32:57.041] [INFO] default - data : { n: 1, nModified: 1, ok: 1 }
+[2019-06-03T19:32:57.050] [INFO] default - body in auth svc {"isAuthenticated":true,"message":"User Authenticated"}
+[2019-06-03T19:32:57.050] [INFO] default - authenticated
+[2019-06-03T19:32:57.052] [INFO] default - data : { n: 1, nModified: 1, ok: 1 }

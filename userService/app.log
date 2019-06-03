@@ -986,3 +986,28 @@
 [2019-05-29T23:55:41.664] [INFO] default - User authenticated
 [2019-06-02T14:37:41.138] [INFO] default - Server is running on port 3000
 [2019-06-02T14:37:42.188] [INFO] default - Successfully connected to database: mongodb://localhost:27017/keep
+[2019-06-03T19:31:52.694] [INFO] default - Successfully connected to database: mongodb://localhost:27017/keep
+[2019-06-03T19:31:52.763] [INFO] default - user register route
+[2019-06-03T19:31:52.763] [INFO] default - register user: {"username":"user1","password":"pass1","email":"test4@mail.com"}
+[2019-06-03T19:31:52.786] [INFO] default - registration done
+[2019-06-03T19:31:52.787] [INFO] default - register response { message: 'Successfully registered',
+  status: 201,
+  userInfo: 
+   { userName: 'user1',
+     userId: '23a8dbc0-8608-11e9-b287-c91fd9d8aedc' } }
+[2019-06-03T19:31:52.798] [INFO] default - user register route
+[2019-06-03T19:31:52.798] [INFO] default - register user: {"password":"pass2","email":"test2@mail.com"}
+[2019-06-03T19:31:52.802] [INFO] default - user login route
+[2019-06-03T19:31:52.802] [INFO] default - login user: {"username":"user1","password":"pass1"}
+[2019-06-03T19:31:52.806] [INFO] default - login with payload { userName: 'user1',
+  userId: '23a8dbc0-8608-11e9-b287-c91fd9d8aedc' }
+[2019-06-03T19:31:52.809] [INFO] default - user login route
+[2019-06-03T19:31:52.809] [INFO] default - login user: {"username":"user1","password":"1346546"}
+[2019-06-03T19:31:52.812] [INFO] default - user login route
+[2019-06-03T19:31:52.813] [INFO] default - login user: {"username":"user11111","password":"pass1"}
+[2019-06-03T19:31:52.816] [INFO] default - user login route
+[2019-06-03T19:31:52.816] [INFO] default - login user: {"username":"user2","password":"pass2","email":"test2@mail.com"}
+[2019-06-03T19:31:52.819] [INFO] default - getUsers route
+[2019-06-03T19:31:52.822] [INFO] default - getAllUsers response { message: 'UserIDs registered found',
+  status: 200,
+  userInfo: [ 'user1' ] }
