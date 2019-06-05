@@ -3,6 +3,7 @@ import { browser, by, element, ElementFinder, promise, ElementArrayFinder } from
 export class NoteViewPage {
   // navigate to note view page
   navigateToNoteView() {
+    browser.waitForAngularEnabled(false);
     return browser.get('/dashboard/view/noteview');
   }
   // to pause browser
@@ -98,11 +99,11 @@ export class NoteViewPage {
 
   // get last note
   getLastNoteTitle(): promise.Promise<string> {
-    return this.getAllNotes().last().element(by.css('mat-card-title')).getText();
+    return this.getLastNote().element(by.name('editTitle')).getAttribute('value');
   }
   // click on note
   clickLastNote(): promise.Promise<void> {
-    return this.getLastNote().click();
+    return this.getLastNote().element(by.css('mat-icon')).click();
   }
 
   // get title input box

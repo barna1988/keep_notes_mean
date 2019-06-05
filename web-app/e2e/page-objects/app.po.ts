@@ -3,6 +3,7 @@ import { browser, by, element, ElementFinder, promise } from 'protractor';
 export class AppPage {
   // navigate to home page
   navigateTo() {
+    browser.waitForAngularEnabled(false);
     return browser.get('/');
   }
   // get header

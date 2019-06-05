@@ -20,9 +20,9 @@ describe('login page', () => {
       should exist in login.component.html`);
   });
 
-  it('should get submit button', () => {
+  it('should get Login button', () => {
     page.navigateToLogin();
-    expect(page.isSubmitButtonPresent()).toBeTruthy(`<button type="submit" mat-button>Submit</button> should
+    expect(page.isSubmitButtonPresent()).toBeTruthy(`<button type="submit" mat-button>Login</button> should
       exist in login.component.html`);
   });
 
@@ -37,7 +37,9 @@ describe('login page', () => {
     let newNoteValues = page.addLoginValues();
     expect(page.getLoginInputBoxesDefaultValues()).toEqual(newNoteValues, 'Should be able to set values for username and password');
     page.clickSubmitButton();
+    // console.log('login button clicked');
     page.navigateToNoteView();
+    // console.log('navigateToNoteView');
     page.getCurrentURL().then((url) => {
       if (url.indexOf('login') > -1) {
         newNoteValues = page.addLoginValues();

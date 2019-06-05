@@ -1,6 +1,6 @@
 import { NoteViewPage } from './page-objects/noteview.po';
 
-describe('note view page', () => {
+describe('view note page', () => {
   let page: NoteViewPage;
   const emptyNoteValues = ['', ''];
   const editNoteDefaultValues = ['Read Angular 5 blog', 'Shall do at 6 pm', 'not-started'];
@@ -29,17 +29,6 @@ describe('note view page', () => {
     const newNoteValues = page.addNoteValues();
     expect(page.getNotePanelDefaultValues()).toEqual(newNoteValues, 'Should be able to set values for note title and text');
     page.clickDoneButton();
-  });
-
-  it('should open edit note model on clicking a note', () => {
-    page.navigateToNoteView();
-    page.clickLastNote();
-    expect(page.isEditTitleInputBoxPresent()).toBeTruthy('Title input box should exist with name attribute as editTitle');
-    expect(page.isEditTextInputBoxPresent()).toBeTruthy('Text input box should exist with name attribute as editText');
-    expect(page.isEditStatusInputBoxPresent()).toBeTruthy('Status select box should exist with name attribute as editStatus');
-    expect(page.isSaveButtonPresent()).toBeTruthy('Save button exists with Save text');
-    expect(page.getLastNoteTitle()).toBe(page.getMockNote().title,
-      'Added note title should be shown in <mat-card-title> element on note.component.html');
   });
 
   it('should edit a note', () => {

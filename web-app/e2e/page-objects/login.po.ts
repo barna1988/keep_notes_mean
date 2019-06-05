@@ -3,6 +3,7 @@ import { browser, by, element, ElementFinder, promise } from 'protractor';
 export class LoginPage {
   // navigate to login page
   navigateToLogin() {
+    browser.waitForAngularEnabled(false);
     return browser.get('/login');
   }
   // get current URL
@@ -11,6 +12,7 @@ export class LoginPage {
   }
  // navigate to  note view dashboard
   navigateToNoteView() {
+    browser.waitForAngularEnabled(false);
     return browser.get('/dashboard/view/noteview');
   }
   // get login component
@@ -35,7 +37,7 @@ export class LoginPage {
   }
   // get submit button
   getSubmitButton(): ElementFinder {
-    return this.getloginComponent().element(by.buttonText('Submit'));
+    return this.getloginComponent().element(by.buttonText('Login'));
   }
   // check submit button is present or not
   isSubmitButtonPresent(): promise.Promise<boolean> {
@@ -56,7 +58,7 @@ export class LoginPage {
   }
   // get username and password details
   getMockLoginDetail(): any {
-    const loginDetail: any = { username: 'stranger', password : 'password'};
+    const loginDetail: any = { username: 'harry', password : 'potter'};
     return loginDetail;
   }
   // set username and password input box values

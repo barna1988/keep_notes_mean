@@ -3,6 +3,7 @@ import { browser, by, element, ElementFinder, promise, ElementArrayFinder } from
 export class ListViewPage {
   // navigate to list view page
   navigateToListView() {
+    browser.waitForAngularEnabled(false);
     return browser.get('/dashboard/view/listview');
   }
   // to pause browser
@@ -89,7 +90,7 @@ export class ListViewPage {
 
   // get all notes
   getAllNotes(): ElementArrayFinder {
-    return element.all(by.className('keep-c-list-container')).first().all(by.css('mat-card'));
+    return element.all(by.css('mat-card'));
   }
   // get last note
   getLastNote(): ElementFinder {
@@ -98,11 +99,11 @@ export class ListViewPage {
 
   // get last note
   getLastNoteTitle(): promise.Promise<string> {
-    return this.getLastNote().element(by.css('mat-card-title')).getText();
+    return this.getLastNote().element(by.name('editTitle')).getAttribute('value');
   }
   // click on note
   clickLastNote(): promise.Promise<void> {
-    return this.getLastNote().click();
+    return this.getLastNote().element(by.css('mat-icon')).click();
   }
 
   // get title input box
